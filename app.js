@@ -14,8 +14,8 @@ var app = express();
 
     app.use(express.static(__dirname + '/web'));	
 	
-	console.log('-----------------------------------------------');
-	console.log('-----------------------------------------------');
+	console.log('------------------------------------------------');
+	console.log('------------------------------------------------');
 
     mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
        if(error)
