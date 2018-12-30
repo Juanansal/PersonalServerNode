@@ -22,6 +22,7 @@ var app = express();
 	   {
 	      throw error; 	  
        }else
+       
 	   {		   
            
           console.log('Conectado a la base de datos');
