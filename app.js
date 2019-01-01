@@ -3,12 +3,6 @@ var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 var app = express();
 
-   //config
-    //var config = require('./config.js');
-
-    //console.log(config.db.user);
-    //config.rush.db.user;
-
     app.set('port', (process.env.PORT || 5000));
 
 	app.listen(app.get('port'), function() {
@@ -21,7 +15,6 @@ var app = express();
 	console.log('------------------------------------------------');
 
     mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
-    //mongoose.connect('mongodb://'+config.user+':'+config.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
        if(error)
 	   {
 	      throw error; 	  
@@ -34,7 +27,6 @@ var app = express();
     });
 
 
-    //  
 
     // Modelos
     require('./modelos/peticiones/Rush.js')(app);
