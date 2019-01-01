@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var app = express();
 
    //config
-    var config = require('./config.js');
+    //var config = require('./config.js');
 
     //console.log(config.db.user);
-    config.rush.db.user;
+    //config.rush.db.user;
 
     app.set('port', (process.env.PORT || 5000));
 
@@ -20,7 +20,7 @@ var app = express();
 	console.log('------------------------------------------------');
 	console.log('------------------------------------------------');
 
-    mongoose.connect('mongodb://'+config.rush.db.user+':'+config.rush.db.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
+    mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
     //mongoose.connect('mongodb://'+config.user+':'+config.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
        if(error)
 	   {
