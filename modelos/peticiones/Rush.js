@@ -14,7 +14,8 @@ module.exports = function(app)
             }
        })
     });
-	
+    
+    
 	
     app.get('/rush/recuperar_rush_por_id', function(req, res){
         Rush.findById(req.query._id, function(error, resultado){
