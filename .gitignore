@@ -61,5 +61,6 @@ typings/
 .next
 
 # Ficheros de la aplicacion
-config/
+config/local.js
+
 
