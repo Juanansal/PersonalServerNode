@@ -1,11 +1,34 @@
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
+var fs = require('fs');
+var aws = require('aws-sdk');
 var app = express();
 
 // Config
-conf = require('./config/rush.js');
-console.log(conf.db.user);
+var conf = require('./config/rush.js');
+
+try {
+    fs.statSync('./config/rush.js');
+    console.log('file or directory exists');
+    var conf = require('./config/rush.js');
+}
+catch (err) {
+  if (err.code === 'ENOENT') {
+    console.log('file or directory does not exist');
+    
+    var conf = new aws.S3({
+        user: process.env.RUSH_USUARIO_DB,
+        pass: process.env.RUSH_PASS_DB
+      });
+
+  }
+}
+
+
+
+
+console.log(conf.user);
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -21,7 +44,7 @@ console.log('------------------------------------------------');
 console.log('------------------------------------------------');
 
 //mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
-mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
+mongoose.connect('mongodb://'+conf.user+':'+conf.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
 if(error)
 {
     throw error; 	  

@@ -61,4 +61,4 @@ typings/
 .next
 
 # Ficheros de la aplicacion
-config
+config/rush.js
