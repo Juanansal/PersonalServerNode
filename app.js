@@ -2,30 +2,10 @@ var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 var fs = require('fs');
-var aws = require('aws-sdk');
 var app = express();
 
 // Config
 var conf = require('./config/rush.js');
-/*
-try {
-    fs.statSync('./config/rush.js');
-    console.log('file or directory exists');
-    conf = require('./config/rush.js');
-}
-catch (err) {
-  if (err.code === 'ENOENT') {
-    console.log('file or directory does not exist');
-    
-    conf = new aws.S3({
-        user: process.env.RUSH_USUARIO_DB,
-        pass: process.env.RUSH_PASS_DB
-      });     
-  }
-}
-
-console.log(conf);
-*/
 
 app.set('port', (process.env.PORT || 5000));
 
