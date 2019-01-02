@@ -5,7 +5,7 @@ var fs = require('fs');
 var app = express();
 
 // Config
-var conf = require('./config/rush.js');
+//var conf = require('./config/rush.js');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -22,7 +22,8 @@ console.log('------------------------------------------------');
 console.log('------------------------------------------------');
 
 //mongoose.connect('mongodb://dumde:manco@ds055535.mlab.com:55535/exodarrushhelper', function(error){
-mongoose.connect('mongodb://'+conf.user+':'+conf.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
+//mongoose.connect('mongodb://'+conf.user+':'+conf.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
+mongoose.connect('mongodb://'+process.env.RUSH_USUARIO_DB+':'+process.env.RUSH_PASS_DB+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
 if(error)
 {
     throw error; 	  
