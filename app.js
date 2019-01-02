@@ -7,7 +7,7 @@ var app = express();
 // Config
 var confRush;
 if (fs.existsSync("./config/rush.js")) {
-    var conf = require('./config/rush.js');
+    var confRush = require('./config/rush.js');
 }
 else {
     confRush.user = process.env.RUSH_USUARIO_DB;
@@ -29,7 +29,7 @@ app.use(express.static(__dirname + '/web'));
 console.log('------------------------------------------------');
 console.log('------------------------------------------------');
 
-mongoose.connect('mongodb://'+conf.user+':'+conf.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
+mongoose.connect('mongodb://'+confRush.user+':'+confRush.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
 //mongoose.connect('mongodb://'+process.env.RUSH_USUARIO_DB+':'+process.env.RUSH_PASS_DB+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
 if(error)
 {
