@@ -6,29 +6,26 @@ var aws = require('aws-sdk');
 var app = express();
 
 // Config
-var conf = require('./config/rush.js');
+var conf;
+//var conf = require('./config/rush.js');
 
 try {
-    fs.statSync('./config/rush.js');
+    fs.statSync('./config/rus.js');
     console.log('file or directory exists');
-    var conf = require('./config/rush.js');
+    conf = require('./config/rush.js');
 }
 catch (err) {
   if (err.code === 'ENOENT') {
     console.log('file or directory does not exist');
     
-    var conf = new aws.S3({
+    conf = new aws.S3({
         user: process.env.RUSH_USUARIO_DB,
         pass: process.env.RUSH_PASS_DB
-      });
-
+      });     
   }
 }
 
-
-
-
-console.log(conf.user);
+console.log(conf);
 
 
 app.set('port', (process.env.PORT || 5000));
