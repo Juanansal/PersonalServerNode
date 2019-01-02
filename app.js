@@ -5,7 +5,7 @@ var fs = require('fs');
 var app = express();
 
 // Config
-var confRush;
+var confRush = {};
 if (fs.existsSync("./config/rush.js")) {
     var confRush = require('./config/rush.js');
 }
