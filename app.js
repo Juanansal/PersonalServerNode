@@ -6,12 +6,9 @@ var app = express();
 
 // Config
 var conf = require('./config/config.js')();
-console.log(conf);
-console.log(conf.rush.user);
+
 
 app.set('port', (process.env.PORT || 5000));
-
-
 app.listen(app.get('port'), function() {
     console.log("Servidor configurado por puerto: "+app.get('port'));
 });
