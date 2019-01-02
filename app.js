@@ -6,11 +6,10 @@ var aws = require('aws-sdk');
 var app = express();
 
 // Config
-var conf;
-//var conf = require('./config/rush.js');
-
+var conf = require('./config/rush.js');
+/*
 try {
-    fs.statSync('./config/rus.js');
+    fs.statSync('./config/rush.js');
     console.log('file or directory exists');
     conf = require('./config/rush.js');
 }
@@ -26,7 +25,7 @@ catch (err) {
 }
 
 console.log(conf);
-
+*/
 
 app.set('port', (process.env.PORT || 5000));
 
