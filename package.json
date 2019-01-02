@@ -6,7 +6,6 @@
     "express": "^4.13.3",
     "express-session": "^1.13.0",
     "mongoose": "^4.3.3",
-    "aws-sdk": "*",
     "fs": "*"
   },
   "engines": {
