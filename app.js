@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 var app = express();
 
 // Config
-conf = require('./config.js');
-console.log(conf.rush.db.user);
+conf = require('./config/rush.js');
+console.log(conf.db.user);
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -34,6 +34,6 @@ if(error)
 });
 
 // Modelos
-require('./modelos/peticiones/Rush.js')(app);
+require('./api/peticiones/Rush.js')(app);
 
 
