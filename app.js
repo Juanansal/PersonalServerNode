@@ -14,6 +14,8 @@ app.listen(app.get('port'), function() {
     console.log("Servidor configurado por puerto: "+app.get('port'));
 });
 
+console.log(process.env.RUSH_PASS_DB);
+
 app.use(express.static(__dirname + '/web'));	
 
 console.log('------------------------------------------------');
