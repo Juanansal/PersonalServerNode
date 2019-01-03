@@ -12,6 +12,7 @@ require('./config/db.js')(conf);
 
 // Config API (modelos)
 require('./api/peticiones/Rush.js')(app);
+require('./api/peticiones/meteo.js')(app,conf);
 
 // Config del servidor
 app.set('port', (process.env.PORT || 5000));

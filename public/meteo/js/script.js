@@ -101,7 +101,8 @@ function pintarSelectDias() {
 // Busca las estaciones por ciudad usando php
 function encontrarEstaciones(capa) {
 
-    var consulta = $.get('php/getEstaciones.php?apikey='+meteo.apiKey, function(data, status) {
+    //var consulta = $.get('php/getEstaciones.php?apikey='+meteo.apiKey, function(data, status) {
+    var consulta = $.get('/api/meteo/test', function(data, status) {
 
         // Se recojen los datos para crear el nuevo selec
         //console.log(data);
