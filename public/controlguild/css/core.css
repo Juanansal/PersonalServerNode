@@ -1,0 +1,97 @@
+
+a, a:visited, a:link, a:hover
+{
+	color: none;
+}
+
+.navbar-inverse
+{
+	background-color: #1d1d1d;
+	margin-bottom: 10px;
+}
+
+body
+	{
+		background-color: #111;
+		color: #CCC;
+		min-height: 120%;
+	}
+	
+.form-control
+{
+	height: 25px;
+	padding: 5px;
+}
+
+.boton-mio
+{
+	height: 25px;
+	line-height: 1;
+	border-radius: 3px;
+	font-size: 12px;
+}
+	
+.container
+{
+	background-color: #1D1D1D;
+}
+
+
+
+table, th, tr, td, h3
+	{
+		margin: 0px;
+		padding; 0px;
+	}
+	
+table
+	{
+		border-top: 1px solid #3c3c3c;	
+	}
+	
+.filtros
+{
+	margin-bottom: 0px;
+}
+	
+.tabla-resumen
+{
+	padding: 15px;
+	margin-top: 10px;
+}
+	
+td
+	{
+		vertical-align: middle;
+		white-space: nowrap;
+		max-width: 381px;
+	}
+	  
+h3
+	{
+		margin: 7px;
+		margin-bottom: 12px;
+	}
+	  
+.caja
+{
+	border-radius: 3px;
+	background-color: #242424;
+	border: 1px solid #383838;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	
+	
+}
+
+/******* ERRORES *********/
+
+/* Muy bajo Itlv */
+.e1{ background-color: #520b0b; }
+
+/* Bajo itlv */
+.e2{ background-color: #403e0b; }
+
+
+
+

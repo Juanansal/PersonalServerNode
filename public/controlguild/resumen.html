@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="ControlDeGuild">
+   <head>
+      <meta charset="utf-8" />
+      <title> Fiesta</title>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	  <link rel="stylesheet" href="css/core.css">
+	  
+	  <script type="text/javascript" src="js/config.js"></script>
+	  <script type="text/javascript" src="jquery/jquery-2.1.4.min.js"></script>
+      <script type="text/javascript" src="angularjs/angular.js"></script>
+	  <script type="text/javascript" src="angularjs/angular-route.js"></script>
+	  <script type="text/javascript" src="js/Init.js"></script>
+	  <script type="text/javascript" src="js/DatosGuild.js"></script>
+	  
+	  <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true }</script>
+       
+	  <style>
+	  </style>
+	   
+	   
+	   
+   </head>
+   
+   
+   
+   <body ng-controller="DatosGuild" ng-init="cargarDatosGuild(1,'Exødar')">
+   
+   
+   <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">DETECTOR DE MANCOS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Resumen</a></li>
+		<li><a href="resumen.html">Detalles</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+   
+		<div class="container">
+				
+			
+			<div class="col-md-12 col-lg-12 col-sm-12">
+				  
+				  <div class="col-md-10 col-md-offset-1 caja">
+				  
+
+					<table class="table tabla-resumen">
+					  <colgroup> 
+								<col class="col-xs-2"> 
+								<col class="col-xs-1"> 
+								<col class="col-xs-8">
+								<col class="col-xs-1">
+								<col class="col-xs-1">
+					  </colgroup>
+					  
+						 <thead >					 
+							<tr>
+								<th class="text-center"> PJ</th>
+								<th class="text-center"> Itlv </th>
+								<th class="text-center"> Detalles </th>
+								<th class="text-center"> </th>
+								<th class="text-center"> </th>
+							</tr>						 
+						 </thead>
+						<tbody>
+							<tr ng-repeat="obj in datos">
+								<td class="text-center"> {{obj.nombre}}</td>
+								<td class="text-center"> {{obj.itlv}} </td>
+								<td class="text-center"> Errores </td>
+								<td class="text-center"> <a href=""> Analizar </a></td>
+								<td class="text-center"> <a href="http://eu.battle.net/wow/es/character/{{obj.servidor}}/{{obj.nombre}}/advanced"> Armeria </a></td>
+								
+							</tr>
+						</tbody>
+					  </table>
+							
+							
+				</div>
+			
+                  
+            </div>			
+			
+
+			
+		</div>
+			  
+
+    </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html ng-app="ControlDeGuild">
+   <head>
+      <meta charset="utf-8" />
+      <title> Fiesta</title>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	  <link rel="stylesheet" href="css/core.css">
+	  
+	  <script type="text/javascript" src="js/config.js"></script>
+	  <script type="text/javascript" src="jquery/jquery-2.1.4.min.js"></script>
+      <script type="text/javascript" src="angularjs/angular.js"></script>
+	  <script type="text/javascript" src="angularjs/angular-route.js"></script>
+	  <script type="text/javascript" src="js/Init.js"></script>
+	  <script type="text/javascript" src="js/DatosGuild.js"></script>
+	  
+	  <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true }</script>
+       
+	  <style>
+	  </style>
+	   
+	   
+	   
+   </head>
+   
+   
+   
+   <body ng-controller="DatosGuild" ng-init="cargarTodo()">
+   
+   
+   <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">DETECTOR DE MANCOS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Detalles</a></li>
+		<li><a href="resumen.html">Resumen</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+		<div class="container">
+		
+			
+			
+			<div class="col-md-8 col-md-offset-2 caja" style="margin: 20px; padding: 8px;">	
+			
+				<form class="form-inline">		
+				  <div class="form-group" style="margin-bottom: 15px;">
+					<label></label>
+						<select class="form-control input-sm" style="height: 25px;" ng-model="guildForm1" placeholder="Guild predefinida">
+							<option value='Exødar'>Exodar-exodar</option>
+							<option value='Singularity'>Singularity-DunModr</option> 
+						</select>
+				  
+				  <button type="button" class="btn btn-default boton-mio" ng-click="cargarDatosGuild(1,guildForm1)">Analizar</button> {{porcentaje | number:2}} %
+				  </div>
+				</form>		
+
+				<form class="form-inline">		
+				  <div class="form-group" style="margin-bottom: 0px;">
+					<label></label>
+					<input type="text" class="form-control" id="exampleInputEmail3" ng-model="guildForm2" placeholder="Guild" disabled>
+				  </div>
+				  <div class="form-group">
+					<label></label>
+					<input type="text" class="form-control" placeholder="Servidor" ng-model="serverForm2" disabled>
+				  </div>
+				  <button type="button" class="btn btn-default boton-mio" ng-click="cargarDatosGuild(2,guildForm2,serverForm2)" disabled>Analizar</button> No tira bien aun xd
+				</form>			
+			</div>
+			
+			<div class="col-md-8 col-md-offset-2 caja" style="margin: 20px; margin-bottom: 0px; padding: 8px;" ng-show="mostrarFiltros == true">	
+				<button type="button" class="btn btn-default boton-mio" ng-click="ordenar()">Ordernar Por itLv</button>
+				<button type="button" class="btn btn-default boton-mio" ng-click="mostrarTodo()">Mostrar Todo</button>
+				<button type="button" class="btn btn-default boton-mio" ng-click="filtrar('HEALING')">Mostrar Heals</button>
+				<button type="button" class="btn btn-default boton-mio" ng-click="filtrar('TANK')">Mostrar Tanques</button>
+				<button type="button" class="btn btn-default boton-mio" ng-click="filtrar('DPS')">Mostrar DPS</button> 
+			</div>
+			
+			<div class="<col-md-12></col-md-12> col-lg-6 col-sm-12 filtros" ng-repeat="obj in datos">
+				  
+				  <div class="col-md-12 caja">
+				  
+						<div class="col-md-12" style="border-bottom: 2px solid #555;">
+							<div class="col-md-6 text-left">
+								<h3>{{obj.nombre}}</h3>
+							</div>
+							<div class="col-md-6 text-right">
+								<h3>{{obj.itlv}} itLv</h3>
+							</div>
+						</div>
+						
+						<table class="table">
+				  <colgroup> 
+							<col class="col-xs-1"> 
+							<col class="col-xs-2"> 
+							<col class="col-xs-9"> 
+				  </colgroup>
+				  
+                     <thead>
+                     </thead>
+                    <tbody>
+						<tr class="{{obj.cabeza.error}}">
+							<td> {{obj.cabeza.itlv}}</td>
+							<td> Cabeza </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cabeza.id}}/" class="{{obj.cabeza.calidad}}"><strong>{{obj.cabeza.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.cuello.error}}">						
+							<td> {{obj.cuello.itlv}}</td>
+							<td> Cuello </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cuello.id}}/" class="{{obj.cuello.calidad}}"><strong>{{obj.cuello.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.hombro.error}}">
+							<td> {{obj.hombro.itlv}}</td>
+							<td> Hombro </td> 
+							<td> <a href="http://es.wowhead.com/item={{obj.hombro.id}}/" class="{{obj.hombro.calidad}}"><strong>{{obj.hombro.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.capa.error}}">
+							<td> {{obj.capa.itlv}}</td>
+							<td> Capa </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.capa.id}}/" class="{{obj.capa.calidad}}"><strong>{{obj.capa.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.pecho.error}}">
+							<td> {{obj.pecho.itlv}}</td>
+							<td> Pecho </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.pecho.id}}/" class="{{obj.pecho.calidad}}"><strong>{{obj.pecho.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.muneca.error}}">
+							<td> {{obj.muneca.itlv}}</td>
+							<td> Muñeca </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.muneca.id}}/" class="{{obj.muneca.calidad}}"><strong>{{obj.muneca.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.manos.error}}">
+							<td> {{obj.manos.itlv}}</td>
+							<td> Manos </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.manos.id}}/" class="{{obj.manos.calidad}}"><strong>{{obj.manos.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.cintura.error}}">
+							<td> {{obj.cintura.itlv}}</td>
+							<td> Cintura </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cintura.id}}/" class="{{obj.cintura.calidad}}"><strong>{{obj.cintura.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.piernas.error}}">
+							<td> {{obj.piernas.itlv}}</td>
+							<td> Piernas </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.piernas.id}}/" class="{{obj.piernas.calidad}}"><strong>{{obj.piernas.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.pies.error}}">
+							<td> {{obj.pies.itlv}}</td>
+							<td> Pies </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.pies.id}}/" class="{{obj.pies.calidad}}"><strong>{{obj.pies.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.anillo1.error}}">
+							<td> {{obj.anillo1.itlv}}</td>
+							<td> Anillo 1 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.anillo1.id}}/" class="{{obj.anillo1.calidad}}"><strong>{{obj.anillo1.nombre}}</a></td>
+                        </tr>
+						<tr class="{{obj.anillo2.error}}">
+							<td> {{obj.anillo2.itlv}}</td>
+							<td> Anillo 2 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.anillo2.id}}/" class="{{obj.anillo2.calidad}}"><strong>{{obj.anillo2.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.trinket1.error}}">
+							<td> {{obj.trinket1.itlv}}</td>
+							<td> Abalorio 1 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.trinket1.id}}/" class="{{obj.trinket1.calidad}}"><strong>{{obj.trinket1.nombre}}</strong></a></td>
+                        </tr>
+						<tr class="{{obj.trinket2.error}}">
+							<td> {{obj.trinket2.itlv}}</td>
+							<td> Abalorio 2 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.trinket2.id}}/" class="{{obj.trinket2.calidad}}"><strong>{{obj.trinket2.nombre}}</strong></strong></a></td>
+                        </tr>
+						<tr class="{{obj.arma1.error}}">
+							<td> {{obj.arma1.itlv}}</td>
+							<td> Arma </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.arma1.id}}/" class="{{obj.arma1.calidad}}"><strong>{{obj.arma1.nombre}} ({{obj.lvArtefacto}})</strong></a></td>
+                        </tr>
+						<tr class="{{obj.arma2.error}}">
+							<td> {{obj.arma2.itlv}}</td>
+							<td> Off Hand </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.arma2.id}}/" class="{{obj.arma2.calidad}}"><strong>{{obj.arma2.nombre}}</strong></a></td>
+                        </tr>
+                    </tbody>
+                  </table>
+						
+						
+				 </div>
+			
+                  
+            </div>			
+			
+
+			
+		</div>
+			  
+
+    </body>
+</html>
+

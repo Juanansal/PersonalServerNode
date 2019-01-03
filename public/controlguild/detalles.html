@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html ng-app="ControlDeGuild">
+   <head>
+      <meta charset="utf-8" />
+      <title> Fiesta</title>
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	  <link rel="stylesheet" href="css/core.css">
+	  
+	  <script type="text/javascript" src="js/config.js"></script>
+	  <script type="text/javascript" src="jquery/jquery-2.1.4.min.js"></script>
+      <script type="text/javascript" src="angularjs/angular.js"></script>
+	  <script type="text/javascript" src="angularjs/angular-route.js"></script>
+	  <script type="text/javascript" src="js/Init.js"></script>
+	  <script type="text/javascript" src="js/DatosGuild.js"></script>
+	  
+	  <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true }</script>
+       
+	  <style>
+	  </style>
+	   
+	   
+	   
+   </head>
+   
+   
+   
+   <body ng-controller="DatosGuild" ng-init="cargarTodo()">
+   
+   
+   <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">DETECTOR DE MANCOS</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">Resumen</a></li>
+		<li><a href="detalles.html">Detalles</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+   
+		<div class="container">
+				
+			
+			<div class="col-md-6 col-lg-6 col-sm-12" ng-repeat="obj in datos">
+				  
+				  <div class="col-md-12 caja">
+				  
+						<div class="col-md-12" style="border-bottom: 2px solid #555;">
+							<div class="col-md-6 text-left">
+								<h3>{{obj.nombre}}</h3>
+							</div>
+							<div class="col-md-6 text-right">
+								<h3>{{obj.itlv}} itLv</h3>
+							</div>
+						</div>
+						
+						<table class="table">
+				  <colgroup> 
+							<col class="col-xs-1"> 
+							<col class="col-xs-2"> 
+							<col class="col-xs-9"> 
+				  </colgroup>
+				  
+                     <thead>
+                     </thead>
+                    <tbody>
+						<tr>
+							<td> {{obj.cabeza.itlv}}</td>
+							<td> Cabeza </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cabeza.id}}/" class="{{obj.cabeza.calidad}}"><strong>{{obj.cabeza.nombre}}</strong></a></td>
+                        </tr>
+						<tr>						
+							<td> {{obj.cuello.itlv}}</td>
+							<td> Cuello </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cuello.id}}/" class="{{obj.cuello.calidad}}"><strong>{{obj.cuello.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.hombro.itlv}}</td>
+							<td> Hombro </td> 
+							<td> <a href="http://es.wowhead.com/item={{obj.hombro.id}}/" class="{{obj.hombro.calidad}}"><strong>{{obj.hombro.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.capa.itlv}}</td>
+							<td> Capa </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.capa.id}}/" class="{{obj.capa.calidad}}"><strong>{{obj.capa.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.pecho.itlv}}</td>
+							<td> Pecho </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.pecho.id}}/" class="{{obj.pecho.calidad}}"><strong>{{obj.pecho.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.muneca.itlv}}</td>
+							<td> Muñeca </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.muneca.id}}/" class="{{obj.muneca.calidad}}"><strong>{{obj.muneca.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.manos.itlv}}</td>
+							<td> Manos </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.manos.id}}/" class="{{obj.manos.calidad}}"><strong>{{obj.manos.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.cintura.itlv}}</td>
+							<td> Cintura </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.cintura.id}}/" class="{{obj.cintura.calidad}}"><strong>{{obj.cintura.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.piernas.itlv}}</td>
+							<td> Piernas </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.piernas.id}}/" class="{{obj.piernas.calidad}}"><strong>{{obj.piernas.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.pies.itlv}}</td>
+							<td> Pies </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.pies.id}}/" class="{{obj.pies.calidad}}"><strong>{{obj.pies.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.anillo1.itlv}}</td>
+							<td> Anillo 1 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.anillo1.id}}/" class="{{obj.anillo1.calidad}}"><strong>{{obj.anillo1.nombre}}</a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.anillo2.itlv}}</td>
+							<td> Anillo 2 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.anillo2.id}}/" class="{{obj.anillo2.calidad}}"><strong>{{obj.anillo2.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.trinket1.itlv}}</td>
+							<td> Abalorio 1 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.trinket1.id}}/" class="{{obj.trinket1.calidad}}"><strong>{{obj.trinket1.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.trinket2.itlv}}</td>
+							<td> Abalorio 2 </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.trinket2.id}}/" class="{{obj.trinket2.calidad}}"><strong>{{obj.trinket2.nombre}}</strong></strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.arma1.itlv}}</td>
+							<td> Arma </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.arma1.id}}/" class="{{obj.arma1.calidad}}"><strong>{{obj.arma1.nombre}}</strong></a></td>
+                        </tr>
+						<tr>
+							<td> {{obj.arma2.itlv}}</td>
+							<td> Off Hand </td>
+							<td> <a href="http://es.wowhead.com/item={{obj.arma2.id}}/" class="{{obj.arma2.calidad}}"><strong>{{obj.arma2.nombre}}</strong></a></td>
+                        </tr>
+                    </tbody>
+                  </table>
+						
+						
+				 </div>
+			
+                  
+            </div>			
+			
+
+			
+		</div>
+			  
+
+    </body>
+</html>
+
