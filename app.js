@@ -21,9 +21,11 @@ app.listen(app.get('port'), function() {
     console.log("Servidor configurado por puerto: "+app.get('port'));
 });
 
-app.use(express.static(__dirname + '/public'));	
-app.use(express.static(__dirname + '/public/rush'));
-app.use(express.static(__dirname + '/public/editor'));		
+app.use(express.static(__dirname + '/public'));	   
+app.use(express.static(__dirname + '/public/rush'));   
+app.use(express.static(__dirname + '/public/editor'));	
+app.use(express.static(__dirname + '/public/controlguild'));	
+app.use(express.static(__dirname + '/public/meteo'));	
 
 
 

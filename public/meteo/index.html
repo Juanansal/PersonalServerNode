@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Meteo</title>
+   
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+	<!-- Borde negro superior de la web -->
+	<div id="bordeSuperior"></div>
+
+	<!-- Zona de formularios -->
+	<div class="container formularios">
+
+		<!-- Titulo de cabecera -->
+		<h1 id="titulo">Consulta de estaciones meteorologicas españolas</h1>
+
+		<!-- Select de seleccion de provincia -->
+		<select class="form-control" onchange="encontrarEstaciones(this)" id="busqueda_provincia">  
+				<option value='0'>Seleccione una ciudad</option>              
+				<option value='ARABA/ALAVA'>Álava</option>
+				<option value='ALBACETE'>Albacete</option>
+				<option value='ALICANTE'>Alicante/Alacant</option>
+				<option value='ALMERIA'>Almería</option>
+				<option value='ASTURIAS'>Asturias</option>
+				<option value='AVILA'>Ávila</option>
+				<option value='BADAJOZ'>Badajoz</option>
+				<option value='BARCELONA'>Barcelona</option>
+				<option value='BURGOS'>Burgos</option>
+				<option value='CACERES'>Cáceres</option>
+				<option value='CADIZ'>Cádiz</option>
+				<option value='CANTABRIA'>Cantabria</option>
+				<option value='CASTELLON'>Castellón/Castelló</option>
+				<option value='CEUTA'>Ceuta</option>
+				<option value='CIUDAD REAL'>Ciudad Real</option>
+				<option value='CORDOBA'>Córdoba</option>
+				<option value='CUENCA'>Cuenca</option>
+				<option value='GIRONA'>Girona</option>
+				<option value='LAS PALMAS'>Las Palmas</option>
+				<option value='GRANADA'>Granada</option>
+				<option value='GUADALAJARA'>Guadalajara</option>
+				<option value='GIPUZKOA'>Guipúzcoa</option>
+				<option value='HUELVA'>Huelva</option>
+				<option value='HUESCA'>Huesca</option>
+				<option value='ILLES BALEARS'>Illes Balears</option>
+				<option value='JAEN'>Jaén</option>
+				<option value='A CORUÑA'>A Coruña</option>
+				<option value='LA RIOJA'>La Rioja</option>
+				<option value='LEON'>León</option>
+				<option value='LLEIDA'>Lleida</option>
+				<option value='LUGO'>Lugo</option>
+				<option value='MADRID'>Madrid</option>
+				<option value='MALAGA'>Málaga</option>
+				<option value='MELILLA'>Melilla</option>
+				<option value='MURCIA'>Murcia</option>
+				<option value='NAVARRA'>Navarra</option>
+				<option value='OURENSE'>Ourense</option>
+				<option value='PALENCIA'>Palencia</option>
+				<option value='PONTEVEDRA'>Pontevedra</option>
+				<option value='SALAMANCA'>Salamanca</option>
+				<option value='SEGOVIA'>Segovia</option>
+				<option value='SEVILLA'>Sevilla</option>
+				<option value='SORIA'>Soria</option>
+				<option value='TARRAGONA'>Tarragona</option>
+				<option value='STA. CRUZ DE TENERIFE'>Santa Cruz de Tenerife</option>
+				<option value='TERUEL'>Teruel</option>
+				<option value='TOLEDO'>Toledo</option>
+				<option value='VALENCIA'>Valencia/Valéncia</option>
+				<option value='VALLADOLID'>Valladolid</option>
+				<option value='BIZKAIA'>Vizcaya</option>
+				<option value='ZAMORA'>Zamora</option>
+				<option value='ZARAGOZA'>Zaragoza</option>
+		</select>
+	
+	
+	<div id="contenido">
+
+		<div id="capa_estaciones"></div>
+
+		<div id="capa_mensual" class="row">
+			<div class="col-form-label col-lg-4"> <strong>Consulta mensual:</strong></div>
+			<div class="col-lg-12">
+				<div class="form-row">
+					<div class="col-lg-4 col-md-12">
+						<select id="consultaMensual_mes" class="form-control">
+							<option value="1" class="mes1">Enero</option>
+							<option value="2" class="mes2">Febrero</option>
+							<option value="3" class="mes3">Marzo</option>
+							<option value="4" class="mes4">Abril</option>
+							<option value="5" class="mes5">Mayo</option>
+							<option value="6" class="mes6">Junio</option>
+							<option value="7" class="mes7">Julio</option>
+							<option value="8" class="mes8">Agosto</option> 
+							<option value="9" class="mes9">Septiembre</option>
+							<option value="10" class="mes10">Octubre</option>
+							<option value="11" class="mes11" selected="selected">Noviembre</option>
+							<option value="12" class="mes12">Diciembre</option>
+						</select>
+					</div>
+
+					<div class="col-lg-3 col-md-12">
+						<select id="consultaMensual_anyo" class="form-control">
+							<option value="1980">1980</option>
+							<option value="1981">1981</option>
+							<option value="1982">1982</option>
+						</select>
+					</div>
+					<div class="col-lg-5 col-md-12">
+						<button class="btn btn-primary" onclick="encontrarDatos(1)">Enviar</button>
+					</div>
+				</div>	
+			</div>
+		</div>		
+		
+
+		<div id="capa_anual" class="row">
+			<div class="col-form-label col-md-4"> <strong>Consulta anual: </strong></div>
+				<div class="col-lg-12">
+						<div class="form-row">
+							<div class="col-lg-3 col-md-12">
+								<select id="consultaAnual" class="form-control">
+									<option value="1980">1980</option>
+									<option value="1981">1981</option>
+									<option value="1982">1982</option>
+								</select>
+							</div>
+
+							<div class="col-lg-7 col-md-12">
+								<button class="btn btn-primary" onclick="encontrarDatos(2)">Enviar</button>
+								<button class="btn btn-primary" onclick="encontrarDatosAnualesPorDia(1)">Totales</button>
+							</div>
+						</div>
+					</div>
+		</div>
+
+		<div id="grafica"></div>
+		<div id="botonesGrafica"></div>
+
+		<table id="tabla_datos" class="table table-sm table-hover"></table>
+		
+	</main>
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="lib/jquery.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<!-- Graficas -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/tablas.js"></script>
+<script type="text/javascript" src="js/graficas2.js"></script>
+
+
+<script>
+	// Zona TEST
+	//dameEstaciones1();
+	//meteo.borrarTabla();
+	//meteo.pintarTabla();
+
+	console.log(meteo.grafica);
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+/* CSS ordenado segun orden de aparición en el HTML */
+
+body {
+   background-color: #FFE;
+}
+/****************************************************/
+/******************* Cabecera ***********************/
+/****************************************************/ 
+#bordeSuperior {
+   height: 6px;
+   background-color: black;
+}
+
+/* Titulo */
+#titulo {
+   text-align: center;
+   margin-top: 10px;
+   font-size: 2em;
+}
+
+
+/****************************************************/
+/******************* Contenido **********************/
+/****************************************************/ 
+
+/* Zona con las etiquetas de formulario */
+/* Etiqueta contenedora */
+#formularios {
+   margin: 0 auto;
+   margin-top: 10px;
+}
+
+/* Select Provincia */
+#busqueda_provincia {
+   margin: 0 auto;
+   margin-top: 20px;
+   max-width: 500px;
+   border: 1px solid black;
+}
+
+/* Select estaciones */
+#estaciones {
+   margin: 0 auto;
+   margin-top: 10px;
+   max-width: 500px;
+   border: 1px solid black;
+}
+
+/* Capa contenedora busqueda mensual */
+#capa_mensual, #capa_anual {
+   margin: 0 auto;
+   margin-top: 20px;
+   max-width: 550px;
+   display: none;
+}
+
+/* Capa contenedora busqueda mensual */
+#capa_mensual {
+   border-top: 1px solid black;
+   padding-top: 15px;
+}
+
+/* Selects busqueda mensual */ 
+#capa_mensual select, button {
+   margin: 2px;
+   border: 1px solid black;
+}
+
+/* Selects busqueda anual */ 
+#capa_anual select, button {
+   margin: 2px;
+   border: 1px solid black;
+}
+
+/* Botones */
+button {
+    display : inline-block;
+}
+
+
+/* Grafica */
+#grafica{
+   width: 100%; 
+   height: 500px;
+}
