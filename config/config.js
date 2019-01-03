@@ -1,7 +1,6 @@
 
 var fs = require('fs');
 
-
 module.exports = init;
 
 function init() {
@@ -15,10 +14,10 @@ function init() {
         enviar = {
             rush: {
                 user: process.env.RUSH_USUARIO_DB,
-                pass: process.env.RUSH_PASS_DB
+                pass: process.env.RUSH_PASS_DB,
+                serverDB: process.env.RUSH_SERVER_DB
             }
         }
     }
     return enviar;
 }
-    

@@ -1,12 +1,14 @@
 {
   "version": "1.0.0",
-  "description": "Web de rutas",
+  "description": "Web XXXXXX",
   "main": "index.js",
   "dependencies": {
+    "assert": "^1.4.1",
     "express": "^4.13.3",
     "express-session": "^1.13.0",
-    "mongoose": "^4.3.3",
-    "fs": "0.0.2"
+    "fs": "^0.0.2",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.1"
   },
   "engines": {
     "node": "5.3.0"

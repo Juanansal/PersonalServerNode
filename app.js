@@ -4,34 +4,26 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var app = express();
 
-// Config
+// Config variables de aplicacion
 var conf = require('./config/config.js')();
 
+// Config de las bases de datos
+require('./config/db.js')(conf);
 
+// Config API (modelos)
+require('./api/peticiones/Rush.js')(app);
+
+// Config del servidor
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
+    console.log('------------------------------------------------');
+    console.log('------------------------------------------------');
     console.log("Servidor configurado por puerto: "+app.get('port'));
 });
 
-app.use(express.static(__dirname + '/web'));	
+app.use(express.static(__dirname + '/public'));	
 
-console.log('------------------------------------------------');
-console.log('------------------------------------------------');
 
-mongoose.connect('mongodb://'+conf.rush.user+':'+conf.rush.pass+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
-//mongoose.connect('mongodb://'+process.env.RUSH_USUARIO_DB+':'+process.env.RUSH_PASS_DB+'@ds055535.mlab.com:55535/exodarrushhelper', function(error){
-if(error)
-{
-    throw error; 	  
-}else
 
-{		   
-    
-    console.log('Conectado a la base de datos');
-}
-});
-
-// Modelos
-require('./api/peticiones/Rush.js')(app);
 
 
