@@ -1,139 +1,47 @@
 <!DOCTYPE html>
-<html ng-app="RushHelper">
-   <head>
-      <meta charset="utf-8" />
-      <title> Exodar Rush Helper </title>
-      <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-	  <script type="text/javascript" src="/jquery/jquery-2.1.4.min.js"></script>
-      <script type="text/javascript" src="/angularjs/angular.js"></script>
-	  <script type="text/javascript" src="/js/controller.js"></script>
-	  
-	  <style>
-	  
-	    body
-		{
-		    font-family: Verdana;
-		   
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="huye.png">
+	<title>Huye</title>
+
+	<style type="text/css">
+
+		body {
+			background-color: #DDF;
 		}
-		
-		.top-margin-0 { margin-top: 0px; }
-		.top-margin-5 { margin-top: 5px; }
-		.top-margin-20 { margin-top: 20px; }
-	  
-	    th
-		{
-			font-size: 18px;
+
+		#centro {
 			text-align: center;
+			margin-top: 100px;
 		}
-	  
-		td
-		{
-		   font-size: 16px;
-		   text-align: center;
-		   
+
+		@keyframes animacion {
+         0%   {
+				transform: rotate(0deg);
+			}
+         100% {
+				transform: rotate(2160deg);
+			}
+      }
+
+		img {
+			max-width: 100%;
+			animation-name: animacion;
+			animation-timing-function: ease-in-out;
+      	animation-duration: 10s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
 		}
-	  
-	  </style>
-       
-   </head>
-   <body>
-   
-   
-        <div class="container" ng-controller="Orooo" ng-init="cargarRushes()">
-            <h1 class="text-center"> <strong>Exodar Rushes</strong> </h1>
-			<hr>
-                <div class="row" >
-					<div class="col-md-6" style="margin-bottom: 15px;">
-					        <form>
-							<div class="row">
-								<div class="col-md-11">
-									<h3 class="top-margin-0"> Información del rushhh </h3>
-								</div>
-							</div>
-							
-							<div class="row top-margin-20">
-								<div class="col-md-11">
-									<label for="pj" class="control-label">PJJ</label>
-									<input type="text" class="form-control" id="pj" placeholder="PJ-server" ng-model="pj">
-								</div>
-							</div>
-							
-							<div class="row top-margin-20">
-								<div class="col-md-11">
-									<label for="rush" class="control-label">Rush</label>
-									<input type="text" class="form-control" id="rush" ng-model="rush">
-								</div>
-							</div>
-							
-							<div class="row top-margin-20">
-								<div class="col-md-11">
-									<label for="precio" class="control-label">PreciooOOooo</label>
-									<input type="text" class="form-control" id="precio" ng-model="precio">
-								</div>
-							</div>
-							
-							<div class="row top-margin-20">
-								<div class="col-md-11">
-									<label for="fecha" class="control-label">Fechaaaaaaadda</label>
-									<input type="date" class="form-control" id="fecha" ng-model="fecha">
-								</div>
-							</div>
-							
-							
-							<div class="row top-margin-20">
-								<div class="col-md-11">
-									<input type="button" value="Guardar" class="btn btn-success" ng-click="guardarRush()">
-								</div>
-							</div>
-							
-							<div class="top-margin-5">{{resultado}} </div>
-								
-						    </form>	
-						</div>
-						
-					<div class="col-md-6">
-						<img class="img-responsive" src="img/precios.jpg" alt="precios"> 
-					</div>		
-						
-				</div>		
-	
-			<hr>
-			<div class="table-responsive">
-                  <table class="table text-center table-striped table-bordered">
-				  <colgroup> 
-							<col class="col-xs-3"> 
-							<col class="col-xs-3"> 
-							<col class="col-xs-2">
-							<col class="col-xs-2"> 
-							<col class="col-xs-1"> 
-							<col class="col-xs-1"> 
-				  </colgroup>
-				  
-                     <thead>
-                      <tr>
-                         <th> PJ </th>
-                         <th> Rush </th>
-                         <th> Precio </th>
-                         <th> Fecha </th>
-						 <th>  </th>
-                         <th>  </th>
-                      </tr>
-                     </thead>
-                    <tbody>
-					    <tr ng-repeat="obj in listado">
-							<td> {{obj.pj}} </td>
-							<td> {{obj.rush}} </td>
-							<td> {{obj.precio}} </td>
-							<td> {{obj.fecha | date: "dd-MM-yyyy"}} </td>
-							
-							<td> <a href="javascript:void(0);" style="padding: 5px;" ng-click="recuperarRush(obj._id)"> Editar </a> </td>
-							<td> <a href="javascript:void(0);" style="padding: 5px;" ng-click="eliminarRush(obj._id)"> Eliminar </a> </td>
-                        </tr>
-					
-                    </tbody>
-                  </table>
-              </div> 
-			  </div>
-        </div>
-    </body>
+	</style>
+</head>
+
+<body>
+	<main>
+		<div id="centro">
+			<img src="huye.png" alt="vende tu pc de 1980">
+		</div>
+	</main>
+</body>
 </html>
