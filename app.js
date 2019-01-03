@@ -22,7 +22,8 @@ app.listen(app.get('port'), function() {
 });
 
 app.use(express.static(__dirname + '/public'));	
-app.use(express.static(__dirname + '/public/rush'));	
+app.use(express.static(__dirname + '/public/rush'));
+app.use(express.static(__dirname + '/public/editor'));		
 
 
 
