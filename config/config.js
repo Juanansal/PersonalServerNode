@@ -18,7 +18,7 @@ function init() {
                 serverDB: process.env.RUSH_SERVER_DB
             },
             meteo: { 
-                apikey: METEO_APIKEY 
+                apikey: process.env.METEO_APIKEY 
             }
         }
     }
