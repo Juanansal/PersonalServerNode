@@ -14,8 +14,8 @@ module.exports = function(app,conf)
             .then(function (response) {
                 axios.get(response.data.datos).then(function(response) {
                     console.log(response.data);
-                    //res.send(response.data);
-                    res.send('lul');
+                    res.send(response.data);
+                    //res.send('lul');
                 })
             })
             .catch(function (error) {
