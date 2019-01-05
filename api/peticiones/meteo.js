@@ -19,7 +19,7 @@ module.exports = function(app,conf)
                 })
             })
             .catch(function (error) {
-                res.send(error);
+                res.send('ERROR LUL ERROR');
             });
     });
 
