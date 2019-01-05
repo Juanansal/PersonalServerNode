@@ -102,7 +102,11 @@ function pintarSelectDias() {
 function encontrarEstaciones(capa) {
 
     //var consulta = $.get('php/getEstaciones.php?apikey='+meteo.apiKey, function(data, status) {
-    var consulta = $.get('/api/meteo/test', function(data, status) {
+    var consulta = $.get('/api/meteo/test', function(data, status, error) {
+
+        if(error) {
+            console.log(error);
+        }
 
         // Se recojen los datos para crear el nuevo selec
         //console.log(data);
