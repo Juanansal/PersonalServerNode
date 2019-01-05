@@ -106,12 +106,13 @@ function encontrarEstaciones(capa) {
 
         // Se recojen los datos para crear el nuevo selec
         //console.log(data);
-        var datos = JSON.parse(data);
+        console.log(data);
+        // var datos = JSON.parse(data);
         var provincia = capa.value;
-        meteo.estaciones = datos;
+        meteo.estaciones = data;
 
         // Se crea el select en esta funcion
-        retorno = pintarSelectEstaciones(datos, provincia);
+        retorno = pintarSelectEstaciones(data, provincia);
 
         // Si se encontraron estaciones, pinta las opciones para las consultas
         if(retorno) {
