@@ -1,6 +1,6 @@
 
 
-/*
+
 var axios = require('axios');
 
 module.exports = function(app,conf)
@@ -33,27 +33,11 @@ module.exports = function(app,conf)
     });
 
 }
-*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
 
 
 
@@ -64,7 +48,7 @@ var request = require('request');
 module.exports = function(app,conf)
 {
     app.get('/api/meteo/test', function(req, res){
-
+        console.log(conf)
 
         var options = {
             headers: {
@@ -104,3 +88,4 @@ module.exports = function(app,conf)
     });
 
 }
+*/
