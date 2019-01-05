@@ -25,7 +25,7 @@ module.exports = function(app,conf)
 
 
 
-    app.get('/api/meteo/test', function(req, res){
+    app.get('/api/meteo/test2', function(req, res){
 
         res.send('LUL');
     });
