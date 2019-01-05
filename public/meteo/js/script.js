@@ -105,15 +105,12 @@ function encontrarEstaciones(capa) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/api/meteo/test",
+        "url": "/api/meteo/test2",
         "method": "GET",
         "headers": {
           "cache-control": "no-cache"
         }
       }
-      
-      
-
 
     //var consulta = $.get('php/getEstaciones.php?apikey='+meteo.apiKey, function(data, status) {
     var consulta = $.ajax(settings).done(function (data) {

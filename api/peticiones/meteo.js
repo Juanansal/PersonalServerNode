@@ -22,6 +22,14 @@ module.exports = function(app,conf)
                 res.send(error);
             });
     });
+
+
+
+    app.get('/api/meteo/test', function(req, res){
+
+        res.send('LUL');
+    });
+
 }
 
 
