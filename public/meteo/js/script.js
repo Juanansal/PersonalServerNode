@@ -101,28 +101,36 @@ function pintarSelectDias() {
 // Busca las estaciones por ciudad usando php
 function encontrarEstaciones(capa) {
 
-    //var consulta = $.get('php/getEstaciones.php?apikey='+meteo.apiKey, function(data, status) {
-    var consulta = $.get('/api/meteo/test', function(data, status, error) {
+    var numeroEstaciones = Object.keys(meteo.estaciones).length;
 
-        if(error) {
-            console.log(error);
-        }
+    // Si aun no se ha realizado la peticion, la realiza
+    if(numeroEstaciones == 0) {
+        var consulta = $.get('/api/meteo/dameEstaciones', function(data, status, error) {
 
-        // Se recojen los datos para crear el nuevo selec
-        //console.log(data);
-        console.log(data);
-        // var datos = JSON.parse(data);
-        var provincia = capa.value;
-        meteo.estaciones = data;
-
+            // Se recojen los datos para crear el nuevo selec
+            //console.log(data);
+            console.log(data);
+            // var datos = JSON.parse(data);
+            var provincia = capa.value;
+            meteo.estaciones = data;
+    
+            // Se crea el select en esta funcion
+            retorno = pintarSelectEstaciones(meteo.estaciones, provincia);
+    
+            // Si se encontraron estaciones, pinta las opciones para las consultas
+            if(retorno) {
+                pintarSelectDias();
+            }
+        });
+        
+    }
+    else {
         // Se crea el select en esta funcion
-        retorno = pintarSelectEstaciones(data, provincia);
-
-        // Si se encontraron estaciones, pinta las opciones para las consultas
-        if(retorno) {
-            pintarSelectDias();
-        }
-    });
+        var provincia = capa.value;
+        retorno = pintarSelectEstaciones(meteo.estaciones, provincia);
+    }
+    
+    
 }
 
 
@@ -162,42 +170,39 @@ function encontrarDatos(modo) {
         if(modo == 1) {
             // Se obtiene los dias del mes para colocar el ultimo dia del mes en los parametros
             var dias = dimeDias(mesMensual, anyoMensual);
-            peticion = 'https://opendata.aemet.es/opendata/api/valores/climatologicos/diarios/datos/fechaini/'+anyoMensual+'-'+mesMensual+'-1T00%3A00%3A00UTC/fechafin/'+anyoMensual+'-'+mesMensual+'-'+dias+'T23%3A59%3A59UTC/estacion/'+numEstacion+'?api_key='+meteo.apiKey; 
+            
+            //peticion = 'https://opendata.aemet.es/opendata/api/valores/climatologicos/diarios/datos/fechaini/'+anyoMensual+'-'+mesMensual+'-1T00%3A00%3A00UTC/fechafin/'+anyoMensual+'-'+mesMensual+'-'+dias+'T23%3A59%3A59UTC/estacion/'+numEstacion+'?api_key='+meteo.apiKey; 
+            peticion = '/api/meteo/dameDatosDeEstacionPorDia?anyo='+anyoMensual+'&mes='+mesMensual+'&numdias='+dias+'&estacion='+numEstacion; 
         }
 
         if(modo == 2) {
-            peticion = 'https://opendata.aemet.es/opendata/api/valores/climatologicos/mensualesanuales/datos/anioini/'+anyoAnual+'/aniofin/'+anyoAnual+'/estacion/'+numEstacion+'?api_key='+meteo.apiKey;
+            //peticion = 'https://opendata.aemet.es/opendata/api/valores/climatologicos/mensualesanuales/datos/anioini/'+anyoAnual+'/aniofin/'+anyoAnual+'/estacion/'+numEstacion+'?api_key='+meteo.apiKey;
+            peticion = '/api/meteo/dameDatosDeEstacionPorMes?anyo='+anyoAnual+'&estacion='+numEstacion;
         }  
         console.log(peticion);   
 
         // Se realiza la busqueda de los datos en el php
-        var consulta =  $.get('php/getDatos.php?peticion='+peticion, function(data, status) {       
+        var consulta =  $.get(peticion, function(datos, status) {       
 
             // Se recojen los datos para crear el nuevo selec
-            if(status == 'success') {
-                var datos = JSON.parse(data);
+            if(datos!='error') {
+                //var datos = JSON.parse(data);
                 console.log(datos);
+   
+                var cantidad = Object.keys(datos).length;
+                meteo.datosAmostrar = datos;
 
-                if(!Number.isInteger(datos.estado)) {
-                    
-                    var cantidad = Object.keys(datos).length;
-                    meteo.datosAmostrar = datos;
+                // Se pinta la tabla con los datos recogidos
 
-                    // Se pinta la tabla con los datos recogidos
+                switch(modo) {
+                case 1: inicializarGrafica1(datos);
+                        break;
+                case 2: inicializarGrafica2(datos); 
+                        break;
+                }     
 
-                    switch(modo) {
-                    case 1: inicializarGrafica1(datos);
-                            break;
-                    case 2: inicializarGrafica2(datos); 
-                            break;
-                    }     
-
-                    console.log(cantidad);
-                    
-                }
-                else {
-                    console.log('Error '+datos.estado+': '+datos.descripcion);       
-                }              
+                console.log(cantidad);
+                           
             }  
             else {
                 console.log('Error en la peticion');
