@@ -1,0 +1,67 @@
+<html>
+<head>
+   <title>Alto / Ancho CSS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+
+      /* !!!!!!!!!! NOTA !!!!!!!!!!!!!! */
+      /* Los margenes top / bottom de 2 capas no se suman entre ellos: por ejemplo si la capa uno tiene margen de 40px inferior y la segunda 30px superior,
+         El espacio resultante seria de 40px y no 70. (Esto no pasa con los margenes izquierda-derecha)
+      */ 
+
+      h3 {
+         padding: 10px;
+         border: 3px solid black;
+         background-color: aqua;
+      }
+
+      #test1 {
+         width: 20%;
+         height: 200px;
+      }
+
+      #test2 {
+         min-height: 300px; /* En este caso si no hubiera texto, el tamaño seria de 300 de alto como minimo */
+         max-width: 1500px; /* Importante para evitar scrolls */
+      }
+
+      #maquetar1
+      {
+         margin: 2px auto;
+         text-align: center;
+         max-width: 700px;
+
+      }
+
+      #maquetar2
+      {
+         margin: 2px auto;
+         text-align: center;
+         width: 700px;
+      }
+
+
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos">
+
+      <div id="maquetar1"> <h3>Capa contenedor si responsive</h3></div>
+      <div id="maquetar1"> <h3>Capa contenedor no responsive</h3></div>
+
+      <h3 id="test1">TITULO 1</h3>
+      <h3 id="test2">TITULO 2 <br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s<br>s</h3>
+   </div>
+
+
+   
+</body>
+
+</html>

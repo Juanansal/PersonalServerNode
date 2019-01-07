@@ -1,0 +1,73 @@
+<html>
+<head>
+   <title> Combinadores CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+
+      div {
+         background-color: aqua;
+         border: 2px solid black;
+         padding: 10px;
+         margin: 10px;
+      }
+
+      .boton {
+         display: inline-block;
+         padding: 7px;
+         font-size: 1.3em;
+         font-weight: bold;
+      }
+
+      .menu:hover .menu_contenido {
+        display: block;
+      }
+
+      .menu_contenido {
+         display: none;
+         position: absolute; /* Se pone absolute para ajustar el tamaño del menu ya que con absolute se ajuste al contenido*/
+         margin: 0px;
+         margin-top: -9px;  /* Ajustes de margenes para adaptarlo a los margenes del boton */
+         margin-left: 10px;
+         padding: 0px;
+         border: 1px solid black;
+         min-width: 200px;
+        
+
+      }
+
+      .menu_contenido a {
+         display: block;
+         padding: 3px;
+
+      }
+
+      .menu_contenido a:hover {
+         background-color: black;
+         color: #DDD;
+         text-decoration: none;
+      }
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos" style="background-color: rgb(0, 153, 255, 0); border: 0px solid black;">
+      
+      <div class="menu">
+         <div class="boton">BOTON</div>
+         <div class="menu_contenido">
+            <a href="#">ssssss</a>
+            <a href="#">ssssss</a>
+            <a href="#">ssssss</a>
+         </div>
+      </div>
+   </div>
+
+</body>
+
+</html>

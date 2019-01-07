@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Web Storage JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log y código</h3>
+   <main>
+
+      <script>
+      console.log('Local/Session Storage\n----------------------------------------');
+      /*
+         window.localStorage   - No caduca
+         window.sessionStorage - Caduca cuando el navegador se cierra
+      */
+         
+      // Introducir elemento
+      console.log()
+      localStorage.nombre = 'Pepe';
+      sessionStorage.edad = 55;
+
+      // Extraer información
+      console.log('Local Storage: '+localStorage.nombre);
+      console.log('Session Storage: '+sessionStorage.edad);
+   </script>
+</body>
+
+</html>

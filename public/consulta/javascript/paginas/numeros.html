@@ -1,0 +1,106 @@
+<html>
+<head>
+   <title> Numeros JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/jsref/jsref_obj_number.asp"><h3>Numeros reference</h3></a> 
+      <a href="https://www.w3schools.com/jsref/jsref_obj_math.asp"><h3>Math reference</h3></a> 
+   <main>
+   
+   <script>
+      var num1 = 50;
+      var num2 = 10;
+      var num3 = NaN; // Es de tipo numero, pero esta vacio
+
+      // Nan (No es un numero)
+      console.log('is NaN (No es un numero)\n----------------------------------------');
+      console.log('isNaN: (Si numero): '+isNaN(num1));
+      console.log('isNaN: (No numero): '+isNaN('Pepe'));
+      console.log('isNaN: (Si numero (Sin valor)): '+isNaN(num3));
+
+      // Infinito (Algunos calculos pueden ser infinito)
+      console.log('\nInfinito (Algunos calculos pueden ser infinito)\n----------------------------------------');
+      var res1 = 2 / 0;
+      console.log('(2 / 0 = infinity): '+res1);
+
+      // Otras formas de poner numeros
+      console.log('\nOtras formas de poner números\n----------------------------------------');
+      var hexadecimal = 0xFD; // 253
+      var exponencial = 7e5; // 700000
+      console.log('Hexadecimal: '+hexadecimal);
+      console.log('Exponencial: '+exponencial);
+
+      // Numeros de decimales a mostrar
+      console.log('\nNumeros de decimales a mostrar\n----------------------------------------');
+      var decimal = 5.895355564;
+      console.log('toFixed (2): '+decimal.toFixed(2));
+      console.log('toFixed (4): '+decimal.toFixed(4));
+      console.log('toPrecision (Incluye los no decimales)(2): '+decimal.toPrecision(2));
+      console.log('toPrecision (Incluye los no decimales)(4): '+decimal.toPrecision(4));
+
+      // Se puede usar el objeto general de JavaScript Number para realizar distintas funciones con numeros
+      // Number.parseInt(X);
+      // Number.MAX_VALUE
+      // Number.MIN_VALUE
+
+      // Convertir a numero
+      console.log('\nConvertir a número\n----------------------------------------');
+      var cadena1 = 'PEPE';
+      var cadena2 = '8798';
+      console.log('parseInt (texto): '+Number.parseInt(cadena1)); // No tendria valor pero se convierte en tipo número
+      console.log('parseInt (String que es un numero): '+Number.parseInt(cadena2));
+      
+      // Máximo, mínimo número
+      console.log('\nMaximo / Minimo número\n----------------------------------------');
+      var max = Number.MAX_VALUE;
+      var min = Number.MIN_VALUE;
+      console.log('MAX_VALUE: '+max+'  MIN_VALUE: '+min);
+
+      // Libreria Math / random (Calculos matemáticos avanzados)
+      console.log('\nLibreria Math y función random (Calculos matemáticos avanzados)\nMirar la referencia matemática para cosas matemáticas complejas\n----------------------------------------');
+      var numPI = Math.PI;
+      var cosPI = Math.cos(numPI);
+
+      // Random
+      // por defecto devuelve entre 0 y 1
+      /*
+         Math.floor(Math.random() * 100);         entre 0 y 99
+         Math.floor(Math.random() * 101);         entre 0 y 100
+         Math.floor(Math.random() * 100) + 1;     entre 1 y 100
+
+         Funciones que calculan un num random que se encuentra entre 2 numeros (1º sin incluir min y max, 2º incluyendolos)
+         -------------------------------------------------------------------------------------------------------------
+         
+         function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+         }
+
+         function funcionRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+         }
+      */
+      var rand = Math.random();
+      console.log('random entre 0 y 1 (por defecto): '+rand);
+      
+
+
+      console.log('');
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> DOM JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/js/js_htmldom_document.asp"><h3>DOM reference</h3></a> 
+
+      <div id="capa">
+         <p>Texto para probar la selección javascript</p>
+         <ul>
+            <li class="lista">1111</li>
+            <li class="lista">2222</li>
+            <li class="lista">3333</li>
+            <li class="lista">4444</li>
+            <li class="lista">5555</li>
+         </ul>
+      </div>
+
+      <img src="../img/htmlEstructura.gif">
+      <div id="padre">
+         <p id="p1">Hay creare cosas 1</p>
+         <p id="p2">Hay creare cosas 2</p>
+         <p id="p3">Hay creare cosas 3</p>
+      </div>
+
+   <main>
+   
+   <script>
+      // Seleccion de elementos HTML con Javascript
+      console.log('Selección de elementos HTML\n----------------------------------------');
+
+      // Selección por ID
+      var res = document.getElementById('capa');
+      console.log('Selección por id');
+
+      // Selección por clase (Devuelve todos los elementos de esa clase en un HTMLCollection)
+      res = document.getElementsByClassName('lista');
+      // res.length --> Numero de elementos
+      // res[0] --> Primer elemento
+      // res[2] --> Tercer elemento
+      console.log('Selección de elementos por clase (p, div, ul.....)');
+
+      // Selección por tag HTML
+      res = document.getElementsByTagName('p');
+      // res[0] --> Primer elemento
+      // res[2] --> Tercer elemento
+      console.log('Selección de elementos por tag HTML');
+      // Selección usando selectores CSS (Devuelve una lista de elementos)
+      res = document.querySelectorAll('#capa'); 
+      // res[0] --> Primer elemento encontrado
+      console.log('Selección usando selectores CSS');
+
+      // Selección por padre
+      res = document.getElementById('capa').parentNode;
+      console.log('Selección por padre');
+
+      // Otros elementos
+      console.log('Selectores de elementos por etiquetas (body, form, links, images...)')
+      /*
+         document.anchors
+         document.body
+         document.documentElement
+         document.embeds
+         document.forms
+         document.head
+         document.images
+         document.links
+         document.scripts
+         document.title
+      */
+
+      // Modificación elementos HTML
+      console.log('\nModificación elementos HTML\n----------------------------------------');
+
+      // Insertar contenido al elemento
+      var capa = document.getElementById('capa');
+      capa.innerHTML += '<span>Introducido con JavaScript</span>';
+      console.log('Insertar contenido al elemento');
+
+      // Modificar el style
+      capa.style.backgroundColor = 'aqua';
+      console.log('Modificar el style');
+
+      // Añadir una clase
+      capa.classList.add = 'nuevaClase';
+      console.log('Añadir una nueva clase');
+
+      // Añadir atributo name (serviria para cada atributo básico de HTML)
+      capa.name = 'hola';
+      console.log('Añadir atributo name');
+
+      // Crear elementos HTML
+      console.log('\nCreación elementos HTML\n----------------------------------------');
+      var padre = document.getElementById('padre');
+
+      // Selección por padre
+      res = document.getElementById('capa').parentNode;
+      console.log('Selección del padre');
+
+      // Selección por hijo
+      var res1 = document.getElementById('padre').firstElementChild;
+      var res2 = document.getElementById('padre').childNodes  // Cuidado, que tambien cuenta espacios en blanco
+      console.log('Seleción de hijos');
+
+      // Crear elementos
+      // hijo directamente del padre 
+      // (2 formas de crearlo, mismo resultado)
+      var nuevaCapa1 = document.createElement('p');
+      nuevaCapa1.innerHTML = 'Nueva capa 1';
+      nuevaCapa1.classList.add('tipo');
+      nuevaCapa1.setAttribute('name','p1');
+      padre.appendChild(nuevaCapa1);
+      console.log('Creacion de elemento Nueva capa 1 (appendChild)');
+
+      var nuevaCapa2 = document.createElement('p');
+      var texto = document.createTextNode('Creando el hijo usando createTextNode para meter el contenido del hijo');
+      nuevaCapa2.id = 'p4';
+      nuevaCapa2.appendChild(texto); // Se mete el texto plano al hijo a crear
+      padre.appendChild(nuevaCapa2); // Se mete el elemento al padre
+
+      // hijo del padre, pero indicandole antes de que capa quiere que se dibuje  
+      var nuevaCapa4 = document.createElement('p');
+      nuevaCapa4.innerHTML = 'Nueva capa 2';
+      var p = document.getElementById('p2');
+      padre.insertBefore(nuevaCapa4,p); // Se inserta la capa nuevaCapa3 antes de p2
+      console.log('Creacion de elemento Nueva capa 2 (insertBefore)');
+
+      
+
+      // Borrar elemento HTML
+      p = document.getElementById('p3')
+      padre.removeChild(p);
+      console.log('Borrar elemento (removeChild)');
+
+      // Reemplazar elementos
+      var pAntiguo = document.getElementById('p1');
+      var nuevoP = document.createElement('p');
+      nuevoP.innerHTML = 'Nuevo p creado como reemplazo con padre.replaceChild';
+      nuevoP.setAttribute('id','p1');
+      padre.replaceChild(nuevoP,pAntiguo);
+      console.log('Reemplazo de elementos (replaceChild)');
+     
+   </script>
+</body>
+
+</html>

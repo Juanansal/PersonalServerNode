@@ -1,0 +1,94 @@
+<html lang="es">
+<head>    
+   <title>Formularios HTML</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_html.css">
+
+   <style>
+      input, select, textarea {
+         margin: 7px;  
+      }
+   </style>
+
+</head>    
+
+<body>
+   <div class="ejemplos">
+      <form action="php/proceso_el_formulario.php" target="_self" method="get"  autocomplete="on">
+
+         Text: <strong>(Aqui meto todos los atributos posibles): </strong> <br>
+         <input type="text" name="nombre" size="80" maxlength="3" pattern="[A-Za-z]{3}" placeholder="Solo se pueden introducir AQUI 3 valores" required> <br>
+         <input type="text" name="nombre" readonly value="Esto no se puede tocar"> <br>
+         <input type="text" name="nombre" size="60" disabled value="Desactivado (No se envia al hacer submit)"> <br>
+
+         <br>password: <input type="password" name="contrasena"> <br><br>
+
+         radio 1: <input type="radio" name="radio1" value="macho"> <br>
+         radio 2: <input type="radio" name="radio1" value="hembra"> <br>
+         radio 3: <input type="radio" name="radio1" value="indefinido"> <br><br>
+
+         checkbox 1: <input type="checkbox" name="checkbox1" value="macho"> <br>
+         checkbox 2: <input type="checkbox" name="checkbox2" value="hembra"> <br>
+         checkbox 3: <input type="checkbox" name="checkbox3" value="indefinido"> <br><br>
+
+
+
+         select 1:
+         <select>
+            <option value="españa">España</option>
+            <option value="francia">Francia</option> 
+            <option value="canada">Canada</option> 
+            <option value="finlandia" selected>Finlandia</option> 
+            <option value="japon">Japón</option> 
+         </select> 
+         <br><br>
+
+         select 2:
+         <select size="3" multiple>
+            <option value="españa">España</option>
+            <option value="francia">Francia</option> 
+            <option value="canada">Canada</option> 
+            <option value="finlandia" selected>Finlandia</option> 
+            <option value="japon">Japón</option> 
+         </select> 
+         <br><br>
+
+         Textarea: 
+         <textarea rows="3" cols="50"></textarea>
+         <br><br>
+
+         Color: 
+         <input type="color" name="quecolor" value="#FF0000"> <br><br>
+         
+         Fechas: 
+         <input type="date" name="fecha1" min="1970-01-02" max="2020-12-31"> <br>
+         <input type="datetime-local" name="fecha2" min="1970-01-02" max="2020-12-31"> <br>
+         <input type="time" name="fecha3"> <br><br>
+
+         Email: 
+         <input type="email" name="emailaenviar"> <br><br>
+
+         File: 
+         <input type="file" name="archivos" multiple> <br><br>
+
+         Number: 
+         <input type="number" name="unnumero" min="1" max="4" value="2"> <br><br>
+
+         Range: 
+         <input type="range" name="unslider" step="5" min="1" max="100" value="50"> <br><br>
+
+         Url: 
+         <input type="url" name="unaurl"> <br><br>
+
+
+
+
+         Enviar al servidor: <input type="submit" value="Enviar al servidor">
+         <input type="reset" value="Borrar datos introducidos">
+         </form>
+   </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Eventos AngularJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <style>   
+        div {
+            background-color: aqua;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input.ng-empty {
+            background-color: orange;
+        }
+
+        input.ng-not-empty {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+    <script>
+
+
+        var app = angular.module('angular', []);
+        app.controller('controlador', controlador);
+
+        function controlador($scope) {
+
+            /*
+                ng-blur
+                ng-change
+                ng-click
+                ng-copy
+                ng-cut
+                ng-dblclick
+                ng-focus
+                ng-keydown
+                ng-keypress
+                ng-keyup
+                ng-mousedown
+                ng-mouseenter
+                ng-mouseleave
+                ng-mousemove
+                ng-mouseover
+                ng-mouseup
+                ng-paste
+            */
+
+
+            $scope.pulsarBoton = function(capa, ev){
+                console.log(capa);
+                console.log(ev);
+            }
+
+        }// fin controler
+
+        
+
+    </script>
+
+
+
+</head>
+<body>
+    <main ng-app="angular">
+        <div ng-controller="controlador">
+            <button ng-click="pulsarBoton(this,$event)">Pulsame para avtivar evento</button>     
+            {{ variable }}
+        </div>
+
+    <script>
+    </script>
+
+</body>
+
+</html>

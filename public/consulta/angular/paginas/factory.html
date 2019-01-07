@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> ngModel AngularJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <style>   
+        div {
+            background-color: aqua;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+
+    <script>
+
+        /* Sirve para crear contenedores de codigo, que luego puede ser leido por cualquier controlador
+                - Puede contener tanto variables como funciones completas
+        */
+
+        var app = angular.module('angular', []);
+        app.controller('controlador1', controlador1);
+
+        // Creacion de la factoria y su funcion abajo
+        app.factory('usuario', factoria1);
+
+        function factoria1() {
+            // Objeto que contendra todo el contenido, al final se devolvera con un return
+            var datos = {}
+
+            // Variables
+            datos.nombre = 'gg';
+            datos.edad = null;
+            datos.ciudad = null;
+            datos.cargarDatos = function(){
+
+            }
+
+            // Funcion que cambia la variable de arriba
+            datos.cambiarNombre = function(valor) {
+                datos.nombre = valor;
+            }
+
+            return datos;
+        }
+
+
+        // Para usar la factoria, se tiene que añadir en el controlador
+        function controlador1($scope, usuario) {
+
+            // Se recoge en el scope los datos del usuario de la factoria para pintar en el html
+            $scope.usuario = usuario;
+
+        }
+
+    </script>
+
+
+
+    </head>
+    <body>
+    <main ng-app="angular">
+        <div ng-controller="controlador1">
+            <div> 
+                <input type="text" ng-model="elInput">
+                
+                <!-- Se puede llamar a las funciones de la factoria desde el mismo html -->
+                <button ng-click="usuario.cambiarNombre(elInput)">Cambiar nombre</button>
+                <span> {{ usuario.nombre }} </span>
+            </div>
+        </div>
+
+        
+    <main>
+
+    <script>
+    </script>
+
+    </body>
+
+</html>

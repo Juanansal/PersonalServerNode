@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Ocultar y mostrar Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      li {
+         font-weight: bold;
+      }
+
+      #li2, #li5, #li10 {
+         display: none;
+      }
+
+      button {
+         display: inline-block;
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <h3> <a href="https://www.w3schools.com/Jquery/jquery_ref_selectors.asp">Referencia de selectores</a></h3>
+      <h3> <a href="https://www.w3schools.com/Jquery/jquery_ref_events.asp">Referencia de eventos</a></h3>
+
+      <button id="boton1">Hide</button>
+      <button id="boton2">Show</button>
+      <button id="boton3">Toggle</button>
+      <button id="boton4">Toggle (sin nada)</button> ( Movimiento vertical y degradado ) <br>
+      <button id="boton5">fadeIn</button>
+      <button id="boton6">fadeOut</button>
+      <button id="boton7">fadeToggle</button>
+      <button id="boton8">fadeTo</button>  ( Solo degradado )<br>
+      <button id="boton9">slideUp</button>
+      <button id="boton10">slideDown</button>
+      <button id="boton11">slideToggle</button>  ( Solo movimiento vertical ) 
+
+
+      <ul>
+         <li id="li1">Hide</li>
+         <li id="li2">Show</li>
+         <li id="li3">Toggle</li>
+         <li id="li4">Toggle (sin nada)</li>
+      </ul>
+      <ul>
+         <li id="li5">fadeIn</li>
+         <li id="li6">fadeOut</li>
+         <li id="li7">fadeToggle</li>
+         <li id="li8">fadeTo</li>
+      </ul>
+      <ul>
+         <li id="li9">slideUp</li>
+         <li id="li10">slideDown</li>
+         <li id="li11">slideToggle</li>
+      </ul>
+      <input type="text">
+   <main>
+
+   <script>
+      /* Show, hide y toggle                 ( Movimiento vertical y degradado ) 
+         fadeIn, fadeOut, fadeToggle, fadeTo ( Solo degradado )
+         slideUp, slideDown, slideToggle     ( Solo movimiento vertical ) 
+
+         Parametros de estas funcionalidades -------- $(selector).hide(speed,easing,callback)
+
+         Velocidad ---- Default value is 400 milliseconds
+         Possible values:
+            numero en milisegundos
+            "slow"
+            "fast"
+
+         easing	 Velocidad en los distintos momentos de la animación --------- Default value is "swing"
+         Possible values:
+            "swing" - moves slower at the beginning/end, but faster in the middle
+            "linear" - moves in a constant speed
+
+         callback	----- Función que se ejecuta al realizar la animación completa
+      */ 
+      // Se pueden concatenar todas estar transciones poniendolas una después de otra
+      // Estos dos códigos harian lo mismo
+      // $("#li1").css("color", "red").slideUp(2000).slideDown(2000);
+
+      // $("#li1").css("color", "red").slideUp(2000);
+      // $("#li1").css("color", "red").slideDown(2000);
+
+
+      // Mostrar / Ocultar
+      // Empieza oculto (css --> display: none)
+      $('#boton1').click(function(ev) {
+         console.log(ev);
+         $('#li1').hide(1000);
+      });
+
+
+      // Mostrar
+      $('#boton2').click(function(ev) {
+         $('#li2').show(1000);
+      });
+
+
+      // Ocultar
+      $('#boton3').click(function(ev) {
+         console.log(ev);
+         $('#li3').toggle(1000);
+      });
+
+
+      // Sin parametros (No crea animación)
+      $('#boton4').click(function(ev) {
+         $('#li4').toggle();
+      });
+
+      //----------------------------------------------------------------------
+
+      // hideIn
+      $('#boton5').click(function(ev) {
+         $('#li5').fadeIn(2000);
+      });
+
+
+      // hideOut
+      $('#boton6').click(function(ev) {
+         $('#li6').fadeOut(2000);
+      });
+
+
+      // hideToggle
+      $('#boton7').click(function(ev) {
+         $('#li7').fadeToggle(2000);
+      });
+
+
+      // hideTo (Hace la animación hasta un punto concreto de degradado)
+      $('#boton8').click(function(ev) {
+         $('#li8').fadeTo(2000,0.2);
+      });
+
+      //----------------------------------------------------------------------
+
+      // SlideUp
+      $('#boton9').click(function(ev) {
+         $('#li9').slideUp(1000);
+      });
+
+
+      // SlideDown
+      $('#boton10').click(function(ev) {
+         $('#li10').slideDown(1000);
+      });
+
+
+      // SlideToggle
+      $('#boton11').click(function(ev) {
+         $('#li11').slideToggle(1000);
+      });
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Selectores Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      li {
+         font-weight: bold;
+      }
+
+      button {
+         display: inline-block;
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <h3> <a href="https://www.w3schools.com/Jquery/jquery_ref_selectors.asp">Referencia de los selectores</a></h3>
+
+      <button id="boton1">Pulsame 1</button>
+      <button id="boton2">Pulsame 2</button>
+      <button id="boton3">Pulsame 3</button>
+      <button id="boton4">Pulsame 4</button>
+
+      <ul>
+         <li>Test 1</li>
+         <li>Test 2</li>
+         <li>Test 3</li>
+         <li>Test 4</li>
+         <li>Test 5</li>
+         <li>Test 6</li>
+         <li>Test 7</li>
+      </ul>
+   <main>
+
+   <script>
+
+   // Todos los elemento Jquery, deben cargarse después de cargar la web
+   // Para esto hay 2 maneras de realizarlo
+   // 1º Dentro de un eventro ready (al cargar el documento)
+   $(document).ready(function(){
+      $("#boton1").click(function(){
+         $("#boton1").hide(1000);
+      });
+   });
+
+   // 2º o colocar el javascript al final del documento
+   $("#boton2").click(function(){
+      $(this).hide(1000);  // this, indica el propio elemento (en este caso #boton2)
+   });
+
+
+
+   // Selección de todos los 3º li
+   $('#boton3').click(function() {
+      $('li:eq(2)').css('color', 'red');
+   });
+
+   // Selección de todos los 3º li
+   $('#boton4').click(function() {
+      $('li:eq(2)').css('color', 'red');
+      $('li:gt(4)').css('color', 'brown');
+   });
+
+
+
+   
+         
+      </script>
+
+</body>
+
+</html>

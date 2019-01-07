@@ -1,0 +1,64 @@
+<html>
+<head>
+   <title> Fuentes CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+
+      h3 {
+         border: 3px solid rgb(3, 17, 48);
+         padding: 10px;
+         margin: 10px; 
+         background-color: aqua;
+         text-align: center;
+      }
+
+      #test1 {
+         font-family: "Times New Roman", Times, serif; /* Si la primera fuente no funciona intentara elegir la siguiente. Intentar que sean de la misma familia para no cambiar mucho el estilo de la página */
+         font-style: normal; /* normal, italic(cursiva). */
+         font-size: 3.5em; /* Se recomienda usar em. 1em = 16px(por defecto para texto normal) */
+         font-weight: bold;
+         font-variant: small-caps; /* Modificador mayusculas pequeñas */
+      }
+
+      #test2 {
+         font-size: 2vw; /* Mismo tamaño en relación a la resolución de la pantalla */ 
+         font-variant: small-caps; /* Modificador mayusculas pequeñas */
+      }
+
+      /* Sombras (Se pueden poner multiples sombras) */
+
+      #test3 {
+         color: white;
+         text-shadow: 4px 4px 6px black; /* (x, y, suavizado, color) */
+         text-shadow: 4px 4px 6px black, 0 0 25px red, 0 0 5px green;
+      }
+
+      /* Añadir fuente externa */
+      @font-face {
+         font-family: fuente1;
+         src: url(../fuentes/fuente1.otf);
+         font-weight: bold;
+      }
+
+      #test4 {
+         font-family: fuente1;
+      }
+   </style>
+
+
+</head>
+<body>
+   <main>
+      <h3 id="test1">Fuente 1</h3>
+      <h3 id="test2">Fuente 2 (Fuente responsive)</h3>
+      <h3 id="test3">Fuente 3 (Sombras)</h3>
+      <h3 id="test4">Fuente4 Fuente externa</h3>
+   </main>>
+</body>
+
+</html>

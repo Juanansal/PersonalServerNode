@@ -1,0 +1,93 @@
+<html>
+<head>
+   <title>Background CSS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+      p {
+         background-color: red
+      }
+
+      h1 {
+         height: 300px;
+         background-color: aqua;
+         border: 2px solid black;
+         padding: 10px;
+         margin: 10px;
+         
+      }
+
+      /* Repericion de la imagen */
+      #test1 {
+         background-image: url('../img/arbol.jpg');
+         background-repeat: repeat-x;
+      }
+
+      /* Posicion de la imagen (Si no repite) */
+      #test2 {
+         background-image: url('../img/arbol.jpg');
+         background-repeat: no-repeat;
+         background-position: 20% 0%; /* (x, y)*/  
+         background-size: 100px 100px; /* Tamaño de la imagen */
+         /* background-position: right top; */
+         /* background-attachment: fixed; */
+      }
+
+      #test3 {
+         background-image: url('../img/arbol.jpg');
+         background-repeat: no-repeat;
+         background-position: center bottom; /* (x, y)*/  
+      }
+
+      /* Cubre el ancho exacto de la capa  */
+      #test4 {
+         background-image: url('../img/arbol.jpg');
+         background-size: contain;  /* Cubre el tamaño exacto de la capa para la coordenada y */
+      /* background-size: cover;  /* Cubre el tamaño exacto de la capa para la coordenada x */
+      /* background-size: 100; /* Cubre el tamaño exacto de la capa (aunque reescalara la imagen) */
+      }
+
+      /* Cubre el ancho exacto de la capa (Al poner 2 imagenes, sus propoedades tambien se ponen 2 veces en el orden en que se puso la imagen) */
+      #test5 {
+         background-image: url('../img/arbol.jpg'), url('../img/icono.jpg');
+         background-repeat: no-repeat, no-repeat;
+         background-size: contain, 20% 60%; 
+         background-position: 0% 0%, 50% 50%
+      }
+
+      /* Deben ocupar bordes o no? */
+      #test6 {
+         border: 50px solid rgba(0, 0, 0, 0.8);
+         background-image: url('../img/arbol.jpg');
+         background-size: contain; 
+         background-position: 0% 0%;
+
+         /* Opciones de las 2 (border-box, padding-box, content-box) */
+         background-clip: content-box; /* Por defecto, pinta los bordes, esto lo anula */
+         background-origin: border-box; /* Donde debe empezar a dibujar (En este caso, por los bordes, (Como hemos evitado el dibujado en bordes y paddings, esta saldra cortado )) */
+      }
+   </style>
+
+
+</head>
+<body>
+   <main>
+      <h1 id="test1">TITULO 1</h1>
+      <h1 id="test2">TITULO 2</h1>
+      <h1 id="test3">TITULO 3</h1>
+      <h1 id="test4">TITULO 4</h1>
+      <h1 id="test5">TITULO 5</h1>
+      <h1 id="test6">TITULO 6</h1>
+   </main>
+</body>
+
+</html>
+
+
+
+
+

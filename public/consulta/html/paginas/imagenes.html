@@ -1,0 +1,56 @@
+<html lang="es">
+<head>    
+   <title>hipervinculos HTML</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_html.css">
+
+   <style>
+      h3 {
+         margin-top: 25px;
+         padding-bottom: 4px;
+         border-bottom: 1px solid #999
+      }
+
+      img {
+         border: 2px solid black;
+         margin: 5px; 
+         max-width: 100%; /* Para que las imagenes se vean siempre en pantalla independientemente del tamaño de la pantalla
+                             Evitando además la aparición de scrolls */
+      }
+   </style>
+
+</head>    
+
+<body>
+   <div class="ejemplos">
+      <img src="../img/amazon.png" alt="imagen de amazon">
+      <img src="../img/amazon.png" alt="imagen de amazon">
+      <img src="../img/amazon.png" alt="imagen de amazon"> 
+      <br>
+      <img src="../img/hombre_ropa.gif" alt="hombre cambiando la ropa"> 
+
+      
+      <!-- Elemento picture de html5 para añadir varias imagenes segun el tamaño de la pantalla-->
+      <!-- Se añade un elemento img al final para navegadores no compatibles, ese elemento no sera seleccionado en navegadores compatibles a no ser que no haya otra opcion -->  
+
+      <h3> Elemento picture</h3>
+      <picture>
+         <source media="(min-width: 900px)" srcset="../img/amazon.png">
+         <source media="(min-width: 650px)" srcset="../img/ejemplo_map.jpg">
+         <img src="../img/hombre_ropa.gif">   
+      </picture>
+      
+      <!-- Mapeado de la imagen dando un enlace en cada lugar mapeado -->
+      <h3 style="background-image: url('img/fondo_azul.jpg');">Ejemplo de mapeado y imagen de fondo con css</h3>
+      <img src="../img/ejemplo_map.jpg" alt="Workplace" usemap="#workmap">
+      <map name="workmap">
+         <area shape="rect" coords="34,44,270,350" alt="Computer" href="https://es.wikipedia.org/wiki/Computadora">
+         <area shape="rect" coords="290,172,333,250" alt="Phone" href="https://es.wikipedia.org/wiki/Tel%C3%A9fono_m%C3%B3vil">
+         <area shape="circle" coords="337,300,44" alt="Coffee" href="https://es.wikipedia.org/wiki/Caf%C3%A9">
+      </map>
+   </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Selector Atributos CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+      div {
+        background-color: aqua;
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      h3 {
+        padding: 6px;
+      }
+
+      /* Exactemente la palabra (todo)*/
+      .test1 h3[title='buenas'] {
+        background-color: red; 
+        color: white;
+      }
+
+      /* Contiene la palabra (palabra completa) */
+      .test1 h3[class~='titulos'] {
+        background-color: green; 
+        color: white;
+      }
+
+      /* Comienza por la palabra (palabra completa) (Tienes que estar sola o Pedro-es(con guion)*/
+      .test1 h3[title|='Pedro'] {
+        background-color: orangered; 
+        color: white;
+      }
+
+      /* Comienzan por el contenido (No palabra completa)*/ 
+      .test1 h3[style^='mar'] {
+        background-color: blue; 
+        color: white;
+      }
+
+      /* Terminan por el contenido (No palabra completa)*/
+      .test1 h3[title$='mar'] {
+        background-color: brown; 
+        color: white;
+      }
+
+      /* Contiene el contenido (No palabra completa)*/
+      .test1 h3[title*='pie'] {
+        background-color: purple; 
+        color: white;
+      }
+   </style>
+
+</head>
+<body>
+    <main>
+        <div class="test1">
+            <h3> No </h3>
+            <h3 title="buenas"> Si = </h3>
+            <h3 class="peras titulos calabazas"> Si ~= </h3>
+            <h3 title="Pedro-es-manco"> Si |= (Reglas un poco confusas, no usar)</h3>
+            <h3 style="margin-top: 5px;"> Si ^= </h3>
+            <h3 title="Es un calamar"> Si $= </h3>
+            <h3 title="un cienpie gigante"> Si *= </h3>
+        </div>
+    </main>
+</body>
+
+</html>

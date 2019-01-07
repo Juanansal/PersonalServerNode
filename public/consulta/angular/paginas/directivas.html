@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Directivas AngularJS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   
+   <!-- Angular -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      div {
+         background-color: aqua;
+         padding: 10px;
+         margin: 10px;
+      }
+   </style>
+
+   <script>
+      var app = angular.module('angular', []);
+      app.controller('controlador1', controlador1);
+      app.directive('miDirectiva', miDirectiva);
+
+      function controlador1($scope) {
+         $scope.edad = 'Pepe tiene 20 años';
+      }
+
+      /*
+         Las directivas sirven para añadir funcionalidades personalizadas propiad en el codigo html como ng-model, ng-init etc
+         Se pueden invocar en el HTML como:
+            - Element name  E  <mi-directiva> </mi-directiva>
+            - Attribute     A  <div mi-directiva='x'> </div>
+            - Class         C  <div class="mi-directiva"> </div>
+            - Comment       M  <!-- directive: mi-directiva -->
+      */
+      function miDirectiva() {                  
+         return {
+            restrict : "EA",                                               // Como se declara, (mirar lo de arriba)
+            template : "<h1>Escrito con una directiva: {{edad}}</h1>"      // Que renderizara   
+         // templateUrl                                                    // Si es muy grande el codigo, se puede usar un archivo externo
+
+         };
+      }
+   </script>
+
+
+
+</head>
+<body>
+   <!-- modulo -->
+   <main ng-app="angular">
+
+      
+       <!-- controlador -->
+      <div ng-controller="controlador1">
+
+         <!-- Llamada a directiva por elemento -->
+         <mi-directiva></mi-directiva>
+
+         <!-- Llamada a directiva por atributo -->
+         <span mi-directiva></span>
+      </div>
+     
+   <main>
+
+   <script>
+   </script>
+
+</body>
+
+</html>

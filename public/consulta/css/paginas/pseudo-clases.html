@@ -1,0 +1,68 @@
+<html>
+<head>
+   <title> Pseudo-clases CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+      div {
+         background-color: aqua;
+         border: 2px solid black;
+         padding: 10px;
+         margin: 10px;
+      }
+
+      .test1:hover {
+         background-color: red;
+         color: white;
+      }
+
+      /* Primer hijo (Sin idicar que elemento es)) */
+      .test2 :first-child {
+         background-color: yellow;
+      }
+
+      /* Primer hijo (Selecciona si es p, si no es p, no hara nada) */
+      .test3 p:first-child {
+         background-color: yellow;
+      }
+
+      /*  Selecciona todos los elementos span que contiene el primer hijo de .test4 */
+      .test4 :first-child span {
+         background-color: yellow;
+      }
+
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos" style="background-color: rgb(0, 153, 255, 0); border: 0px solid black;">
+
+      <a href="https://www.w3schools.com/css/css_pseudo_classes.asp">Listado de todos las pseudo-clases</a>
+
+      <div class="test1"> Test1 :hover</div>
+
+      <div class="test2">
+         <p>Primer hijo</p>
+         <p>Segundo hijo</p>
+         <p>Tercer hijo</p>
+      </div>
+
+      <div class="test3">
+         <p>Primer hijo</p>
+         <p>Segundo hijo</p>
+      </div>
+
+      <div class="test4">
+         <p> Eiiii <span>sssss </span> dddddddd<span>sssss </span>sssssss<sssss/p>
+         <p>Segundo hijo</p>
+      </div>
+     
+   </div> 
+</body>
+
+</html>

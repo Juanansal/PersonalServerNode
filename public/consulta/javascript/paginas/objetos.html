@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Objetos JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+   </style>
+
+   <script>
+
+      // Base para crear un objeto único (con una función dentro del propio objeto) 
+      var objeto1 = {
+         pepe: 50,
+         luis: 50,
+         suma: function() { return this.pepe + this.luis; }
+      };
+
+      var objeto2 = {
+         pepe: 50,
+         luis: 50,
+         suma: function() { return this.pepe + this.luis; }
+      };
+
+      console.log(objeto1);
+      console.log(objeto1.suma());
+
+      // Recorrer el objeto con una funcion
+      console.log('--------- Recorrer objeto ---------')
+      for(x in objeto1) {
+         console.log(x + ' - ');
+      }
+
+      // Borrar una propiedad
+      delete(objeto1.pepe);
+
+
+      // Constructor de un objeto (Para crear multiples objetos con las mismas propiedades
+      function Pollo(nombre, color, edad) {
+         this.nombre = nombre;
+         this.color = color;
+         this.edad = edad;
+         this.getNombre = function() { 
+            return this.nombre; 
+         };
+         this.getColor = function(x) { 
+            return this.color+' '+x; 
+         };
+      }
+
+      // Prototype para inserta nuevos elementos al constructor
+      Pollo.prototype.nacimiento = null;
+      Pollo.prototype.evolucion = 'Sin cambios';
+
+      // Creacion de los objetos Pollo y acceso a sus datos
+      var pollo1 = new Pollo('Pepe', 'rojo', 5);
+      var pollo2 = new Pollo('Norberta', 'azul', 8);
+      console.log('---- Crear objetos multiples con contructor ----');
+      console.log(pollo1);
+      console.log(pollo2.getNombre()+' - '+pollo2.getColor('Purpera'));
+
+      // Accesos a lo introducido con prototype
+      console.log(pollo1.evolucion);
+      console.log(pollo2.nacimiento);
+
+      if(true) {
+         var pepe = 'PEPITO';
+      }
+      console.log(pepe);
+
+
+   </script>
+</head>
+<body>
+   <main>
+      <h2>Resultados en console.log</h2>
+   <main>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Json JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/jsref/jsref_obj_json.asp"><h3>JSON reference</h3></a>
+   <main>
+   
+   <script>
+      // No es lo mismo un objeto que un JSON aunque tengan las misma forma
+      // Un objeto, se le puede seleccionar todos los atributos de manera sencilla (objeto.nombre)
+      // un Json tiene un formato de String generalemente cuando se recoje de un Api por ejemplo
+      // asi que para ser tratado es necesario pasarlo a Objeto con JSON.stringify(StringJson);
+      // en Json el nombre lleva comillas obligatorio {'edad': 50}
+
+
+      // Convertir objeto JavaScript a Json(String)
+      console.log('Convertir Objeto de JavaScript en Json(String)\n----------------------------------------');
+      var objeto = {'nombre': 'Pepe', 'apellido': 'Rodrigo'};
+      var Json = JSON.stringify(objeto);
+      console.log('Necesario para enciarlo al servidor. \nJSON.stringify(objeto)');
+
+      // Convertir Json(String) a objeto JavaScript
+      console.log('\n\nConvertir Json(String) en un objeto de JavaScript JSON.parse(Json)\n----------------------------------------');
+      var nuevoObjeto = JSON.parse(Json);
+      console.log('Necesario para tratarlo en JavaScript una vez se recibe desde el servidor. \nJSON.parse(Json)');
+
+
+      // Las fechas no se permiten en Json, para poder enviarlas, ponerlas en un formato que luego permita
+      // leerla con new Date() por ejemplo new Date(1990-08-16);   {'fecha': '1990-08-16'}
+      console.log('\n\nProblema con las fechas en Json\n----------------------------------------');
+      console.log('Mirar código para ver el funcionamiento')
+      var fecha = new Date();
+      var dia = fecha.toISOString(); // Formato ISO que es Standart y lo reconoce perfectamente new Date()
+
+      // Se meten los datos al objeto
+      var objetoFecha = {'dia': dia};
+      // Se pasa a Json
+      var jsonFecha = JSON.stringify(objetoFecha);
+      // Y volvemos a pasarlo a Objeto en un nueva variable para comprobar;
+      var newObjetoFecha = JSON.parse(jsonFecha);
+      // Y, finalmente creamos la fecha con lo recuperado
+      var fechaDefinitiva = new Date(newObjetoFecha.dia);
+
+      console.log(fechaDefinitiva);
+
+
+      console.log('\n\nEjemplos de Json y objetos\n----------------------------------------');
+      console.log('JSON:  '+Json);
+      console.log('Objeto:  '+nuevoObjeto);
+   </script>
+</body>
+
+</html>

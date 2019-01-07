@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Basico AngularJS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   
+   <!-- Angular -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      button {
+         display: inline-block;
+      }
+
+      div {
+         background-color: aqua;
+         padding: 10px;
+         margin: 10px;
+      }
+   </style>
+
+   <script>
+      // Inicialización del modulo principal
+      var app = angular.module('angular', []);
+
+      // Inicialización de los controladores
+      app.controller('controlador1', controlador1);
+
+      // Inicialización de directivas ng
+      app.directive('directiva1', directiva1);
+
+      function controlador1($scope) {
+         $scope.nombre3 = "Luis";
+         $scope.nombre4 = "Marco";
+         $scope.valores = {};
+         $scope.valores.n1 = 5;
+         $scope.valores.n2 = 6;
+         $scope.valores.n3 = 'red';
+
+         $scope.objeto = [
+            {numero:1, palabra: 'Hola1'},
+            {numero:2, palabra: 'Hola2'},
+            {numero:3, palabra: 'Hola3'},
+            {numero:4, palabra: 'Hola4'},
+         ];
+      }
+
+      function directiva1() {
+         return {
+            template : "<h1>Made by a directive!</h1>"
+         };
+      }
+
+   </script>
+
+
+
+</head>
+<body>
+   <!-- ng-init -->
+   <main ng-app="angular" ng-init="nombre1='Pepe'">
+
+      
+       <!-- ng-model -->
+      <div ng-controller="controlador1">
+         <p>Name: <input type="text" ng-model="nombre2"></p>
+
+         <!-- ng-bind 2 maneras de poner datos: con ng-bind o con {{}} dentro del html -->
+         <p ng-bind="'Hola '+nombre1+' y '+nombre2"></p>
+         <p>{{ 'Hola '+ nombre1 +' y '+ nombre2 }}</p>
+
+         <!-- Lectura del binding de las variables -->
+         <ul>
+            <li> {{ 'n1:  '+nombre1 }} </li>
+            <li> {{ 'n2:  '+nombre2 }} </li>
+            <li> {{ 'n3:  '+nombre3 }} </li>
+            <li> {{ 'n4:  '+nombre4 }} </li>
+            <li> {{ valores.n1 + valores.n2}} </li>
+            <li style="background-color: {{valores.n3}}"> {{ valores.n1 + valores.n2}} </li>
+         </ul>
+
+         <div>
+            <!-- ng-repeat -->
+            <ul>
+               <li ng-repeat="x in objeto">
+                  {{ x.numero + ' ' + x.palabra }}
+               </li>
+            </ul>   
+         </div>
+         <directiva1></directiva1>
+         
+      </div>
+     
+   <main>
+
+   <script>
+   </script>
+
+</body>
+
+</html>

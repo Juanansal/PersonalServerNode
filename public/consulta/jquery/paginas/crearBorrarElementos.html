@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Crear y borrar elementos HTML Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      h3, h4 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      img {
+         font-weight: bold;
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin-left: 20px;
+         margin-bottom: 8px;
+      }
+
+      button {
+         display: inline-block;
+      }
+
+      div {
+         border: 2px solid black;
+         padding: 10px;
+         margin: 10px;
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <div id="padre"></div>
+   <main>
+     
+   <script>
+
+      // Crear elementos
+      //------------------------------------------------------
+
+      // Crea la capa al final 
+      $('#padre').append('<p><strong>Añadido con append (al final del contenido del padre)</strong></p>');
+
+      // Crea la capa al inicio
+      $('#padre').prepend('<p><strong>Añadido con prepend (al inicio del contenido del padre)</strong></p>');
+
+      // Crea la capa antes del elemento indicado
+      $('#padre').before('<p><strong>Añadido con before (antes del padre)</strong></p>');
+
+      // Crea la capa despues del padre
+      $('#padre').after('<p><strong>Añadido con after (después del padre)</strong></p>');
+
+
+      // Crear multiples elementos
+      // funciona para todas estas funciones de crear elementos
+      var html1 = '<p> Texto múltitple con un solo append </p>';
+      var html2 = '<p> Texto múltitple con un solo append </p>';
+      var html3 = '<p> Texto múltitple con un solo append </p>';
+      $('#padre').append(html1, html2, html3);
+      
+
+      // Borrar elementos
+      //------------------------------------------------------
+      /*
+         $("#div1").remove();    -- Borra elemento e hijos
+         $("#div1").empty();     -- Borra hijos
+
+         // Filtros ()
+         $("p,li").remove(".test");     -- Borra elementos p o li con clase test 
+         $(".p1").remove(".test");      -- Borra elementos con clase .p1, que tengan también clase .test 
+         $("#capa li").remove(".test"); -- Borra elementos li del elementos #capa que tengan clase .test
+      */
+
+       $("#capa li").remove(".test");
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Animaciones Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      img {
+         font-weight: bold;
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin-left: 20px;
+         margin-bottom: 8px;
+      }
+
+      button {
+         display: inline-block;
+      }
+
+      #img2 {
+         /*animation-name: ejemplo;*/
+         animation-duration: 5s;
+         animation-timing-function: linear;
+         animation-delay: 0s;
+         animation-iteration-count: infinite;
+         animation-direction: alternate;
+      }
+
+      @keyframes imgAnimacion {
+         0%   {background-color:red; width:200px;}
+         25%  {background-color:yellow; width:500px;}
+         50%  {background-color:blue; width:300px;}
+         75%  {background-color:green; width:700px;}
+         100% {background-color:red; width:300px;}
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <h3> <a href="https://www.w3schools.com/Jquery/jquery_ref_selectors.asp">Referencia de selectores</a></h3>
+      <h3> <a href="https://www.w3schools.com/Jquery/jquery_ref_events.asp">Referencia de eventos</a></h3>
+
+      <button id="boton1" class="botones">Animación Básica</button>
+      <button id="boton2" class="botones">Conf con css, activado con jQuery</button>
+      <button id="boton3" class="botones">Opciones especiales</button>
+      <button id="boton4" class="botones">Parar animacón 1</button>
+
+      <img class="imagenes" id="img1" src='../img/hombre_ropa.gif'>
+      <img class="imagenes" id="img2" src='../img/hombre_ropa.gif'>
+      <img class="imagenes" id="img3" src='../img/hombre_ropa.gif'>
+   <main>
+
+   <script>
+      // $(selector).animate({params},speed,callback); 
+      // Callback se activa al acabar la animación
+
+      // Animación básica
+      $('#boton1').click(function() {
+         $('#img1').animate({width: '200px'},5000);
+         $('#img1').animate({width: '400px'},1000, function() {
+            console.log('Animación terminada');
+         });
+      });
+
+      // Para hacer animaciones más complejas usar css, y luega activarse con jQuery
+      // Animación configurada con css, pero activandose con jquery
+      // Para añadirle cosas, como animación infinita
+      $('#boton2').click(function() {
+         $('#img2').css('animation-name', 'imgAnimacion');
+      });
+
+
+      // Efectos complejos
+      $('#boton3').click(function() {
+         console.log('Pasa por aqui');
+         $('#img3').animate({ 
+            width: '+=10px', // Se va sumando 10 pixels de ancho cada vez que se pulsa el boton
+            height: 'toggle' // Se oculta y muestra esa propiedad cada vez que se pulsa el boton
+         });
+      });
+
+
+      // Para para una animación se usa stop en la etiqueta que este sufriendo una animación
+      // $(selector).stop(stopAll,goToEnd);
+      // Primer parametro -- (false - Indica si debe realizar al menos el último paso de la animación)
+                                   // Si fueran 4 pasos y se para en el 2º, terminaria al finalizar el 2º paso
+                           // true - Se pararia al completo este donde este
+      // Segundo párametro -- Indica si se desea que termine la animación (por defecto false)
+      $('#boton4').click(function() {
+         $('#img1').stop(true, false);
+      })
+
+
+
+   </script>
+
+</body>
+
+</html>

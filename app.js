@@ -31,6 +31,7 @@ app.use(express.static(__dirname + '/public/rush'));
 app.use(express.static(__dirname + '/public/editor'));	
 app.use(express.static(__dirname + '/public/controlguild'));	
 app.use(express.static(__dirname + '/public/meteo'));	
+app.use(express.static(__dirname + '/public/consulta'));	
 
 
 

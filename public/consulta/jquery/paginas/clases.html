@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Ocultar y mostrar Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      button {
+         display: inline-block;
+      }
+
+      div {
+         border: 2px solid black;
+         padding: 10px;
+         margin: 10px;
+      }
+
+      .probarToggle {
+         background-color: aqua;
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <button id="boton1">Cambiar clase (toggleClass)</button>
+      <div id="capa">Capa</div>
+   <main>
+
+   <script>
+      // Añadir clase
+      $('#capa').addClass('pepe'); 
+      $('#capa').addClass('luis'); 
+      $('p').addClass('todosP');    // Añadir clase a multiples elementos
+
+      // Borrar clase
+      $('#capa').removeClass('pepe'); 
+
+      // Añadir (Si no la tiene) o quitar clase (Si la tiene)
+      $('#boton1').click(function() {
+         $('#capa').toggleClass('probarToggle'); 
+      }); 
+
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Output JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      div {
+         margin: 10px;
+         padding: 10px;
+         border: 3px solid black;
+         background-color: aqua;
+      }
+
+   </style>
+
+   <script>
+
+      // Console.log
+      function test1() {
+         console.log('Test Test');
+      }
+
+      // InnerHTML
+      function test2() {
+         document.getElementById('capa').innerHTML = '<strong> No repito </strong>';
+         document.getElementById('capa2').innerHTML += '<strong> Si repito - </strong>';
+      }
+
+      // Alert
+      function crearAlert() {
+         alert('Esto es un alert\nHOHOHO');
+      }
+
+      // Confirm Box
+      // Se coloca de esta manera en un IF, si pulsa si se ejecutara el SI, si no, el NO
+      function crearConfirmBox() {
+         if(confirm('Esto es un confirmBox')) {
+            alert('Le diste SI');
+         }
+         else {
+            alert('Le diste NO');
+         }
+      }
+
+      // Confirm Box
+      // 1º parametro, La info, 2º parametro, lo que sale en el cuadro de texto por defecto
+      // Mete en una variable lo que escribe el usuario
+      function crearPromptBox() {
+        var escrito = window.prompt('Escribeme algo: ','Se escribe AQUI');
+       alert('Se ha guardado: '+escrito);
+      }
+
+   </script>
+</head>
+<body>
+   <main>
+      <button onclick="test1();">console.log</button>
+      <button onclick="test2();">innerHTML</button>
+      <div id="capa"></div>
+      <div id="capa2"></div>
+      <button onclick="crearConfirmBox()">confirmBox</button>
+      <button onclick="crearPromptBox()">PromptBox</button>
+      
+   <main>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Ajax Jquery </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/jquery.css">
+   <script src="../lib/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      li {
+         font-weight: bold;
+      }
+
+      #li2, #li5, #li10 {
+         display: none;
+      }
+
+      button {
+         display: inline-block;
+      }
+   </style>
+
+</head>
+<body>
+   <main>
+      <button id="boton">PULSAME</button>
+      <div id="meteraqui1"></div>
+      <div id="meteraqui2"></div>
+   <main>
+
+   <script>
+     // Peticiones ajax para recuperar ficheros externos como txt o php
+         /*
+            .load(): Load a piece of html into a container DOM.
+            .get(): Use this if you want to make a GET call and play extensively with the response.
+            .post(): Use this if you want to make a POST call and don’t want to load the response to some container DOM.
+            .ajax(): Use this if you need to do something when XHR fails, or you need to specify ajax options (e.g. cache: true) on the fly.
+         */
+
+
+      $('#boton').click(function() {
+
+         // Llamada básica
+         $('#meteraqui1').load('../temp/ajax1.php');
+
+         // Llamada compleja
+            // response --> Respuesta
+            // status --> Codigo de estado de la petición, 404 400 etc...
+            // xhr --> objeto con datos de la petición
+         $('#meteraqui2').load('../temp/ajax1.php', function(responseTxt, statusTxt, xhr){
+            if(statusTxt == "success")
+                  console.log("EXITO");
+            if(statusTxt == "error")
+                  console.log("Error: " + xhr.status + ": " + xhr.statusText);
+         });
+      });
+     
+   </script>
+
+</body>
+
+</html>

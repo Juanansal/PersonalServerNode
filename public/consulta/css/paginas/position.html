@@ -1,0 +1,80 @@
+<html>
+<head>
+   <title> Position CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+      /*
+         static    - Por defecto, Se posiciona segun la estructura normal de la pagina. No le afectan top, right, left, bottom 
+         relative  - Se posiciona igual que static, pero permite ajustar la posicion con top, left...., esta nueva posicion no afecta al posicionamiento de otras capas.
+         absolute  - Se posiciona en la posicion en relacion a la pantalla. Hay que indicarle al menos un top, right... para colocarlo correctamente.
+         fixed     - Se posiciona en la posicion en relacion a la pantalla pero se coloca siempre en la misma posicion, incluso cuando se hace scrool. 
+                     Hay que indicarle al menos un top, right... para colocarlo correctamente.
+         sticky    - Se posiciona igual que static, pero al hacer scroll se queda en posicion indicada con top, right...
+      */
+
+   h3 {
+      background-color: aqua;
+      border: 2px solid black;
+      padding: 5px;
+      margin: 5px;
+      text-align: center;
+   }
+
+   .static {
+      position: static;
+   }
+
+   .relative {
+      position: relative;
+   }
+
+   /* No mantienen el tamaño de la capa(Se ajusta al contenido) ni tiene posicion en el flujo de la pagina  (Util para algunas situaciones que se requiera de funcionamiento
+      de un bloque pero con un ajuste de capa como un inline(un menu desplegable por ejemplo). Para este caso no se le debe especificar top, left, right....) */ 
+   .absolute1 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+   }
+
+   .absolute2 {
+      position: absolute;
+   }
+
+/* No mantienen el tamaño de la capa (Se ajusta al contenido) */
+   .fixed {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+   }
+
+   .sticky {
+      position: sticky;
+      top: 5px;
+   }
+
+
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos">
+      <h3 class="static">Static</h3>
+      <h3 class="relative">Relative (Sin tocar nada)</h3> <h3 class="relative" style="right: 15px; bottom: 15px;">Relative  (Movido arriba izq)</h3>
+      <h3 class="absolute1">Absolute 1</h3>
+      <h3 class="fixed">Fixed</h3>
+      <h3 class="sticky">Sticky</h3>
+      <h3 class="absolute2">Absolute 2 (Colocado debajo del Sticky)</h3>
+      <p>Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto. Para comprobar que position absolute no mantiene el flujo de la página </p>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+   </div>
+</body>
+
+</html>

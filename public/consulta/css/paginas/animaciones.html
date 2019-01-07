@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Fuentes CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+
+      div {
+         border: 3px solid rgb(3, 17, 48);
+         font-size: 32px;
+         width: 200px;
+         height: 200px;
+         padding: 10px;
+         margin: 50px; 
+         background-color: aqua;
+         text-align: center;
+      }
+
+      /* Transformaciones 2d */
+      .dos_d {
+         /* Todas estas transformaciones individuales no se pueden combinar, para ellos hay que usar matrix */
+         transform: translate(0px, 0px); /* Transladar */
+         transform: rotate(10deg);       /* Rotar (se puede poner negativo '-20deg' ) */
+         transform: scale(0.6, 0.6);     /* Escalado (x,y) (Un escalado negativo da la vuelta a la capa) */
+         transform: skewX(20deg);        /* Sesgado x */
+         transform: skewY(20deg);        /* Sesgado y */
+         transform: skew(20deg,20deg);   /* Sesgado x,y */
+         
+         /* Matrix (Para metros abajo)*/
+         /* matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
+         transform: matrix(1, -0.3, 0, 1, 0, 0); /* Matriz de transformacion */
+
+         /* Mueve la figura un % con respecto a su tamaño despues de ser transformada (se le puede poner un 3º parametro en px para las 3d)*/
+         /* Si no se realiza transformación no realizara nada */
+         transform-origin: 10% 20%;
+      }
+
+      /* Transformaciones 3d */
+      .tres_d {
+         transform: translateX(50px);     /* Transladar eje x */
+         transform: translateY(50px);     /* Transladar eje y */
+         transform: translateZ(50px);     /* Transladar eje z */
+         transform: rotateX(150deg);      /* Rotar eje x */
+         transform: rotateY(130deg);      /* Rotar eje y */ 
+         transform: rotateZ(90deg);       /* Rotar eje z */
+         transform: scaleX(1.2);          /* Escalado x */ 
+         transform: scaleY(1.2);          /* Escalado y */ 
+         transform: scaleZ(1.2);          /* Escalado z */ 
+      }
+
+      /* Transiciones */
+      .transiciones {
+         /* Se le indica la propiedad y el tiempo que tarda en hacer la transicion
+            Por ejemplo si una cada tiene ancho 200 y se le indica que al ancho hace una transicion de 2s,
+            cuando ese ancho cambie, tardara 2 segundos en realizarse */
+         transition: width 2s, height 2s, transform 2s; 
+
+         /* Como se realiza la transicion (La velocidad de la transicion) */
+         /* Solo se pondria una */ /* https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_speed */
+         transition-timing-function: linear;      /* Linear */
+         transition-timing-function: ease-in;     /* de menos a mas */
+         transition-timing-function: ease-out;    /* de mas a menos */
+         transition-timing-function: ease;        /* de menos a más al ir y mas a menos al volver */
+         transition-timing-function: ease-in-out; /* de más a menos al ir y menos a más al volver */
+         
+         /* delay (Tiempo de espera hasta que empiece la transicion) */ 
+         transition-delay: 0.2s;
+      }
+
+      /* al hacer hover, se cambia tamaños para probar las transiciones */
+      .transiciones:hover {
+         width: 500px;
+         height: 500px;
+         transform: rotateX(360deg); 
+      }
+      
+      /* Animaciones */
+      /*
+         animation-name: example;
+         animation-duration: 5s;
+         animation-timing-function: linear;
+         animation-delay: 2s;
+         animation-iteration-count: infinite;
+         animation-direction: alternate;
+      */
+      .animaciones {
+         /* Se crea un keyframes con el código de la animacion que es asignado aqui para que se active */
+         animation-name: ejemplo2;              /* Asignación del keyframes */ /* Cambiar nombre de keyframes para ver más ejemplos */
+         animation-duration: 10s;               /* Duracion de la animación */
+         animation-delay: 0.5s;                 /* Delay para iniciar la animación (Si se pone -1,5 la animación empezaria por donde estuviera en el s1,5) */
+         animation-iteration-count: 3;          /* Numeros de iteraciones que se realiza la animación */
+         animation-iteration-count: infinite;   /* Iteración infinita */
+
+         /* Dirección de la animación (normalreverse - por) 
+            normal - Por defecto (normal)
+            reverse - Al reves
+            alternate - Al terminar, vuelve al reves (empezando normal)
+            alternate-reverse - Al terminar vuelve al reves (empezando al reves)
+         */
+         animation-direction: alternate;
+
+         /* Como se realiza la animación (La velocidad de la animación) */
+         /* Solo se pondria una */ /* https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_speed */
+         /*
+            animation-timing-function: linear;      - Linear
+            animation-timing-function: ease-in;     - de menos a mas 
+            animation-timing-function: ease-out;    - de mas a menos 
+            animation-timing-function: ease;        - inicio y final lento (con un impulso cerca del inicio)
+            animation-timing-function: ease-in-out; - inicio y final lento (con un impulso cerca del final)
+         */
+         animation-timing-function: ease;
+
+
+      }
+
+      /* De inicio a final */
+      @keyframes ejemplo1 {
+         from {background-color: aqua;}
+         to {background-color: yellow;}
+      }
+
+      /* Se le indican los porcentajes de tiempo */
+      @keyframes ejemplo2 {
+         0%   {background-color:red; width:200px;}
+         25%  {background-color:yellow; width:500px;}
+         50%  {background-color:blue; width:300px;}
+         75%  {background-color:green; width:700px;}
+         100% {background-color:red; width:300px;}
+      }
+      
+
+   </style>
+
+
+</head>
+<body>
+   <main>
+      <div class="transiciones">
+         Transiciones
+      </div>
+      <div class="animaciones">
+         Animaciones
+      </div>
+   </main>
+</body>
+
+</html>

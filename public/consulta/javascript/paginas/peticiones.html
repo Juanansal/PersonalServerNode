@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Peticiones HTTPS JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+
+   <script>
+      ////////////////////////////////////////////
+      // Funciones de apoyo
+      /////////////////////////////////////////////
+
+      // Creación de una petición cors
+      function createCORSRequest(method, url) {
+         var xhr = new XMLHttpRequest();
+         if ("withCredentials" in xhr) {
+         // XHR for Chrome/Firefox/Opera/Safari.
+         xhr.open(method, url, true);
+         } else if (typeof XDomainRequest != "undefined") {
+         // XDomainRequest for IE.
+         xhr = new XDomainRequest();
+         xhr.open(method, url);
+         } else {
+         // CORS not supported.
+         xhr = null;
+         }
+         return xhr;
+      }
+
+      ////////////////////////////////////////////////
+      // Devuelve el listado de todas las estaciones
+      //////////////////////////////////////////////// 
+
+      function realizarPetición() {
+         // This is a sample server that supports CORS.
+         var apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuYW5zYWxAZ21haWwuY29tIiwianRpIjoiZmEzZDA4ZjEtNzk5ZC00YWZhLWE1ZTMtMmRjZjVkYjFhYzQ1IiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE1MzMzMzUwNTYsInVzZXJJZCI6ImZhM2QwOGYxLTc5OWQtNGFmYS1hNWUzLTJkY2Y1ZGIxYWM0NSIsInJvbGUiOiIifQ.CRv5ZCxZPYAFpLGPY5t8p7kPGi_AxhGBfoIV_TVOdls';
+         var url = "https://opendata.aemet.es/opendata/api/observacion/convencional/todas?api_key="+apiKey;
+      
+         var xhr = createCORSRequest('GET', url);
+         if (!xhr) {
+         console.log('CORS not supported');
+         return;
+         }
+      
+         // Response handlers.
+         xhr.onload = function() {
+         var text = xhr.responseText;
+         var objeto = JSON.parse(text);
+         console.log(objeto);
+         };
+      
+         xhr.onerror = function() {
+         alert('Woops, there was an error making the request.');
+         };
+         xhr.send();
+      }
+
+      ////////////////////////////////////////////////////////
+      // Ejecucion
+      //////////////////////////////////////////////////////
+
+      realizarPetición();
+
+
+   </script>
+
+
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log y código</h3>
+   <main>
+</body>
+
+</html>

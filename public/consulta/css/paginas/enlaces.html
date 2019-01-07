@@ -1,0 +1,54 @@
+<html>
+<head>
+   <title> Enlaces CSS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+
+      a {
+         display: inline-block;
+         background-color: aqua;
+         text-align: center;
+         border: 2px solid rgb(3, 17, 48);
+         padding: 6px;
+         margin: 5px;
+      }
+
+      /* Enlace no visitado */
+      a:link { 
+         text-decoration: none;
+         color: red;
+      }
+
+      /* Enlace visitado */
+      a:visited {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* Pasar el raton por encima del enlace */
+      a:hover {
+         text-decoration: underline;
+         color: red;
+         font-size: 1.5em;
+      }
+
+      /* Seleccionar el link */ /* Se activa un minisegundo en el caso de ir a otra página */
+      a:active {
+         font-size: 20em;
+      }
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos">
+      <a href="https://www.google.es" id="test1">Enlace 1</a>
+   </div>
+</body>
+
+</html>

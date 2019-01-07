@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> ngModel AngularJS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   
+   <!-- Angular -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      div {
+         background-color: aqua;
+         padding: 10px;
+         margin: 10px;
+      }
+
+      input.ng-empty {
+         background-color: orange;
+      }
+
+      input.ng-not-empty {
+         background-color: red;
+         color: white;
+      }
+   </style>
+
+   <script>
+
+       /* 
+         ng-model 
+         - Sirve para vincular una variable angular al $scope
+            - Se puede colocar en inputs de formulario
+
+         - Dependiendo de su estado, angular tiene propiedades css predefinidas para esto. Se colocan en el css: input.ng-invalid {background-color: lightblue;}
+               ng-empty
+               ng-not-empty
+               ng-touched
+               ng-untouched
+               ng-valid
+               ng-invalid
+               ng-dirty
+               ng-pending
+               ng-pristine
+       */
+
+      var app = angular.module('angular', []);
+      app.controller('controlador1', controlador1);
+
+      function controlador1($scope) {
+         $scope.usuario = 'Cosas del scope';
+
+      }
+
+   </script>
+
+
+
+</head>
+<body>
+   <main ng-app="angular">
+      <div ng-controller="controlador1">
+         <div> 
+            <input type="text" ng-model="formulario"></div>
+            <span> {{ formulario }} </span>
+         </div>
+      </div>
+
+     
+   <main>
+
+   <script>
+   </script>
+
+</body>
+
+</html>

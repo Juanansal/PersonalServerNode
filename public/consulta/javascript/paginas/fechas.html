@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Date JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/jsref/jsref_obj_date.asp"><h3>Date reference</h3></a> 
+   <main>
+
+   <script>
+      // Crear nueva fecha, por defecto se coje la fecha actual
+      var fecha = new Date();
+      console.log('Fecha por defecto al crearla: '+fecha);
+
+      // Fecha definida por nosotros
+      /*
+         new Date()
+         new Date(year, month, day, hours, minutes, seconds, milliseconds) Se pueden quitar parametros aqui
+         new Date(milliseconds)
+         new Date(date string)
+      */
+      var fecha2 = new Date(1996, 2, 25);  // Año, mes, día
+      var fecha3 = new Date('2015-03-25'); // Año, mes, día
+      var fecha4 = new Date('2015-03');    // Año, mes
+      var fecha5 = new Date('2015');
+      var fecha6 = new Date('2015');         // Año
+      console.log('Otras fechas creadas: (mirar código)');
+      
+
+      // Mostrar fechas
+      console.log('\nMostrar fechas\n----------------------------------------');
+      console.log(fecha);
+      console.log(fecha3.toLocaleDateString());
+      
+      
+      // Modificar fechas
+      console.log('\nConseguir y modificar datos\n----------------------------------------');
+
+      var res = Date.parse(fecha);
+      console.log('Pasar a milisegundos (parse)');
+      console.log('Mirar las funciones get y set de la referencia');
+
+
+
+
+   </script>
+</body>
+
+</html>

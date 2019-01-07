@@ -1,0 +1,27 @@
+body
+{
+   background-color: rgb(254, 255, 191);
+}
+
+header
+{
+   height: 5px;
+   background-color: black;
+}
+
+#contenedor
+{
+   margin-top: 15px;
+}
+
+a
+{
+   font-weight: bold;
+}
+
+.ejemplos
+{
+   margin: 30px;
+   padding: 6px;
+   border: 1px solid rgb(221, 221, 221);
+}

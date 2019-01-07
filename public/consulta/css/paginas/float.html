@@ -1,0 +1,105 @@
+<html>
+<head>
+   <title> Float CSS </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_css.css">
+
+   <style>
+      * {
+         box-sizing: border-box; /* Permite que al maquetar con float y porcentajes, la web no rompa al añadir margenes y bordes. */
+                                 /* Bootstrap lo soluciona */
+      }
+
+      .float {
+         background-color: aqua;
+         border: 2px solid black;
+         margin: 5px;
+         padding: 5px;
+      }
+
+      /* Hack para que ocupe todo el espacio el contenido sin salirse de la capa */
+      .float::after {
+         content: "";
+         clear: both;
+         display: table; 
+      }
+
+      /* Hack alternativo funcional en casi la totalidad de navegadores (IE que ya nadie usa)
+      .float {
+         overflow: auto;
+      }
+      */
+
+      .maquetado_float {
+         width: 33.33%;
+         float: left;
+         border: 1px solid black;
+         text-align: center;
+      }
+
+      .maquetado_foto {
+         width: 90%;
+         margin: 10px;
+         border: 2px solid red;
+      }
+
+      .ejemplos::after {
+         content: "";
+         clear: both;
+         display: table; 
+      }
+   </style>
+
+
+</head>
+<body>
+   <div class="ejemplos">
+
+      <h1> Para maquetar una web rapido, es más recomendable usar display: inline-block;</h1> <br><br>
+
+      <div class="float">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <img src="../img/arbol.jpg" style="float: left; margin: 10px;">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+      </div>
+
+      <div class="float">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <img src="../img/arbol.jpg" style="float: right; margin: 10px;">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+      </div>
+
+      <div class="float">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <img src="../img/arbol.jpg" style="float: none; margin: 10px;">
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+         <p>ssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssssssss sssss</p>
+      </div>
+   </div>
+
+   <div class="ejemplos">
+      <div class="maquetado_float"><img class="maquetado_foto" src="../img/icono.jpg"></div>
+      <div class="maquetado_float"><img class="maquetado_foto" src="../img/icono.jpg"></div>
+      <div class="maquetado_float"><img class="maquetado_foto" src="../img/icono.jpg"></div>
+      <div class="maquetado_float"><img class="maquetado_foto" src="../img/icono.jpg"></div>
+   </div> 
+</body>
+
+</html>

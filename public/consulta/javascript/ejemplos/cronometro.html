@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+      main {
+         background-color: aqua;
+         border: 1px solid black;
+         padding: 30px;
+         margin:30px;
+      }
+      span {
+         display: inline-block;
+         text-align: center;
+         font-weight: bold;
+         margin: 0px; 
+         padding: 5px;
+         height: 20px;
+         width: 40px;
+         border: 2px solid black;
+         border-radius: 10px;
+      }
+
+   </style>
+
+   <script>
+      var tiempo; // en milisegundos
+      var centesimas = 0;
+      var segundos = 0;
+      var minutos = 0;
+      var horas = 0;
+      var cronometro = null;
+
+      function empezar() {
+         if(!cronometro) {
+            cronometro = setInterval(actualizarCrono, 10);
+         }
+      }
+
+      function parar() {
+         clearInterval(cronometro);
+         cronometro = null;
+      }
+
+      function reiniciar() {
+         centesimas = 0;
+         segundos = 0;
+         minutos = 0;
+         horas = 0;
+         actualizarHTML();
+         console.log('sssss');
+      }
+
+      function actualizarHTML() {
+         var capaH = document.getElementById('horas');
+         var capaM = document.getElementById('minutos');
+         var capaS = document.getElementById('segundos');
+         var capaC = document.getElementById('centesimas');
+
+         if(centesimas<=9) {
+            capaC.innerHTML = '0'+centesimas;
+         }
+         else {
+            capaC.innerHTML = centesimas;
+         }
+
+         if(segundos<=9) {
+            capaS.innerHTML = '0'+segundos;
+         }
+         else {
+            capaS.innerHTML = segundos;
+         }
+
+         if(minutos<=9) {
+            capaM.innerHTML = '0'+minutos;
+         }
+         else {
+            capaM.innerHTML = minutos;
+         }
+         capaH.innerHTML = horas;
+
+         if(horas<=9) {
+            capaH.innerHTML = '0'+horas;
+         }
+         else {
+            capaH.innerHTML = horas;
+         }
+      }
+
+      function actualizarCrono() {
+         centesimas++;
+         if(centesimas >= 100){
+            centesimas = 0;
+            segundos++;
+         }
+         if(segundos >= 60) {
+            segundos = 0;
+            minutos++;
+         }   
+         if(minutos >= 60) {
+            minutos = 0;
+            horas++;
+         }    
+         actualizarHTML();
+      }
+
+      
+   </script>
+   
+
+</head>
+<body>
+   <main id="contenedor">
+      <span id="horas"> 00 </span>
+      <span id="minutos"> 00 </span>
+      <span id="segundos"> 00 </span>
+      <span id="centesimas"> 00 </span>
+      <button onclick="empezar()">Empezar</button>
+      <button onclick="parar()">Pausar</button>
+      <button onclick="reiniciar()">Reiniciar</button>
+
+   </main>
+</body>
+</html>

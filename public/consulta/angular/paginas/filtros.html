@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Filtros AngularJS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <style>   
+        div {
+            background-color: aqua;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input.ng-empty {
+            background-color: orange;
+        }
+
+        input.ng-not-empty {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+    <script>
+
+        /* 
+            filtros
+            - Añadidos en el html {{ datos }} para filtrar los datos de las variables del scope
+
+            currency       Format a number to a currency format.
+            date           Format a date to a specified format.
+            filter         Select a subset of items from an array.
+            json           Format an object to a JSON string.
+            limitTo        Limits an array/string, into a specified number of elements/characters.
+            lowercase      Format a string to lower case.
+            number         Format a number to a string.
+            orderBy        Orders an array by an expression.
+            uppercase      Format a string to upper case.
+        */
+
+
+        var app = angular.module('angular', []);
+        app.controller('controlador1', controlador1);
+
+        // Se pueden crear filtros personalizados 
+        app.filter('filtro1', filtro1)
+
+        function filtro1() {
+            var funcion = function(x) {
+            x = x +' + filtro añadido';
+            return x;
+            };
+
+            return funcion;
+        }
+
+        function controlador1($scope) {
+            $scope.usuario = 'Cosas del scope';
+            $scope.numero = 50;
+
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    <main ng-app="angular">
+        <div ng-controller="controlador1">
+            <div> 
+            <input type="text" ng-model="formulario"></div>
+            <span> {{ formulario }} </span>
+            <div> {{ usuario | lowercase }} </div>
+            <div> {{ usuario | uppercase }} </div>
+
+            <!-- Currency sintaxis:  variable : simbolo : decimales -->
+            <div> Precio: {{ numero | currency : '€' : 2 }} </div>
+
+            <!-- Filtro personalizado utilizado -->
+            <div> Precio: {{ usuario | filtro1 }} </div>
+
+            
+            </div>
+        </div>
+
+        
+    <main>
+
+    <script>
+    </script>
+
+</body>
+
+</html>

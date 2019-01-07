@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> DOM JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+
+      button {
+         display: inline-block;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/jsref/default.asp"><h3>DOM Completo reference</h3></a> 
+      <button onclick="atras()">Atras</button>
+      <button onclick="adelante()">Adelante</button>
+
+   <main>
+   
+   <script>
+      // Elementos para conocer el tamaño de la pantalla (window.screen)
+      console.log('window.screen\n----------------------------------------');
+      console.log('Ancho de la pantalla: '+ window.screen.width);
+      console.log('Alto de la pantalla: '+ window.screen.height);
+      console.log('Alto de la pantalla disponible: '+ window.screen.availWidth);  // Por ejemplo la barra de inicio de windows no estaria incluido
+      console.log('Alto de la pantalla disponible: '+ window.screen.availHeight);  // Por ejemplo la barra de inicio de windows no estaria incluido
+      console.log('Profundidad de color: '+ window.screen.colorDepth); // Generalmente sera 24 bits
+      console.log('Profundidad de pixel: '+ window.screen.pixelDepth); // Generalmente sera 24 bits
+
+
+      // Manejo del URL de la web
+      console.log('\nwindow.location\n----------------------------------------');
+      console.log('URL de la web: '+ window.location.href);
+      console.log('Protocolo: '+ window.location.protocol);
+      console.log('Host de la web (www.juanansal.es): '+ window.location.hostname);
+      console.log('Path de la pagina: '+ window.location.pathname);
+      console.log('Puerto: '+ window.location.protocol);
+      console.log('Carga de una pagina web: window.location.assign');
+      //window.location.assign('https://www.google.es');
+
+
+      // Posibilidad de ir atras y adelante
+      console.log('\nwindow.history\n----------------------------------------');
+      console.log('Ir atras (Pulsar botón atras): ');
+      function atras(){
+         window.history.back();
+      }
+
+      console.log('Ir atras (Pulsar botón adelante): ');
+      function adelante(){
+         window.history.forward();
+      }
+
+
+      // Información del navegador del usuario
+      console.log('\navigator (Información del navegador)\n----------------------------------------');
+      console.log('Esta Online?: '+navigator.onLine);
+      console.log('Cookies abiertas?: '+navigator.cookieEnabled);
+      console.log('Java abierto?: '+navigator.javaEnabled());
+      console.log('AppName: '+navigator.appName); // Nombre 'Netscape' para Chrome, Forefoz, Safari ...
+      console.log('AppCodeName: '+navigator.appCodeName); // Nombre 'Mozilla para Chrome, Forefoz, Safari ...
+      console.log('MotorNavegador: '+navigator.product); // Gecko generalmente
+      console.log('Version: '+navigator.appVersion);
+      console.log('Plataforma (Sistema operativo): '+navigator.platform); // Sistema operativo
+      console.log('Idioma: '+navigator.language); 
+   
+   </script>
+</body>
+
+</html>

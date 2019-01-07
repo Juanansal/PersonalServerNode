@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> String JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      h3 {
+         padding: 10px;
+         margin: 10px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h3>Todo el funcionamiento en el log</h3>
+      <a href="https://www.w3schools.com/jsref/jsref_obj_string.asp"><h3>String reference</h3></a> 
+   <main>
+   
+   <script>
+      // \ --> Tecla de escapa para caracteres reservados \'    \"    \\ 
+      /*
+         \b Espacio en blanco
+         \n Nueva linea
+         \t Tabulacion horizonal
+         \v Tabulación vertical
+      */
+      var cadena1 = 'Cadena de ejemplo: \'Buenos dias\'. Cadena de ejemplo terminada';
+      console.log('String: '+cadena1+'\n\n');
+
+      // Longitud de la cadena
+      console.log('\nLongitud de cadena \n----------------------------------------');
+      console.log('length: '+cadena1.length);
+
+      // Busqueda en la cadena
+      console.log('\nFunciones de busqueda \n----------------------------------------');
+      console.log('indexOf (normal): '+cadena1.indexOf('ejemplo')); // Devuelve la posicion de inicio de la primera que encuentra. -1 si no encuentra nada
+      console.log('indexOf (no encuentra): '+cadena1.indexOf('ejemplooOo')); 
+      console.log('indexOf (Se indica inicio): '+cadena1.indexOf('ejemplo', 20)); // Segundo parámetro para el posición de inicio de la busqueda
+      console.log('lastIndexOf (Busca la ultima): '+cadena1.lastIndexOf('ejemplo')); // Devuelve la posicion de inicio de la ultima que encuentra. -1 si no encuentra nada
+      console.log('search: '+cadena1.search('ejemplo'));
+      // Search y indez hacen los mismo pero poseen algunas diferencias
+      // La más importante es que search soporta expresiones regulares.
+
+      // Extraccion de datos
+      console.log('\nExtracción de datos \n----------------------------------------');
+      console.log('slice (Empezando del inicio): '+cadena1.slice(2,5));
+      console.log('slice (Empezando del final): '+cadena1.slice(-5,-2)); // En negativo empieza a contar desde el dinal de la cadena
+      console.log('slice (Empezando del inicio): '+cadena1.slice(20)); // De la 3 al final
+      console.log('slice (Empezando del final): '+cadena1.slice(-3)); // De la -3 al final (empezando por el final)
+      console.log('substr (Se indica el tamaño de la extracción: '+cadena1.substr(10,5));
+
+      // Reemplazar string
+      console.log('\nReemplazar string \n----------------------------------------');
+      console.log('replace: '+cadena1.replace('ejemplo','LUL'));
+      console.log('replace: '+cadena1.replace(/ejemplo/g,'LUL')); // Se ha aplicado una expresión regular (Hace el cambio en todas coincidencias)
+      
+      // Upper/Lower case
+      console.log('\nUpper/Lower Case \n----------------------------------------');
+      console.log('toUpperCase: '+cadena1.toUpperCase());
+      console.log('toLowerCase: '+cadena1.toLowerCase());
+
+      // Extracción de datos
+      console.log('\nUpper/Lower Case \n----------------------------------------');
+      console.log('charAt: '+cadena1.charAt(0));
+      console.log('charCodeAt (Unicode): '+cadena1.charCodeAt(0));
+      var corte = cadena1.split('eje'); // Se convierte en un array corte[0], corte[1] etc...
+      console.log('split (Parte una cadena en un array): '+corte[0]);
+   </script>
+</body>
+
+</html>

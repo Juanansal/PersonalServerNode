@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Operaciones JavaScript </title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="../css/zona_javascript.css">
+
+   <style>   
+      div {
+         margin: 10px;
+         padding: 10px;
+         border: 3px solid black;
+         background-color: aqua;
+      }
+
+      button {
+         display: inline-block;
+         padding: 0px;
+         border: 3px solid black;;
+         width: 50px;
+         height: 50px;
+         border-radius: 0px;
+         margin: 10px;
+         font-size: 1.5em;
+      }
+   </style>
+
+   <script>
+
+      // Operaciones posibles
+      function operaciones(opcion) {
+         var num1 = Number(document.getElementById('valor1').value);
+         var num2 = Number(document.getElementById('valor2').value);
+         var capaRes = document.getElementById('valor3');
+
+
+         switch(opcion)
+            {
+               case 1: res = num1 + num2; break;
+               case 2: res = num1 - num2; break;
+               case 3: res = num1 * num2; break;
+               case 4: res = num1 / num2; break;
+               case 5: res = num1 % num2; break;
+               case 6: num1++; num2++; res='';
+                       document.getElementById('valor1').value = num1;
+                       document.getElementById('valor2').value = num2;
+                       break;
+               case 7: num1--; num2--; res='';
+                       document.getElementById('valor1').value = num1;
+                       document.getElementById('valor2').value = num2;
+                       break;
+            }
+
+         capaRes.value = res;   
+         console.log(buenas);
+      }
+   </script>
+</head>
+<body>
+   <main>
+
+      <strong>Num 1:</strong>
+      <input id="valor1" type="number" value="3" required>
+      <strong id="signo"></strong>
+      <input id="valor2" type="number" value="5" required>
+      <strong>Res:</strong>
+      <input id="valor3" disabled>
+      <br><br>
+
+      <button onclick="operaciones(1);">+</button>
+      <button onclick="operaciones(2);">-</button>
+      <button onclick="operaciones(3);">*</button>
+      <button onclick="operaciones(4);">/</button>
+      <button onclick="operaciones(5);">%</button>
+      <button onclick="operaciones(6);">++</button>
+      <button onclick="operaciones(7);">--</button>
+      <br><br>
+      
+      Asignaciones con operaciones: 
+      <button>+=</button>
+      <button>-=</button>
+      <button>*=</button>
+      <button>/=</button>
+      <button>%=</button>
+      <button>=</button>
+      (Sin funcionamiento) 
+   <main>
+</body>
+
+</html>

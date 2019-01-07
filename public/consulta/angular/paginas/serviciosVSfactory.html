@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Servicio vs factory AngularJS</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   
+   <!-- Angular -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+   <style>   
+      div {
+         background-color: aqua;
+         padding: 10px;
+         margin: 10px;
+      }
+
+      input.ng-empty {
+         background-color: orange;
+      }
+
+      input.ng-not-empty {
+         background-color: red;
+         color: white;
+      }
+
+      table {
+        
+         width: 100%;
+      }
+
+      table tr {
+         border: 1px solid black;
+         background-color: yellow;
+      }
+   </style>
+
+   <script>
+   
+      ////////////////////////////////////////////////
+      // Se recomienda usar factorias
+      ///////////////////////////////////////////////
+
+      var app = angular.module('angular', []);
+      app.controller('controlador1', controlador1);
+      app.controller('controlador2', controlador2);
+      app.service('servicio', servicio);
+      app.factory('factory', factory);
+
+      // Sintaxis de un servicio
+      function servicio() {
+         this.nombre = 'Pepe Servicio';
+         this.cambiaNombre = function(nombre) {       
+            this.nombre = nombre;
+            console.log('HOLA SERVICIO: '+ this.nombre);
+         }
+      }
+
+      // Sintaxis de una factory
+      function factory() {
+         var datos = {};
+         datos.nombre = 'Pepe Factory';
+         datos.cambiaNombre = function(nombre) {
+            datos.nombre = nombre;
+            console.log('HOLA FACTORY: '+ datos.nombre);
+         }
+         return datos;
+      }
+
+
+      // Los 2 controladores para ver el funcionamiento compartido entre controladores
+      function controlador1($scope, servicio, factory) {
+         $scope.servicio = servicio;
+         $scope.factory = factory;
+
+         console.log(servicio.nombre);
+         console.log(factory.nombre);
+      }
+
+      function controlador2($scope, servicio, factory) {
+         $scope.servicio = servicio;
+         $scope.factory = factory;
+
+         console.log(servicio.nombre);
+         console.log(factory.nombre);
+      }
+      
+   </script>
+
+
+
+</head>
+<body>
+   <main ng-app="angular">
+      <h3>Controlador 1</h3>
+      <div ng-controller="controlador1">
+         <div> 
+            {{ servicio.nombre }}
+         </div>
+         <button ng-click="servicio.cambiaNombre('Cambio al servicio')">Cambia nombre</button>
+
+         <div> 
+            {{ factory.nombre }}
+         </div>
+         <button ng-click="factory.cambiaNombre('Cambio al factory')">Cambia nombre</button>
+      </div>
+
+
+
+      <h3>Controlador 2</h3>
+      <div ng-controller="controlador1">
+         <div> 
+            {{ servicio.nombre }}
+         </div>
+         <button ng-click="servicio.cambiaNombre('Cambio al servicio')">Cambia nombre</button>
+
+         <div> 
+            {{ factory.nombre }}
+         </div>
+         <button ng-click="factory.cambiaNombre('Cambio al factory')">Cambia nombre</button>
+      </div>
+
+     
+   <main>
+
+   <script>
+   </script>
+
+</body>
+
+</html>

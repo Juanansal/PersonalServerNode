@@ -21,7 +21,7 @@ module.exports = function(app,conf)
                 })
             })
             .catch(function (error) {
-                res.send('ERROR');
+                res.send('error');
             });
     });
 
