@@ -1,0 +1,66 @@
+<html>
+<head>
+    <script>
+        console.log('Variables var-let-const\n------------------------------');
+
+        /////////////////////////////////////////////
+        // var: flexibilidad general  (function-scope)
+        ////////////////////////////////////////////
+
+        //////////////////////////////////////////
+        // let: Mas extricto (block-scope)
+        //////////////////////////////////////////////
+        /*
+            - Deben de estar declaradas si o si para ser usadas (Aunque se pueden declarar sin añadir datos).
+            - Deben de estar dentro del mismo bloque {} para que esta pueda ser leida (dentro de un if por ejemplo) 
+            - Solo puede ser declarada 1 vez (dentro de cada bloque)
+        */
+
+        
+        // let dentro de un bloque if y fuera (Son 2 varibles totalmente distintas)
+
+        let test = 'manzanas';
+        if (true) {
+            let test = 'peras';
+            console.log(test);
+        }
+
+        console.log(test);
+
+
+        // Variable let que seria global al ser inicializado al inicio (Leido en todos lados)
+        let global = 'Pepe';
+
+        if(true) {
+            console.log(global+' en el if');
+            let resultado = suma(5,3);
+
+            function suma(num1, num2) {
+                let res = num1 + num2;
+                console.log(global+' en la suma');
+                return res;
+            }
+
+        }
+        console.log(global+' en la raiz');
+
+
+
+
+
+        //////////////////////////////////////////
+        // const: Constantes
+        //////////////////////////////////////////////
+        /*
+            - No se pueden modificar
+            - Se deben declarar al crearlas
+            - Funciona al igual que el let en su funcionamiento en bloques {}
+        */
+
+        // Ejemplo basico
+        const datos = { ciudad: 'Alicante', edad: 50 };
+        console.log(datos.ciudad+': '+datos.edad);
+
+    </script>
+</head>
+</html>

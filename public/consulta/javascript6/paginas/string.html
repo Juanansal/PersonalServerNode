@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script>
+        // Funciones basicas (Ya contiene las añadidas con js6)
+        // https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+        ////////////////////////////////////
+        // Nuevas funciones utiles
+        ////////////////////////////////////
+
+
+        let texto = 'Hola buenos dias que tal';
+
+        let res;
+        res = texto.startsWith('Ho');           // true
+        res = texto.startsWith('la',2);         // true (2 indica cuando empieza a contar)
+        res = texto.startsWith('la',4);         // false
+
+        res = texto.endsWith('Ho');             // false
+        res = texto.endsWith('tal');            // true
+
+        res = texto.includes('la buenos');       // true
+        res = texto.includes('la buenos', 4);    // false (4 indica cuando empieza a contar)
+
+        res = texto.repeat(3);
+        console.log(res);
+
+    </script>
+</head>
+</html>
