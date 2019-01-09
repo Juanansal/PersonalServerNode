@@ -1,8 +1,52 @@
 <html>
 <head>
+    <title> Strings avanzados </title>
     <script>
         // Funciones basicas (Ya contiene las añadidas con js6)
         // https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+
+        ////////////////////////////////////
+        // Nuevo sistema para unir strings / Datos / etc
+        ////////////////////////////////////
+        
+        let nombre = 'pepe';
+        let apellidos = 'ruiz perez';
+        let favorito = 'manzanas';
+        let edad = 65;
+
+        // Antiguamente
+        console.log('Soy '+nombre+' me gustan las '+favorito+' y tengo '+edad+' años');
+
+        // Moderno
+        console.log(`Soy ${nombre} me gustan las ${favorito} y tengo ${edad} años`);
+        let nueva = `${nombre} ${apellidos}`;
+        console.log(nueva);     // Unir facil de 2 variables
+        console.log(`${edad+40} es viejo en cambio ${edad-40} es joven`);   // Hacer calculos o llamar funciones etc
+        
+
+
+
+
+
+        ///////////////////////////////////////////////
+        // Crear un string con una funcion
+        ////////////////////////////////////////////////////
+        let producto = 'Cocacola';
+        let precio = 50;
+
+        let creadoConFuncion = analizarPrecio`${producto} ${precio} cadenaaaaa`;
+        console.log(creadoConFuncion);
+
+        // La 1º variable contiene un [] con las cadenas de texto que dispone
+        function analizarPrecio(strings, producto, precio) {
+            let comoEs;
+            comoEs = (precio>40) ? 'caro' : 'barato';   // Condicion   variable = (condicion) ? valortrue : valorfalse');
+
+            return `El producto ${producto} es ${comoEs}`;
+        }
+
+
 
         ////////////////////////////////////
         // Nuevas funciones utiles
@@ -23,7 +67,21 @@
         res = texto.includes('la buenos', 4);    // false (4 indica cuando empieza a contar)
 
         res = texto.repeat(3);
-        console.log(res);
+        // console.log(res);
+
+
+
+
+
+
+
+        ////////////////////////////////////////
+        // Tratamiento caracteres especiales
+        //////////////////////////////////////////
+        console.log(`3 Saltos de linea ahora \\ \n\n\n `);     // Lee los caracteres especiales
+        console.log(String.raw`3 Saltos de linea ahora \\ \n\n\n `);   // No lee los caracteres especiales y los imprime
+
+
 
     </script>
 </head>

@@ -26,7 +26,15 @@
          suma: function() { return this.pepe + this.luis; }
       };
 
+
+      // Copiar un objeto (sin en el problema de la misma referencia a memoria)
+      var objeto3 = { ...objeto1 }
+      objeto3.pepe = 100;
+
       console.log(objeto1);
+      console.log(objeto2);
+      console.log(objeto3);
+
       console.log(objeto1.suma());
 
       // Recorrer el objeto con una funcion

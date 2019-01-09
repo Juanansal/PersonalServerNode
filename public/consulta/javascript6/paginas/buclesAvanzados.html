@@ -1,8 +1,8 @@
 <html>
 <head>
-    <script src="../data/estaciones.js"> </script>
+    <title> Bucles avanzados </title>
     <script>
-
+        // Página donde explican los bucles estos en profundidad
         // https://es.stackoverflow.com/questions/17640/for-each-en-javascript
 
         let = cadena = [20,50,30,60,50,87,52,48,96,25,87,15,69,87];
@@ -12,13 +12,14 @@
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
-            {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
+            {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'}, 
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'}];
 
         // Arrays
         cadena.forEach(function(valor,indice,array) {
-            // Codigo
+            console.log(indice+': '+valor);
+            // array indica el array completo, se puede modificar en este bucle asi array[indice]
         }) 
 
 

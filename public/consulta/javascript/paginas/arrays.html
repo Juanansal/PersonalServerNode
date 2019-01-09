@@ -33,38 +33,38 @@
 
       // Acceso
       console.log('\nAcceso\n----------------------------------------');
-      console.log('Acceso array completo:  '+vector)
-      console.log('Acceso posición 1:  '+vector[1]);
+      console.log('- Acceso array completo:  '+vector)
+      console.log('- Acceso posición 1:  '+vector[1]);
 
       // Lenght
       console.log('\nMetodos básicos\n----------------------------------------');
-      console.log('lenght (tamaño):  '+vector.length);
+      console.log('- lenght (tamaño):  '+vector.length);
 
 
       // Introducir elemento al vector
       // Se puede introducir elementos directamente con vector[8] = 'Carton'
       // Pero puede crear elementos vacios en el vector (5, 6, 7...)
-      vector.push('Carton');
-      console.log('push (nuevo tamaño)');
+      vector.push('- Carton');
+      console.log('- push (nuevo tamaño)');
 
       // isArray
       var res = Array.isArray(vector);
-      console.log('Array.isArray(vector)');
+      console.log('- Array.isArray(vector)');
 
       // toString -- join
       // join también pasa el array a String pero se le puede indicar el separador entre elementos
       var res1 = vector.toString();
       var res2 = vector.join('-');
-      console.log('toString:  '+res1);
-      console.log('join (toString con separador)');
+      console.log('- toString:  '+res1);
+      console.log('- join (toString con separador)');
 
       // Busqueda de valores 
       console.log('\nBusqueda de elementos\n----------------------------------------');
 
       // IndexOf / lastIndexOf - Busca un elemento y si lo encuentra devuelve su posición
       var pos = vector.indexOf('Luis');
-      console.log('Busqueda de un elemento - El primero que encuentra (indexOf)');
-      console.log('Busqueda de un elemento - El ultimo que encuentra (lastIndexOf)');
+      console.log('- Busqueda de un elemento - El primero que encuentra (indexOf)');
+      console.log('- Busqueda de un elemento - El ultimo que encuentra (lastIndexOf)');
 
       // metodo find para busqueda de valores usando una función de test
       var res = vector.find(function(value, index, array) {
@@ -73,7 +73,7 @@
             return value;
          }
       });
-      console.log('Busqueda de un elemento - Usando una función como test devolviendo el valor (find)');
+      console.log('- Busqueda de un elemento - Usando una función como test devolviendo el valor (find)');
 
       // metodo find para busqueda de valores usando una función de test
       var res = vector.findIndex(function(value, index, array) {
@@ -82,50 +82,55 @@
             return value;
          }
       });
-      console.log('Busqueda de un elemento - Usando una función como test devolviendo el index (findIndex)');
+      console.log('- Busqueda de un elemento - Usando una función como test devolviendo el index (findIndex)');
       
       // Introducir / sacar valores
       console.log('\nIntroducir y extraer valores\n----------------------------------------');
       vector.push('Gonzalo');
-      console.log('Meter valores al final (push)');
+      console.log('- Meter valores al final (push)');
 
       vector.unshift('Primero');
-      console.log('Meter valores al inicio (unshift)');
+      console.log('- Meter valores al inicio (unshift)');
 
       vector.pop();
-      console.log('Borrar el ultimo valor (pop)');
+      console.log('- Borrar el ultimo valor (pop)');
 
       vector.shift();
-      console.log('Borrar el primer valor (shift)');
+      console.log('- Borrar el primer valor (shift)');
  
       // Borrar elementos especificos 
       // 1º parametro -> Lugar de inicio
       // 2º parametro -> Elementos a borrar
       // Tambien se puede usar para introducir elementos splice(1,0,)
       vector.splice(1,2);
-      console.log('Borrar elementos especificos (splice)');
+      console.log('- Borrar elementos especificos (splice)');
       vector.splice(2,0,'Calvos', 'Todos');
-      console.log('Introducir elementos especificos (splice)');
+      console.log('- Introducir elementos especificos (splice)');
 
       // Combinar vectores (Se puede combinar con multiples vectores)
       var vector2 = ['LUL','LOL'];
       res = vector.concat(vector2);
-      console.log('Combinar vectores (concat)');
+      console.log('- Combinar vectores (concat)');
 
       // Extraer datos en un nuevo array
-      var res1 = vector.slice(); // Vector completo
-      var res2 = vector.slice(2) // Desde la posición indicada hasta el final 
-      var res3 = vector.slice(1,3) // Vector parcial (1-> Posición inicio, 2-> Posición final)
-      console.log('Extraer datos en un nuevo array independiente');
+      var res1 = vector.slice();    // Vector completo
+      var res2 = vector.slice(2)    // Desde la posición indicada hasta el final 
+      var res3 = vector.slice(1,3)  // Vector parcial (1-> Posición inicio, 2-> Posición final)
+      var res4 = [...res1];         // Copia moderna usando js6
+      console.log('- Copiar un array - Extraer datos en un nuevo array independiente');
+
+
+      
+
 
       // Ordenar vectores
       console.log('\nOrdenar vectores (sort)\n----------------------------------------');
 
       // Ordenar por defecto (String)
       var res = vector.sort();
-      console.log('Ordenar String (Por defecto)');
+      console.log('- Ordenar String (Por defecto)');
 
-      console.log('Invertir orden');
+      console.log('- Invertir orden');
       vector.sort();
       vector.reverse();
 
@@ -133,21 +138,21 @@
       // Ascendente
       var numeros = [5,9,1,7,6,1,2];
       numeros.sort(function(a, b){return a - b});
-      console.log('Ordenar números ascendente');
+      console.log('- Ordenar números ascendente');
 
       // Descendenete
       numeros.sort(function(a, b){return b - a});
-      console.log('Ordenar números descendente');
+      console.log('- Ordenar números descendente');
      
 
       // Ordenar numeros random
       numeros.sort(function(a, b){return 0.5 - Math.random()});
-      console.log('Ordenar números random');
+      console.log('- Ordenar números random');
 
       // Ordenar objetos (valor númerico)
       var objetos = [{coche: 'seat', edad: 50},{coche: 'ibiza', edad: 70},{coche: 'catt', edad: 30},]
       objetos.sort(function(a, b){return a.edad - b.edad});
-      console.log('Ordenar objetos (Usando números)');
+      console.log('- Ordenar objetos (Usando números)');
 
       objetos.sort(function(a, b){
          var x = a.coche.toLowerCase();
@@ -156,7 +161,7 @@
          if (x > y) {return 1;}
          return 0;
       });
-      console.log('Ordenar objetos (Usando strings)');
+      console.log('- Ordenar objetos (Usando strings)');
 
       
       // Itecación de vectores
@@ -167,7 +172,7 @@
       vector.forEach(function(value, index, array){
          // Aqui se introduce el código que se desee
       });
-      console.log('Iteración general (forEach)');
+      console.log('- Iteración general (forEach)');
 
 
       // Iteración que crea un nuevo array
@@ -177,6 +182,7 @@
          // como por ejemplo (value = value*3;   return value;)
          return value;
       });
+      console.log('- Otras iteciones filtrando ');
 
 
       // Iteración que crea un nuevo array (si pasa el test en cada iterración)

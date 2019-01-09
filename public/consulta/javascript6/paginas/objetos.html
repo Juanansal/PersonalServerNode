@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title> Objetos avanzados </title>
+    <script>
+        /////////////////////////////////////////////
+        // Copiar Objetos
+        /////////////////////////////////////////////
+        console.log('\nCopiar objetos\n---------------------------');
+
+
+        // Copiar objetos
+        console.log('- Copiar objeto basico');
+        let objeto1 = {nombre: 'Pepe', edad: 50};
+        let objeto2 = {nombre:'Luis', edad: 80, ciudad: 'Alicante', telefono:8787878}
+        let objetoNuevo1 = { ...objeto1 }; // Copia basica
+        let objetoNuevo2 = {} 
+        Object.assign(objetoNuevo2, objeto1); // Copia basica (igual resultado)
+
+
+        // Copiar objeto con propiedades nuevas, manteniendo las que ya tenia
+        console.log('- Copiar objeto con propiedades nuevas, manteniendo las que ya tenia');
+        let objetoNuevo3 = { ...objeto1, ...objeto2};   // el 2º ... es para mantener las propiedades anteriores, es como si se extendiera 2 veces
+        console.log(objeto1)        // Original
+        console.log(objetoNuevo1);  // Copia basica con ...
+        console.log(objetoNuevo2);  // copia basica con Object.assign
+        console.log(objetoNuevo3);  // Copia manteniendo valores anteriores con (...Objetomodelo, ...objeto)
+
+
+
+        /////////////////////////////////////////////
+        // Problemas con el this de un objeto
+        /////////////////////////////////////////////
+        console.log('\nProblemas con el this de un objeto\n--------------------------------------------------------');
+
+        // Problemas con el this al crear funciones de funciones dentro de un objeto y
+        console.log('- Problemas con el this al crear funciones de funciones dentro de un objeto');
+        console.log('- Simplicar declaracion de function en un objeto');
+        let objeto3 = {
+            nombre:'Luis', 
+            edad: 80, 
+            ciudad: 'Alicante', 
+            telefono: '8787878',
+            // La funcion de callback del evento es creada con el nuevo sistema de js6, ya que mantiene el this del objeto
+            hacerJoven(num) {   // Simplificacion para crear metodo dentro de un objeto
+                document.addEventListener('click',() => {
+                    console.log(this.edad);
+                })
+            }
+        }
+        
+        objeto3.hacerJoven(20);
+
+
+        /////////////////////////////////////////////
+        // Crear un objetos de manera simplificada
+        /////////////////////////////////////////////
+        console.log('\nCrear un objetos de manera simplificada\n--------------------------------------------------------');
+
+        // Simplificar el constructor
+        console.log('- Simplificar el constructor de un objeto');
+        console.log('- Simplicar declaracion de function en un objeto');
+        function crearObjeto(nombre, ciudad, edad) {
+            
+            let objeto = {  
+                // Poniendo unicamente las variables ya rellena el objeto correctamente
+                nombre, 
+                ciudad,
+                edad,
+                // Nueva posiblidad de sintaxis para el atributo. Se pueden poner entre [] para añadir strings compuestos con variables y texto
+                [nombre+' doble']: `${nombre} ${nombre}`,  
+                envejecer(anyos=5) {   // Simplicacion de las funciones dentro de un objeto
+                    this.edad += anyos; 
+                },
+                rejuvenecer(anyos=5) {  // Simplicacion de las funciones dentro de un objeto
+                    this.edad -= anyos;
+                } 
+            }  
+            return objeto;
+        }
+
+        
+        console.log('- Manejo del objeto, añadiendo y leyendo propiedades');     
+
+        persona1 = crearObjeto('Juan','Malaga',20);
+        persona1.envejecer();
+        persona1['hola que tal'] = 'Saludo';
+        persona1.dato = 'Calvo';
+        console.log(persona1);
+
+        let persona2 = {nombre: 'Pepe'};
+        let persona3 = {nombre: 'Pepe'};
+        
+        persona2 = {...persona1, ...persona2};
+        persona3 = Object.assign(persona3, persona1);
+        console.log(persona2);
+        console.log(persona3);
+
+    </script>
+</head>
+</html>

@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title> Funciones </title>
+    <script>
+        console.log(`Funciones sistema antiguo\n-----------------------------------------`);
+        /////////////////////////////////
+        // Parametros opcionales
+        /////////////////////////////
+        console.log('- Parametros opcionales ...')
+        // Si no se pasan los parametros, cojera los indicados por defecto
+        function sumar(num1 = 7, num2 = 5) {
+            let res = num1 + num2;
+            return res;
+        }
+
+        sumar();    // 12
+        sumar(5, 3) // 8
+
+
+        /////////////////////////////
+        // Objeto arguments
+        ////////////////////////////
+        // Recoje todos los argumentos de la funcion en un [] (incluido invisibles. Util para eventos por ejemplo)
+        console.log(`- Objeto arguments de las funciones`)
+
+        window.addEventListener('click', function() {
+            console.log(arguments); // Evento del raton
+        });
+
+
+
+
+
+        //////////////////////////////
+        // Parametros infinitos
+        //////////////////////////////
+        // Se pude añadir una variable x veces en un parametro indicandolo con ...valor
+        // Todos los parametros se almacenan []
+        // Tambien se puede enviar parametros infinitos usando ... al ser llamada la funcion
+        function sumarMucho(num1 = 0 ,num2 = 0, ...numeros) {
+            let res;
+            res = num1 + num2;
+            console.log(numeros);
+
+            // Todos los parametros extra los suma si son numeros
+            numeros.forEach(function(valor, i) {
+                
+                if(Number.isInteger(valor)) {
+                    res += valor;
+                }
+            });
+            return res;
+        }
+
+        // Array de numeros que se pasara como parametro
+        numeros = [5,6,8,1,2,3];
+        
+        sumarMucho(5,6,8,9,6,'pepe');   // 34
+        let res = sumarMucho(2,2, ...numeros, 5, 1);    // 35  ...numeros realmente esta metiendo como parametros los 6 elementos del array en esa posicion
+        console.log(res);
+
+
+        ////////////////////////////////////////////
+        // Nuevo sistema de crear funciones
+        ////////////////////////////////////////////////
+        /*
+            Ventajas: - Mas simples (Se pueden simplificar)  let x = param => param+5   // Devuelve la suma de param + 5
+                        No cambian la variable this
+
+            Desventajas:    - No dispone de variable arguments
+                            - No es posible utilizar ... para variable infinitas
+        */
+        console.log(`\nNuevo sistema de crear funciones\n--------------------------`);
+        console.log('- Sintaxis nueva forma');
+
+        // Modo antiguo
+        function suma1(num1, num2) {
+            let res = num1 + num2;
+            let escribir = () => {return `La suma es ${this.res}`};
+            return res;
+        }
+    
+        // Modo moderno
+        let suma2 = (num1,num2) => {
+            let res= num1+num2;
+
+            return res;
+        }
+
+        // Modo moderno
+        let devuelveObjeto = () => {
+            return {nombre:'pepe', apellidos:'gonzalo'};
+        }
+
+        var cadena= ['Hola','que','tal'];
+        
+
+        console.log(`La suma es: ${suma1(5,8)}`);
+        console.log(`La suma es: ${suma2(5,8)}`);
+        console.log(devuelveObjeto());
+
+
+
+
+
+
+        /////////////////////////////////////////////////////
+        // Funciones anonimas (No usarlas)
+        /////////////////////////////////////////////////////
+        console.log(`\n Funciones anonimas (No usarlas)\n---------------------------------`);
+
+
+        let dimeCosas1 = (function(texto) {
+            return `Buenos dias ${texto}`;
+        })('PEPE 1');
+
+        let dimeCosas2 = ((texto) => {
+            return `Buenos dias ${texto}`;
+        })('PEPE 2');
+        
+        console.log(dimeCosas1);
+        console.log(dimeCosas2);
+
+
+    </script>
+</head>
+</html>
