@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title> Simbolos </title>
+    <script>
+        /*
+            https://es.stackoverflow.com/questions/1907/para-que-sirve-un-symbol-en-javascript-es6
+
+            Los Symbols son tipo de dato único que es inmutable y puede ser utilizado como identificador de propiedades de objeto. Estos son como los tipos Number, String, y Boolean primitivos.
+
+            Para crearlo se hace de la siguiente forma, sin usar la palabra new, ya que los Symbols tienen una función Symbol la cual es utilizada para crearlos;
+
+            var sym1 = Symbol();
+            var sym2 = Symbol("foo");
+            var sym3 = Symbol("foo");
+            Como comente arriba al ser tipos únicos, el creara un nuevo Symbol el cual no sera a otro:
+
+            Symbol("foo") === Symbol("foo"); // false
+            Acerca del debuging Estos son considerados poderosos, ya que poseen una descripcion, cual es usada solo para debug para hacernos la vida mas facil al hacer debug por consola:
+
+            console.log(Symbol('foo')); // prints "Symbol(foo)" to the console.  
+            assert(Symbol('foo').toString() === 'Symbol(foo)');  
+            ¿Para que son buenos?:
+
+            Para crear y almacenar valores como integer y string que no van cambiar.
+
+            Se puede utilizar para guardar custom metadata de lo objetos, que son como secundarias para el objeto actual.
+
+            Conclusión:
+
+            Son unas pequeñas constantes que tienen algunas propiedades extras, que nos permiten trabajar mejor en debug y guardar valores únicos.
+
+            Un buen recurso es esta pagina donde hay ejemplo, y explican mucho mas extenso lo que son los symbols.
+        */
+
+
+        /////////////////////////////////////////////
+        // Base
+        /////////////////////////////////////////////
+        console.log('\nCrear Simbolos\n---------------------------');
+
+        let id = Symbol('ID USUARIO');
+
+        let objeto = {
+            [id]: 546354 ,
+            nombre: 'Pepe',
+            Ciudad: 'Toledo'
+        }
+
+
+
+    </script>
+</head>
+</html>

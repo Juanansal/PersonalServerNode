@@ -59,9 +59,9 @@
         // Simplificar el constructor
         console.log('- Simplificar el constructor de un objeto');
         console.log('- Simplicar declaracion de function en un objeto');
-        function crearObjeto(nombre, ciudad, edad) {
+        function crearPersona(nombre, ciudad, edad) {
             
-            let objeto = {  
+            let persona = {  
                 // Poniendo unicamente las variables ya rellena el objeto correctamente
                 nombre, 
                 ciudad,
@@ -75,13 +75,12 @@
                     this.edad -= anyos;
                 } 
             }  
-            return objeto;
+            return persona;
         }
-
         
         console.log('- Manejo del objeto, añadiendo y leyendo propiedades');     
 
-        persona1 = crearObjeto('Juan','Malaga',20);
+        persona1 = crearPersona('Juan','Malaga',20);
         persona1.envejecer();
         persona1['hola que tal'] = 'Saludo';
         persona1.dato = 'Calvo';
@@ -94,6 +93,85 @@
         persona3 = Object.assign(persona3, persona1);
         console.log(persona2);
         console.log(persona3);
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////
+        // Extraer todas las propiedades de un objeto rapidamente (Destructuracion de objetos)
+        ///////////////////////////////////////////////////////////
+        console.log('\nExtraer todas las propiedades de un objeto rapidamente\n--------------------------------------------------------');
+
+        let objeto = {
+            nombre: 'pepe',
+            apellidos: 'gonzalez gonzalez',
+            edad: 50,
+            ciudad: 'Marte',
+            pais: 'Andromeda',
+            telefonos: {
+                hogar: true,
+                movil: false
+            },
+            numeros: [1,2,3,4,5,6],
+            mensajes: ['Hola', 'Buenos dias', ['LUL','LOL'], 'Mensaje', 'Adios']
+
+        }
+
+        // Extraccion de todos los datos o los datos que queramos
+        // Extracción básica
+        let {nombre, apellidos, } = objeto;
+
+        // ciudad:planeta  --> El contenido de objeto.ciudad se añade a la variable planeta 
+        let {edad, ciudad:planeta} = objeto;
+
+        // Extraccion de objetos
+        let {telefonos:{movil:TelMovil}} = objeto;
+
+        // Extraccion de arrays (Para los valores que no se vaya a cojer poner la coma y dejar vacio)
+        let {numeros} = objeto;
+        let [num1,num2,,,num5] = numeros;
+
+        // Extraccion de arrays dentro de arrays
+        let {mensajes} = objeto;
+        let [m1, m2,[m31,m32],,m5, m6 = 'Valor por defecto'] = mensajes;
+        let [primero, ...resto] = mensajes;
+
+        console.log(`${nombre} vive en ${planeta} con telefono ${TelMovil}`);
+        console.log(`${num1} ${num2} ${num5}`);
+        console.log(`${m1} ${m2} ${m6}` );
+        console.log(resto);
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////
+        // Pasar por parametros de una funcion un objeto con sus paramatros desglosados 
+        ///////////////////////////////////////////////////////////
+        console.log('\n Pasar por parametros de una funcion un objeto con sus paramatros desglosados\n--------------------------------------------------------');
+
+        let opciones = {
+            apodo: 'Luis',
+            vida: 50,
+            extra: 'nada'
+        }
+
+        // Se le pasa un objeto donde recoje los valores apodo y vida del objeto, y se le pone un objeto por defecto en el caso de que 
+        // no se reciba ese parametro
+        function crearUsuario(nombre, {apodo,vida} = {apodo:'Sin apodo', vida:100} ) {
+            res = {nombre, apodo, vida};
+            return res;
+        }
+
+        let usuario1 = crearUsuario('Pepe');
+        let usuario2 = crearUsuario('Luis',opciones);
+
+        console.log(usuario1);
+        console.log(usuario2);
+
 
     </script>
 </head>
