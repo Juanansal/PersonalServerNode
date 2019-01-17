@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title> Elemento Set </title>
+    <script>
+
+        /* SETS 
+            - No permite duplicados
+            - Busca rapida de elementos
+        */
+
+
+        /////////////////////////////////////////////
+        // Crear y añadir y modificar sets
+        /////////////////////////////////////////////
+        console.log('\nCrear añadir y modificar Sets\n---------------------------');
+
+        // Crear set
+        let set1 = new Set([1,2,4]);
+        let set2 = new Set([8,6,4]);
+        let set3 = new Set([...set1, ...set2]);  // Unir 2 set
+
+        console.log(set1);
+        console.log(set2);
+        console.log(set3);
+
+
+        // Añadir valores
+        console.log('- Añadir valores simples');
+        set1.add(50);
+        set1.add(70);
+        set1.add('Manzana');
+        set1.add('Nueces');
+
+        // Añadir un objeto
+        console.log('- Añadir un objeto');
+        let obj = {nombre:'Pepe',edad:50};
+        set1.add(obj);
+
+        // Añadir una cadena
+        console.log('- Añadir una cadena');
+        set1.add(['cad1','cad2']);
+
+        // Tamaño del set
+        console.log('- Tamaño del set: size');
+        let elementos = set1.size;
+
+        // Borrar elementos
+        console.log('- Borrar elementos');
+        set1.delete(50);
+        set1.delete('Manzana');
+        set1.delete(obj);
+
+
+        // Borrar todos los elementos
+        console.log('- Borrar todos los elementos');
+        set1.clear();
+
+        // Buscar elementos
+        console.log('- Busqueda de elementos');
+        if(set1.has(70)) {
+            //console.log('Elemento encontrado');
+        }
+        else {
+            //console.log('Elemento no encontrado');
+        }
+
+        // Convertir en array
+        console.log('- Convertir en array');
+        let arrayNuevo = [...set2];
+
+        // Eliminar duplicados de un array convirtiendo a set
+        console.log('- Eliminar duplicados de un array convirtiendo a set');
+        let array = [1,5,3,2,1,5,2,1,3,4,2,6,3,2,1,4,2,5,1,3,2,5,1,2,3,2,5,1,5,2,3,6,4];
+        let sinDuplicados = new Set(array);
+        let arraySinDuplicados1 = [...sinDuplicados];   
+
+        let arraySinDuplicados2 = [... new Set(array)]  // Mismo resultado en una sola linea
+
+
+        console.log(set1);
+        console.log(set2);
+        console.log(set3);
+        console.log(sinDuplicados);
+        console.log(arraySinDuplicados1);
+        console.log(arraySinDuplicados2);
+        console.log(array);
+
+
+
+
+        /////////////////////////////////////////////
+        // Recorrer un set
+        /////////////////////////////////////////////
+        console.log('\nRecorrer un set con forEach\n---------------------------');
+
+        set2.forEach(function(valor,x,setCompleto) {
+            console.log(valor, setCompleto)
+        })
+
+
+
+
+    </script>
+</head>
+</html>

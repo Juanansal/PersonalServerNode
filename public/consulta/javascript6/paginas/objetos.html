@@ -121,19 +121,24 @@
 
         // Extraccion de todos los datos o los datos que queramos
         // Extracción básica
+        console.log('- Extraccion básica');
         let {nombre, apellidos, } = objeto;
 
-        // ciudad:planeta  --> El contenido de objeto.ciudad se añade a la variable planeta 
+        // ciudad:planeta       El contenido de objeto.ciudad se añade a la variable planeta 
+        console.log('- Extraccion renombrando la variable');
         let {edad, ciudad:planeta} = objeto;
 
         // Extraccion de objetos
+        console.log('- Extraccion de objetos');
         let {telefonos:{movil:TelMovil}} = objeto;
 
         // Extraccion de arrays (Para los valores que no se vaya a cojer poner la coma y dejar vacio)
+        console.log('- Extraccion de arrays');
         let {numeros} = objeto;
         let [num1,num2,,,num5] = numeros;
 
         // Extraccion de arrays dentro de arrays
+        console.log('- Extraccion dea arrays de arrays');
         let {mensajes} = objeto;
         let [m1, m2,[m31,m32],,m5, m6 = 'Valor por defecto'] = mensajes;
         let [primero, ...resto] = mensajes;

@@ -5,8 +5,8 @@
         // Página donde explican los bucles estos en profundidad
         // https://es.stackoverflow.com/questions/17640/for-each-en-javascript
 
-        let = cadena = [20,50,30,60,50,87,52,48,96,25,87,15,69,87];
-        let = objeto = {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'};
+        let cadena = [20,50,30,60,50,87,52,48,96,25,87,15,69,87];
+        let objeto = {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'};
         let cadenaDeObjetos = 
             [{nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
@@ -16,26 +16,47 @@
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'},
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'}];
 
+        let set = new Set([9,5,1,23,8,42,6,9,7,3]);
+        let map;
+
+        //////////////////////////////////////////////////////////
+        // Arrays
+        ///////////////////////////////////////////////////////////
+        console.log('\n Arrays\n--------------------------------------------------------');
         // Arrays
         cadena.forEach(function(valor,indice,array) {
             console.log(indice+': '+valor);
             // array indica el array completo, se puede modificar en este bucle asi array[indice]
         }) 
 
-
+        //////////////////////////////////////////////////////////
         // Objetos (Recorre cada valor del objeto)
+        ///////////////////////////////////////////////////////////
+        console.log('\n Objetos\n--------------------------------------------------------');
         for(propiedad in objeto) {
             if (objeto.hasOwnProperty(propiedad)) {
                  console.log("Propiedad: " + propiedad + '       Valor: ' + objeto[propiedad]);
             }
         }
 
+        //////////////////////////////////////////////////////////
+        // Arrays con objetos
+        ///////////////////////////////////////////////////////////
+        console.log('\n Arrays con objetos\n--------------------------------------------------------');
 
-        // Array con objetos
         Object.keys(cadenaDeObjetos).forEach(function(i) {
             console.log(cadenaDeObjetos[i]);
         });
 
+
+        //////////////////////////////////////////////////////////
+        // Sets
+        ///////////////////////////////////////////////////////////
+        // El valor de key es el mismo al del valor, siempre mostrara el valor,
+        console.log('\n Sets\n--------------------------------------------------------');
+        set.forEach( function(valor,key,setCompleto) {
+            console.log(valor, setCompleto);
+        })
 
     </script>
 </head>

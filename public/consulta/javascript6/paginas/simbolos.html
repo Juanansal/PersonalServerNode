@@ -38,7 +38,7 @@
         /////////////////////////////////////////////
         console.log('\nCrear Simbolos\n---------------------------');
 
-        let id = Symbol('ID USUARIO');
+        let id = Symbol.for('ID USUARIO');  // Si existe, lo modifica, si no existe lo crea
 
         let objeto = {
             [id]: 546354 ,
