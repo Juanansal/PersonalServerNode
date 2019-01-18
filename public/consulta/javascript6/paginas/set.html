@@ -14,7 +14,9 @@
         /////////////////////////////////////////////
         console.log('\nCrear añadir y modificar Sets\n---------------------------');
 
+
         // Crear set
+        console.log('- Crear set');
         let set1 = new Set([1,2,4]);
         let set2 = new Set([8,6,4]);
         let set3 = new Set([...set1, ...set2]);  // Unir 2 set
@@ -31,18 +33,22 @@
         set1.add('Manzana');
         set1.add('Nueces');
 
+
         // Añadir un objeto
         console.log('- Añadir un objeto');
         let obj = {nombre:'Pepe',edad:50};
         set1.add(obj);
 
+
         // Añadir una cadena
         console.log('- Añadir una cadena');
         set1.add(['cad1','cad2']);
 
+
         // Tamaño del set
         console.log('- Tamaño del set: size');
         let elementos = set1.size;
+
 
         // Borrar elementos
         console.log('- Borrar elementos');
@@ -55,6 +61,7 @@
         console.log('- Borrar todos los elementos');
         set1.clear();
 
+
         // Buscar elementos
         console.log('- Busqueda de elementos');
         if(set1.has(70)) {
@@ -64,9 +71,11 @@
             //console.log('Elemento no encontrado');
         }
 
+
         // Convertir en array
         console.log('- Convertir en array');
         let arrayNuevo = [...set2];
+
 
         // Eliminar duplicados de un array convirtiendo a set
         console.log('- Eliminar duplicados de un array convirtiendo a set');

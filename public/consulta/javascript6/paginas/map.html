@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title> Elemento Map </title>
+    <script>
+
+        /* SETS 
+            - Son elementos de clave - valor
+            - No permite duplicados (de clave)
+        */
+
+
+        /////////////////////////////////////////////
+        // Crear y añadir y modificar maps
+        /////////////////////////////////////////////
+        console.log('\nCrear añadir y modificar Map\n---------------------------');
+
+
+        var datos1 = ['Nombre','Luis'];
+        var datos2 = ['Ciudad','Murcia'];
+
+        // Crear map   
+        console.log('- Crear Map')
+        let mapa1 = new Map();
+        let mapa2 = new Map([['Nombre','Gonzalo'],['esPremium',true]]);  // Inicializacion con valores
+        let mapa3 = new Map([datos1,datos2]);   // datos1 y datos2 son arrays de 2 valores (llave,valor)
+
+        // Añadir valores
+        console.log('- Añadir valores');
+        mapa1.set('Nombre','Juan');
+        mapa1.set('Edad',50);
+        mapa1.set('Telefonos', new Set([86165656,65524564,598364568]));
+        mapa1.set('Descripcion');   // No es necesario poner valor (seria undefined en este caso)
+
+
+        // Modificar valores
+        console.log('- Modificar valores');
+        mapa1.set('Nombre', 'Pepe');        // Si ya existe lo modifica, si no lo crea
+        mapa1.set('Descripcion','LUL');
+
+
+        // Recuperar valores (Se busca por la clave)
+        console.log('- Recuperar y buscar valores');
+        let get = mapa1.get('Nombre');  // Pepe
+        let has = mapa1.has('Nombre');  // true
+
+
+        // Borrar valores
+        console.log('- Borrar valores');
+        mapa1.delete('Descripcion');    // Se busca por la clave
+
+
+        // Borrar todos los valores
+        console.log('- Borrar todos los valores');        
+        mapa2.clear();
+
+
+        console.log(mapa1);
+        console.log(mapa2);
+        console.log(mapa3);
+        console.log(get+' '+has);
+
+
+
+        /////////////////////////////////////////////
+        // Recorrer un map
+        /////////////////////////////////////////////
+        console.log('\nRecorrer un set con forEach\n---------------------------');
+        mapa1.forEach(function(valor, clave, mapaCompleto) {
+            console.log(`${clave}: ${valor}`);
+            // Si queremos modificar el mapa en el bucle recurririamos al mapaCompleto
+        });
+
+    </script>
+</head>
+</html>

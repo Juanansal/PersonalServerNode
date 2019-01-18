@@ -17,46 +17,99 @@
             {nombre: 'Luis', telefono: 545454, ciudad: 'Alicante'}];
 
         let set = new Set([9,5,1,23,8,42,6,9,7,3]);
-        let map;
+        let map = new Map([['Nombre','Gonzalo'],['esPremium',true]]);
+
+
+
 
         //////////////////////////////////////////////////////////
         // Arrays
         ///////////////////////////////////////////////////////////
-        console.log('\n Arrays\n--------------------------------------------------------');
-        // Arrays
+        console.log('- Arrays');
         cadena.forEach(function(valor,indice,array) {
-            console.log(indice+': '+valor);
+            // console.log(indice+': '+valor);
             // array indica el array completo, se puede modificar en este bucle asi array[indice]
-        }) 
+        })
+
+
+
+
 
         //////////////////////////////////////////////////////////
         // Objetos (Recorre cada valor del objeto)
         ///////////////////////////////////////////////////////////
-        console.log('\n Objetos\n--------------------------------------------------------');
+
+        // Si se quiere recoger la clave
+        console.log('- Objetos');
         for(propiedad in objeto) {
-            if (objeto.hasOwnProperty(propiedad)) {
-                 console.log("Propiedad: " + propiedad + '       Valor: ' + objeto[propiedad]);
+            if (objeto.hasOwnProperty(propiedad)) {    
+                 // console.log("Propiedad: " + propiedad + '       Valor: ' + objeto[propiedad]);
             }
         }
+
+        // Simplificado
+        console.log('- Objetos simplificado');
+        for (propiedad in objeto) {
+            // console.log(objeto);
+        }
+
+
+
+
 
         //////////////////////////////////////////////////////////
         // Arrays con objetos
         ///////////////////////////////////////////////////////////
-        console.log('\n Arrays con objetos\n--------------------------------------------------------');
+        console.log('- Arrays con objetos con foreach');
 
         Object.keys(cadenaDeObjetos).forEach(function(i) {
-            console.log(cadenaDeObjetos[i]);
+            // console.log(cadenaDeObjetos[i]);
         });
+
+        // Simplificado
+        console.log('- Arrays con objetos con for of');
+        for(valor of cadenaDeObjetos) {
+            // console.log(valor);
+        }
+
+
+
 
 
         //////////////////////////////////////////////////////////
-        // Sets
+        // Set
         ///////////////////////////////////////////////////////////
         // El valor de key es el mismo al del valor, siempre mostrara el valor,
-        console.log('\n Sets\n--------------------------------------------------------');
+        console.log('- Sets');
         set.forEach( function(valor,key,setCompleto) {
-            console.log(valor, setCompleto);
+            // console.log(valor, setCompleto);
         })
+
+        // Simplificado
+        console.log('- Sets simplificado');
+        for(valor of set) {
+            // console.log(valor);
+        }
+
+
+
+
+        //////////////////////////////////////////////////////////
+        // Map
+        ///////////////////////////////////////////////////////////
+        console.log('- Maps');
+
+        map.forEach(function(valor, clave, mapaCompleto) {
+            //console.log(`${clave}: ${valor}`);
+            // Si queremos modificar el mapa en el bucle recurririamos al mapaCompleto
+        })
+
+        // Simplificado
+        console.log('- Maps simplificado');
+        for(valor of set) {
+           // console.log(valor, );
+        }
+
 
     </script>
 </head>
