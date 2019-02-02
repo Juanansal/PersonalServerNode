@@ -1,0 +1,165 @@
+<html>
+<head>
+    <title> Clases en javascript </title>
+    <script>
+        
+
+
+        // Objeto con sus propiedades que devolvemos con return
+        // No es realmente una clase por lo que prototype no funcionaria
+        console.log('- Definicion como objeto');
+
+        function UsuarioObjeto(nombre, edad, ciudad) {
+
+            let usuario = {
+                nombre,
+                edad,
+                ciudad,
+                info:'',
+                sumaEdad(num) {
+                    return this.edad+=num;
+                }
+            }
+            return usuario;
+        }
+
+
+
+        // Definicion como clase usando JavaScript antiguo
+        console.log('- Definicion como clase usando JavaScript5');
+
+        function UsuarioViejo(nombre, edad, ciudad) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.ciudad = ciudad;
+            this.info = '';
+
+            this.sumaEdad = function(num) {
+                return this.edad+=num;
+            }
+        }
+
+
+
+        // Clase usando Javascript6
+        console.log('- Definicion como clase usando Javascript6');
+        console.log('- Uso de metodos y propiedades estaticas');
+
+        class UsuarioNuevo {
+
+            
+        
+            constructor(nombre, edad, ciudad) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.ciudad = ciudad;
+                this.info = '';
+            }
+
+            sumaEdad(num) {  
+                return this.edad+=num;
+            }
+
+            // Metodos estaticos
+            static crearUsuario(nombre, edad, ciudad) {
+                let res = new UsuarioNuevo(nombre, edad, ciudad);
+                return res;
+            }
+        }
+
+
+
+
+        // Herencia de clases
+        console.log('- Herencia de una clase');
+        console.log('- Uso de super para ');
+
+        class UsuarioPago extends UsuarioNuevo{
+
+            //static cont 0;
+
+            constructor(nombre, edad, ciudad, pago) {
+                super(nombre, edad, ciudad);    // Llama al constructor del padre
+                this.pago = pago;
+            }
+
+            cambiarEdad(num) {
+                // Llama a la funcion sumaEdad del padre
+                // Si se define una funcion sumaEdad en esta clase, se llamaria a la escrita en esta clase
+                // para llamar a la del padre, se deberia usar el super  super.sumaEdad(num)
+                let res = super.sumaEdad(num);  
+                this.edad = res;
+
+                return this.edad;
+            }
+        }
+
+
+       
+
+
+        // Crear las clases con los objetos
+        console.log('- Creacion de las clases');
+
+        let objeto1 = UsuarioObjeto('Pepe',50,'Murcia');
+        let objeto2 = UsuarioObjeto('Luis',30,'Madrid');
+
+        let viejo1 = new UsuarioViejo('Pepe',50,'Murcia');
+        let viejo2 = new UsuarioViejo('Luis',30,'Madrid');
+
+        let nuevo1 = new UsuarioNuevo('Pepe',50,'Murcia');
+        let nuevo2 = new UsuarioNuevo('Luis',30,'Madrid');
+        let nuevo3 = UsuarioNuevo.crearUsuario('Juan',25,'Burgos');
+
+        let herencia1 = new UsuarioPago('Pepe',50,'Murcia', true);
+        let herencia2 = new UsuarioPago('Luis',30,'Madrid', false);
+
+
+
+        // Añadir propiedades a la clase con prototype
+        console.log('- Añadir propiedades con prototype a las clases');
+        UsuarioViejo.prototype.lul = function() { console.log('LUL ')}   
+        UsuarioNuevo.prototype.lul = function() { console.log('LUL ')}  
+
+
+
+        // Añadir propiedades a la clase con prototype
+        UsuarioViejo.prototype.lul = function() { console.log('LUL ')}   
+        UsuarioNuevo.prototype.lul = function() { console.log('LUL ')}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+        console.log(objeto1);
+        console.log(objeto2);
+        console.log(viejo1);
+        console.log(viejo2);
+        console.log(nuevo1);
+        console.log(nuevo2);
+        console.log(nuevo3);
+        console.log(herencia1);
+        console.log(herencia2);
+        console.log(herencia1.sumaEdad(25));
+        console.log(herencia1.cambiarEdad(25));
+
+        
+
+
+/*
+        nuevo.sumaEdad(-4);
+        UsuarioNuevo.prototype.hola = () => console.log('LUL');
+        console.log(nuevo.edad);
+        nuevo.hola();
+*/
+    </script>
+</head>
+</html>

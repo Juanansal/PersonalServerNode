@@ -3,6 +3,7 @@
 
 var axios = require('axios');
 
+// Realizado incorrectamente con promesas (Pero funcional)
 // Devuelve todas las estaciones meteorologicas de españa
 module.exports = function(app,conf)
 {
@@ -25,6 +26,8 @@ module.exports = function(app,conf)
             });
     });
 
+
+    // Realizado incorrectamente con promesas (Pero funcional)
 
     // Devuelve los datos de una estación dia por dia durante una mes
     // Si falla o no encuentra datos devuelve 'error'
@@ -63,6 +66,52 @@ module.exports = function(app,conf)
     });
 
 
+
+
+    // Realizado con promesas correctamente
+
+    // Devuelve los datos de una estación mes por mes durante un año
+    // Si falla o no encuentra datos devuelve 'error'
+    app.get('/api/meteo/dameDatosDeEstacionPorMes', function(req, res){
+
+        // Se recojen paramentros
+        var anyo = req.query.anyo;
+        var estacion = req.query.estacion;
+        var url = 'https://opendata.aemet.es/opendata/api/valores/climatologicos/mensualesanuales/datos/anioini/'+anyo+'/aniofin/'+anyo+'/estacion/'+estacion;
+        //console.log(url);
+
+        axios({
+            method: 'get',
+            url: url,
+            params: { api_key: conf.meteo.apikey },
+            encoding: 'utf8'
+        })
+            .then(function (response) {
+                //console.log(response1.data);
+                if(response.data.estado != 404) {
+                    return axios.get(response.data.datos);                               
+                }
+                else {
+                    res.send('error');
+                }
+            })
+            .then(function(response) {
+                console.log('/api/meteo/dameDatosDeEstacionPorMes EXITO');    
+                res.send(response.data);
+            })
+            .catch(function (error) {
+                res.send('error');
+            });
+    });
+
+
+
+
+
+
+
+    
+/*
     // Devuelve los datos de una estación mes por mes durante un año
     // Si falla o no encuentra datos devuelve 'error'
     app.get('/api/meteo/dameDatosDeEstacionPorMes', function(req, res){
@@ -96,6 +145,13 @@ module.exports = function(app,conf)
                 res.send('error');
             });
     });
+
+
+*/
+
+
+
+
    
 
 }

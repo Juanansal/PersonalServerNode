@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title> Promesas </title>
+    <script>
+
+
+    // Promesa para una supuesta peticion externa
+    console.log('- Promesa para una supuesta peticion externa');
+    function peticion1(num) {
+        let promesa = new Promise((resolve, error) => {
+
+            if(num==5) {
+                resolve('Resultado peticion 1');
+            }
+            else {
+                error('El parametro no ha sido 5');
+            }
+
+        })
+
+        return promesa;
+    }
+
+
+    // Promesa para una supuesta peticion externa CON parametros del resultado de otra peticion
+    console.log('- Promesa para una supuesta peticion externa 2 con parametros recibidos de la peticion 1');
+    function peticion2(datos) {
+        let promesa = new Promise((resolve, error) => {
+
+            //console.log(datos);
+            resolve({parametros: datos, res: 'Resultado peticion 2'});
+        })
+
+        return promesa;
+    }
+
+
+
+    // Ejecución de la peticion
+    // ---------------------------------------
+    // funciona y error son el codigo a ejecutar cuando se realice la peticion correctamente.
+    // Estas funciones pueden retornar otra promesa que se ejecutaria con un nuevo then
+    // Util para realizar multiples peticiones con sus multiples callback
+    console.log('- Ejecución de la promesa');
+
+    // Un parametro para comprobar el error al recibir la promesa
+    let num = 6;
+    
+
+    // PRIMER CASO MANEJANDO LOS ERRORES INDIVIDUALMENTE POR PETICION
+
+    // Peticion 1 con su respuesta y su error
+    peticion1(num)
+        .then(function(respuesta) {
+            console.log(respuesta);
+            return peticion2(respuesta);
+            
+        }, function(error) {
+            console.error(error);
+            return 0;
+
+        // Segunda peticion
+        })
+        .then(function(respuesta) {
+
+            // Si existe una respuesta (No ha fallado la peticion 1, realiza la peticion 2)
+            if(respuesta) {
+                console.log(respuesta.res+'  con parametros: '+respuesta.parametros);
+            }
+            return 0;
+        });
+
+
+
+     console.log('- Ejecución de la promesa de manera OPTIMA');
+     // SEGUNDO CASO MANEJANDO LOS ERRORES A NIVEL GENERAL (Si sale un error, lo muestra y ya no ejecutaria el resuto de los then)
+     // ESTA FORMA ES MAS CORRECTA
+        
+    // Peticion 1 con su respuesta y su error
+    peticion1(num)
+        .then(function(respuesta) {
+            console.log(respuesta);
+            return peticion2(respuesta);
+        })
+    // Segunda peticion
+        .then(function(respuesta) {
+
+        // Si existe una respuesta (No ha fallado la peticion 1, realiza la peticion 2)
+        console.log(respuesta.res+'  con parametros: '+respuesta.parametros);      
+    })
+    .catch(function(error) {
+        console.error(error);
+    });
+
+
+
+
+
+    </script>
+
+
+
+
+    
+
+
+
+
+</head>
+</html>
