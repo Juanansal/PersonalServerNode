@@ -50,7 +50,6 @@ function error(mensaje:string):never {
 
 
 // Parametros opcionales (2 maneras)
-
 // Poniendo un valor por defecto (Si no hay parametro cojera el valor por defecto)
 function opcional1(texto:string = 'Soy el por defecto'):void {
     console.log(texto);
@@ -64,3 +63,9 @@ function opcional2(texto?:string):void {
 
 
 
+
+// Parametros opcionales REST (numero de parametro X en un array)
+function datos(nombre:string, ...resto:any[]):void {
+    console.log(nombre);
+    console.log(resto);
+}

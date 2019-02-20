@@ -34,3 +34,8 @@ function opcional1(texto = 'Soy el por defecto') {
 function opcional2(texto) {
     console.log(texto);
 }
+// Parametros opcionales REST (numero de parametro X en un array)
+function datos(nombre, ...resto) {
+    console.log(nombre);
+    console.log(resto);
+}

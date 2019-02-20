@@ -41,7 +41,16 @@ let codigo2 = validar.Funciona; // Tendria el valor de 0
 let algo = '9898.9889876546545';
 let res1 = algo.length; // devuelve la longitud del string
 let res2 = algo.toExponential; // Devuelve undefined ya que no es un numero (aunque al poner <number> lo ejecuta sin problemas)
-// Para funciones
-// -------------------
-// void
-// never
+// Funciones
+// Estructura de una funcion 
+let funcion;
+funcion = function lul(nombre, ...opcional1) {
+    console.log(nombre);
+    console.log(opcional1);
+};
+let alicante = {
+    nombre: 'Alicante',
+    coordenadaX: 50,
+    coordenadaY: 60,
+};
+let misNumeros = [505, 154, 65465, 64154, 65416, 6534138, 56468, 416854];
