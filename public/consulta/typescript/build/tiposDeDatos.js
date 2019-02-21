@@ -54,3 +54,4 @@ let alicante = {
     coordenadaY: 60,
 };
 let misNumeros = [505, 154, 65465, 64154, 65416, 6534138, 56468, 416854];
+//# sourceMappingURL=tiposDeDatos.js.map

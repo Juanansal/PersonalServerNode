@@ -62,5 +62,6 @@ typings/
 
 # Ficheros de la aplicacion
 config/local.js
+*.map
 
 

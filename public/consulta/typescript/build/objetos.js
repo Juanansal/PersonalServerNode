@@ -16,3 +16,4 @@ let objeto2 = {
         return this.nombre;
     }
 };
+//# sourceMappingURL=objetos.js.map

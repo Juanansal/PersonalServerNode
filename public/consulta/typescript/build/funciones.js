@@ -39,3 +39,4 @@ function datos(nombre, ...resto) {
     console.log(nombre);
     console.log(resto);
 }
+//# sourceMappingURL=funciones.js.map
