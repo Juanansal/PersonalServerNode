@@ -31,3 +31,4 @@ let objeto2:Usuario= {
         return this.nombre
     }
 };
+

@@ -15,10 +15,6 @@ tsc -w                          // Inicia el modo watch (Compila automaticamente
 tsc -init                        // Creacion del fichero de configuracion              
 - Mirar cada caracteristica en el tsconfig.json de este proyecto
 
-
-
-
-
 */
 
 
@@ -30,6 +26,17 @@ gracias a unos ficheros .map que creara de cada fichero typescript
 
 "sourceMap": true,   //  
 */
-console.log('BUENOS DIeeeshsassasAS');
+
+
+
+/* COMPILACION DEL CODIGO A JAVASCRIPT
+- Si se quieren tener ficheros independientes de cada typescript (En una ruta especifica)
+    "outDir": "../build", 
+
+- Si se quiere tener todo en un unico fichero
+    "outFile": "../build/main.js",    // Genera todo el codigo en un unico fichero */
+
+
+console.log('BUENOS TARDssES');
 
 

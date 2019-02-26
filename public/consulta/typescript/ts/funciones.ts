@@ -3,7 +3,7 @@
 
 // Funcion básica con parametro y return
 // Siempre se debe poner los tipos de parametro y el tipo del return
-function general(texto:string = 'POR DEFECTO', ...resto:any[]):string {
+function general(texto:string = 'POR DEFECTOo', ...resto:any[]):string {
 
     if(resto.length>0) {
         console.log(resto);
@@ -14,7 +14,6 @@ function general(texto:string = 'POR DEFECTO', ...resto:any[]):string {
     console.log(texto);
     return texto;
 }
-
 
 
 

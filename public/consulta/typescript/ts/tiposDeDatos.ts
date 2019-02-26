@@ -115,3 +115,8 @@ let alicante:Ciudad = {
 // Para una cadena
 type Telefonos = number[]
 let misNumeros:Telefonos = [505,154,65465,64154,65416,6534138,56468,416854];
+
+
+
+
+let pepe:string = 'PEPE';
