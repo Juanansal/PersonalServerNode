@@ -124,12 +124,27 @@ class Usuario54 {
 function escribeCosas(objeto) {
     console.log(`Funcion escribeCosas dice: ${objeto.nombre} con edad ${objeto.edad}`);
 }
-define("modulos2", ["require", "exports", "modulos1"], function (require, exports, modulos1_1) {
+escribeCosas(pepe);
+escribeCosas(pepe2);
+let claseee = new Usuario54('Marco', 60);
+console.log(claseee);
+define("namespace1", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    let objeto555 = new modulos1_1.Pepe('luis');
-    console.log(objeto555);
-    console.log('BUENOS DIAS');
+    var Enviar;
+    (function (Enviar) {
+        Enviar.nombreX = 'pepe';
+        function decirHola() {
+            console.log('BUENOS DIAS');
+        }
+        Enviar.decirHola = decirHola;
+    })(Enviar = exports.Enviar || (exports.Enviar = {}));
+});
+define("namespace2", ["require", "exports", "namespace1"], function (require, exports, namespace1_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    console.log(namespace1_1.Enviar.nombreX);
+    namespace1_1.Enviar.nombreX;
 });
 let objeto1 = {};
 let objeto2 = {
@@ -174,4 +189,4 @@ funcion = function lul(nombre, ...opcional1) {
     console.log(nombre);
     console.log(opcional1);
 };
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js base namespace1 namespace2.map

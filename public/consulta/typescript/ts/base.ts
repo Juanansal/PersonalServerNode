@@ -37,6 +37,10 @@ gracias a unos ficheros .map que creara de cada fichero typescript
     "outFile": "../build/main.js",    // Genera todo el codigo en un unico fichero */
 
 
-console.log('BUENOS TARDssES');
 
+
+// Pruebas
+/*
+console.log('BUENOS TARDssEsS');
+*/
 

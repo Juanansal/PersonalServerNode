@@ -93,30 +93,3 @@ funcion =  function lul(nombre:string, ...opcional1:any[]):void {
     console.log(nombre);
     console.log(opcional1);
 }
-
-
-
-// Creacion de tipos personalizados (Se puede crear para todo tipo de datos)
-
-// Para un objeto
-type Ciudad = {
-    nombre:string,
-    coordenadaX ?: number,
-    coordenadaY ?: number,
-    dameNombre ?: ()=>string
-};
-let alicante:Ciudad = {
-    nombre: 'Alicante',
-    coordenadaX: 50,
-    coordenadaY: 60,
-};
-
-
-// Para una cadena
-type Telefonos = number[]
-let misNumeros:Telefonos = [505,154,65465,64154,65416,6534138,56468,416854];
-
-
-
-
-let pepe:string = 'PEPE';
