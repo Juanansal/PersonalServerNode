@@ -1,3 +1,9 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 class ClaseUsuario {
     constructor(nombre, edad, admin) {
         this.admin = false;
@@ -62,6 +68,31 @@ let clase2 = new ClaseUsuario('Luis', 30, true);
 let herencia1 = new ClaseProfesores('Paco', 50, null, null, 'A saber');
 ClaseJefeUnico.actualizarJefe('LUISITO', 96);
 ClaseJefeUnico.actualizarJefe('PEDRITO', 32);
+function decorador1(constructor) {
+    constructor.prototype.anuncio = function () {
+        console.log('BUENOS DIAS!!!!!!!!!!');
+    };
+}
+function decorador2(opcion) {
+    if (opcion) {
+        return decorador1;
+    }
+    else {
+        return null;
+    }
+}
+let ClaseDecorador = class ClaseDecorador {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+};
+ClaseDecorador = __decorate([
+    decorador1, decorador2(true)
+], ClaseDecorador);
+let dec1 = new ClaseDecorador('Pepe', 40);
+dec1.anuncio();
+console.log(dec1);
 function general(texto = 'POR DEFECTOo', ...resto) {
     if (resto.length > 0) {
         console.log(resto);
@@ -92,6 +123,23 @@ function datos(nombre, ...resto) {
     console.log(nombre);
     console.log(resto);
 }
+function funcionGenerica1(algo) {
+    return algo;
+}
+function funcionGenerica2(algo) {
+    return algo;
+}
+class ClaseGenerica {
+    constructor() {
+        this.nombre = 'Sin asignar';
+        this.edad = NaN;
+    }
+    setDescripcion(valor) {
+        return this.descripcion;
+    }
+}
+let res52 = funcionGenerica1('PEPE');
+let res21 = funcionGenerica1(56);
 let alicante = {
     nombre: 'Alicante',
     coordenadaX: 50,
@@ -124,13 +172,6 @@ class Usuario54 {
 function escribeCosas(objeto) {
     console.log(`Funcion escribeCosas dice: ${objeto.nombre} con edad ${objeto.edad}`);
 }
-define("modulos2", ["require", "exports", "modulos1"], function (require, exports, modulos1_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    let objeto555 = new modulos1_1.Pepe('luis');
-    console.log(objeto555);
-    console.log('BUENOS DIAS');
-});
 let objeto1 = {};
 let objeto2 = {
     nombre: 'Luis',
