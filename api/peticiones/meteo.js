@@ -86,22 +86,22 @@ module.exports = function(app,conf)
             params: { api_key: conf.meteo.apikey },
             encoding: 'utf8'
         })
-            .then(function (response) {
-                //console.log(response1.data);
-                if(response.data.estado != 404) {
-                    return axios.get(response.data.datos);                               
-                }
-                else {
-                    res.send('error');
-                }
-            })
-            .then(function(response) {
-                console.log('/api/meteo/dameDatosDeEstacionPorMes EXITO');    
-                res.send(response.data);
-            })
-            .catch(function (error) {
+        .then(function (response) {
+            //console.log(response1.data);
+            if(response.data.estado != 404) {
+                return axios.get(response.data.datos);                               
+            }
+            else {
                 res.send('error');
-            });
+            }
+        })
+        .then(function(response) {
+            console.log('/api/meteo/dameDatosDeEstacionPorMes EXITO');    
+            res.send(response.data);
+        })
+        .catch(function (error) {
+            res.send('error');
+        });
     });
 
 
