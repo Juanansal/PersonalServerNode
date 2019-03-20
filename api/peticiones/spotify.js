@@ -1,5 +1,6 @@
 
 var axios = require('axios');
+axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
 // Realizado incorrectamente con promesas (Pero funcional)
 // Devuelve todas las estaciones meteorologicas de españa

@@ -7,6 +7,13 @@ var cors = require('cors');
 var fs = require('fs');
 var app = express();
 
+// Configurar cabeceras y cors
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 // Config variables de aplicacion
 var conf = require('./config/config.js')();
 
