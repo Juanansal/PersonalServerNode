@@ -15,7 +15,8 @@ require('./config/db.js')(conf);
 
 // Config API (modelos)
 require('./api/peticiones/Rush.js')(app);
-require('./api/peticiones/meteo.js')(app,conf);
+require('./api/peticiones/meteo.js')(app, conf);
+require('./api/peticiones/spotify.js')(app, conf);
 
 // Config del servidor
 app.set('port', (process.env.PORT || 5000));
@@ -32,6 +33,7 @@ app.use(express.static(__dirname + '/public/editor'));
 app.use(express.static(__dirname + '/public/controlguild'));	
 app.use(express.static(__dirname + '/public/meteo'));	
 app.use(express.static(__dirname + '/public/consulta'));	
+app.use(express.static(__dirname + '/public/angular'));
 
 
 

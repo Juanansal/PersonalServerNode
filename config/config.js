@@ -19,7 +19,12 @@ function init() {
             },
             meteo: { 
                 apikey: process.env.METEO_APIKEY 
+            },
+            spotify: {
+                secret: process.env.SECRET_SPOTIFY,
+                public: process.env.PUBLIC_SPOTIFY
             }
+                
         }
     }
     return enviar;
