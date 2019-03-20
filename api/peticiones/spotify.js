@@ -11,8 +11,8 @@ module.exports = function(app,conf)
     // Si falla o no encuentra datos devuelve 'error'
     app.get('/api/spotify/dameToken', function(req, res){
 
-        let dato = 'BUENOS DIASSSSSSSSSSSSSSS';
-        console.log(dato)
+        let dato = { hola: 'que tal'};
+        console.log(dato);
         res.send(dato);
     });
 
