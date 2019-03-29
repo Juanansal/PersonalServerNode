@@ -10,11 +10,11 @@ module.exports = function(app,conf)
 
     let client_id = conf.spotify.public;
     let client_secret = conf.spotify.secret;
-    let spotifyUrl = 'https://accounts.spotify.com/api/token';
 
     app.get('/api/spotify/dameToken', function(req, res){
 
-        
+        let spotifyUrl = 'https://accounts.spotify.com/api/token';
+
         var authOptions = {
             url: spotifyUrl,
             headers: {
@@ -38,21 +38,40 @@ module.exports = function(app,conf)
     
             res.json(body);
     
-        });
-
-
-
-
-
-/*
-        let dato = { 
-            hola: 'que tal', 
-            public: publicKey,
-            private: secretKey
-        };
-        console.log(dato);
-        */
+        })
     });
 
 
+
+    //////////////////////////////////
+    // Authentificacion para spotify
+    /////////////////////////////////////
+    const passport = require('passport');
+    const SpotifyStrategy = require('passport-spotify').Strategy;
+ 
+    passport.use(
+    new SpotifyStrategy(
+        {
+        clientID: client_id,
+        clientSecret: client_secret,
+        callbackURL: 'http://localhost:4200' 
+        },
+        function(accessToken, refreshToken, expires_in, profile, done) {
+            console.log(accessToken);
+            console.log(profile);
+        }
+    )
+    );
+
+    app.get('/api/spotify/login',
+        passport.authenticate('spotify', {
+          scope: ['user-read-email', 'user-read-private']
+        }),
+        function(req, res) {
+          // The request will be redirected to spotify for authentication, so this
+          // function will not be called.
+        }
+      );
 }
+
+
