@@ -14,6 +14,11 @@ app.use(function(req, res, next) {
     next();
   });
 
+  app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
+
 // Config variables de aplicacion
 var conf = require('./config/config.js')();
 
