@@ -29,6 +29,7 @@ require('./config/db.js')(conf);
 require('./api/peticiones/Rush.js')(app);
 require('./api/peticiones/meteo.js')(app, conf);
 require('./api/peticiones/spotify.js')(app, conf);
+require('./api/peticiones/battlenet.js')(app, conf);
 
 // Config del servidor
 app.set('port', (process.env.PORT || 5000));
@@ -37,8 +38,10 @@ app.listen(app.get('port'), function() {
     console.log('------------------------------------------------');
     console.log('------------------------------------------------');
     console.log("Servidor configurado por puerto: "+app.get('port'));
+    console.log('http://localhost:'+app.get('port'));
 });
 
+// Aplicaciones web
 app.use(express.static(__dirname + '/public'));	   
 app.use(express.static(__dirname + '/public/rush'));   
 app.use(express.static(__dirname + '/public/editor'));	

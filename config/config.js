@@ -23,6 +23,10 @@ function init() {
             spotify: {
                 secret: process.env.SECRET_SPOTIFY,
                 public: process.env.PUBLIC_SPOTIFY
+            },
+            bnet: {
+                id: process.env.BNET_ID,
+                secret: process.env.BNET_SECRET
             }
                 
         }

@@ -54,7 +54,7 @@ module.exports = function(app,conf)
         {
         clientID: client_id,
         clientSecret: client_secret,
-        callbackURL: 'http://localhost:4200' 
+        callbackURL: 'http://localhost:'+app.get('port')
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
             console.log(accessToken);
@@ -73,5 +73,3 @@ module.exports = function(app,conf)
         }
       );
 }
-
-
