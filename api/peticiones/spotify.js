@@ -46,6 +46,7 @@ module.exports = function(app,conf)
     //////////////////////////////////
     // Authentificacion para spotify
     /////////////////////////////////////
+    /*
     const passport = require('passport');
     const SpotifyStrategy = require('passport-spotify').Strategy;
  
@@ -72,4 +73,7 @@ module.exports = function(app,conf)
           // function will not be called.
         }
       );
+
+
+      */
 }
