@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 var conf = require('./config/config.js')();
 
 // Config de las bases de datos
-require('./config/db.js')(conf);
+//require('./config/db.js')(conf);
 
 // Config API (modelos)
 require('./api/peticiones/Rush.js')(app);
