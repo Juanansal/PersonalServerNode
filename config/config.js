@@ -8,7 +8,8 @@ function init() {
     var enviar;
 
     if (fs.existsSync("./config/local.js")) {
-        enviar = require('../config/local.js');   
+        enviar = require('../config/local.js');  
+        console.log('BUENOS DIAS'); 
     }
     else {
         enviar = {
