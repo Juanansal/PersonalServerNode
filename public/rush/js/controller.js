@@ -1,5 +1,6 @@
 var app = angular.module('RushHelper', []);
 var fechaa;
+var host = 'https://juanansal.herokuapp.com'
 
 app.controller('Orooo', function($scope, $http) {
     $scope._id = null;
@@ -13,7 +14,7 @@ app.controller('Orooo', function($scope, $http) {
 
     $scope.cargarRushes = function(){
         $http({
-            method: 'GET', url: '/rush/listar'
+            method: 'GET', url: host+'/rush/listar'
         }).
         success(function(data) {
             if(typeof(data) == 'object'){
@@ -34,7 +35,7 @@ app.controller('Orooo', function($scope, $http) {
 		{		
 			$http({
 				method: 'POST',
-				url: '/rush/guardar',
+				url: host+'/rush/guardar',
 				params: {
 					pj: $scope.pj,
 					rush: $scope.rush,
@@ -68,7 +69,7 @@ app.controller('Orooo', function($scope, $http) {
     $scope.recuperarRush = function(indice) {
         $http({
             method: 'GET',
-            url: '/rush/recuperar_rush_por_id',
+            url: host+'/rush/recuperar_rush_por_id',
             params: {
                 _id: indice
             }
@@ -96,7 +97,7 @@ app.controller('Orooo', function($scope, $http) {
     $scope.eliminarRush = function(indice) {
         $http({
             method: 'POST',
-            url: '/rush/eliminar',
+            url: host+'/rush/eliminar',
             params: {
                 _id: indice
             }
