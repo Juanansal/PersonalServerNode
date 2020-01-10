@@ -1,4 +1,6 @@
 ///  heroku logs -t
+// heroku addons:create newrelic:wayne
+// https://www.veerayaaa.com/posts/free-and-easy-ways-to-prevent-heroku-free-dyno-from-sleeping/
 
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
